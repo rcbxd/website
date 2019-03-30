@@ -46,6 +46,7 @@ h2 {
 .back_title {
   position: absolute;
   left: -2vw;
+  overflow: auto;
   top: 10vh;
   font-size: 6em;
   -webkit-mask-image: -webkit-gradient(linear, left bottom, left top,
@@ -293,6 +294,8 @@ h2 {
   animation-delay: 0s;
   animation-duration: 11s;
 }
+
+/* bubbles animation */
 
 @keyframes animate {
     0%{
