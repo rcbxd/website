@@ -22,31 +22,25 @@ a {
 
 .header {
   min-height: 15px;
-  padding: 30px 0;
-  background-color: #FE5B76;
-  border-bottom: 1px solid white;
+  padding: 50px 0;
   text-align: right;
   width: 100vw;
 }
 
 h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h2 {
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 .title  {
   position: relative;
-  top: 20vh;
+  top: 10vh;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-}
-
-.header_skill {
-  display: inline-block;
 }
 
 .back_title {
@@ -64,10 +58,33 @@ h2 {
   justify-content: center;
   align-content: center;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.social_h1 {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  position: relative;
+  top: 15vh;
+}
+
+.social {
+  font-size: 2em;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: all 0.1s ease-in;
+}
+
+.social:hover {
+  transform: translateY(-5px);
 }
 
 .skill {
   margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: underline;
 }
 
 #menu_check {
@@ -293,10 +310,4 @@ h2 {
 ::selection {
   background-color: white;
   color: #FB3C5C;
-}
-
-@media screen and (max-width :580px){
-  .header_skill {
-    display: none;
-  }
 }
