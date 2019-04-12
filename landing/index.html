@@ -1,71 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>rcbxd</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="area" >
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-    <div id="mobile_menu">
-      <div class="bg">
-      </div>
-      <div class="bg2">
-      </div>
-      <div class="bg_sec">
-        <i class="fas fa-times" onclick="menu()" id="close"></i>
-        <h1 class="menu_title">Menu</h1>
-        <h2 class="menu_skill">About Me</h2>
-        <h2 class="menu_skill">Projects</h2>
-        <h2 class="menu_skill">Skills</h2>
-        <h2 class="menu_skill">Contact</h2>
-      </div>
-    </div>
-    <div class="header">
-      <a href="#" id="menu" onclick="menu()">Menu</a>
-    </div>
-    <div class="h h1">
-      <h1 class="title">rcbxd</h1>
-      <h2 class="title">Software Developer</h2>
-      <h1 class="back_title">rcbxd</h1>
-      <div class="skills_short">
-        <h2 class="title skill">Web</h2>
-        <h2 class="title skill">Python</h2>
-        <h2 class="title skill">JavaScript</h2>
-      </div>
-      <div class="social_h1">
-        <a href="https://www.instagram.com/rcbxd/" class="social"><i class="fab fa-instagram"></i></a>
-        <a href="https://codepen.io/rcbxd/" class="social"><i class="fab fa-codepen"></i></a>
-        <a href="https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg" class="social"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="h h2">
+<html lang="en" dir="ltr" style="scroll-behavior: smooth">
 
-    </div>
-    <div class="h h3">
+<head>
+  <meta charset="utf-8">
+  <title>rcbxd's homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"">
+  <link href=" https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
+  <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
+</head>
 
+<body>
+  <div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div id="mobile_menu">
+    <div class="bg">
     </div>
-  </body>
-  <script type="text/javascript" src="app.js">
+    <div class="bg2">
+    </div>
+    <div class="bg_sec">
+      <i class="fas fa-times" onclick="menu()" id="close"></i>
+      <h1 class="menu_title">Menu</h1>
+      <a href="#h2" class="menu_item" onclick="menu()">About me/Skills</a>
+      <a href="#h2" class="menu_item" onclick="menu()">Projects</a>
+      <a href="#h2" class="menu_item" onclick="menu()">Contact</a>
+    </div>
+  </div>
+  <div class="header">
+    <a href="#" id="menu" onclick="menu()">Menu</a>
+  </div>
+  <div class="h h1">
+    <h1 class="title">rcbxd</h1>
+    <h2 class="title">Software Developer</h2>
+    <h1 class="back_title">rcbxd</h1>
+    <div class="skills_short">
+      <h2 class="title skill">Web</h2>
+      <h2 class="title skill">Python</h2>
+      <h2 class="title skill">JavaScript</h2>
+    </div>
+    <div class="social_h1">
+      <a href="https://www.instagram.com/rcbxd/" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+      <a href="https://codepen.io/rcbxd/" target="_blank" class="social"><i class="fab fa-codepen"></i></a>
+      <a href="https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg" target="_blank" class="social"><i
+          class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+  <div class="h h2" id="h2">
+    <h1 class="title">About me:</h1>
+    <h2 class="title">Junior software developer</h2>
+    <div class="skills">
+      <div class="web">
+        <h3 class="s_title">Web Skills:</h3>
+        <h3>PHP/SQL</h3>
+        <h3>HTML</h3>
+        <h3>CSS</h3>
+        <h3>JavaScript</h3>
+        <h3>Django</h3>
+      </div>
+      <div class="programming">
+        <h3 class="s_title">Programming Skills:</h3>
+        <h3>Python</h3>
+        <h3>Java</h3>
+        <h3>JavaScript</h3>
+        <h3>OOP</h3>
+        <h3>Ruby - learing right now</h3>
+      </div>
+      <div class="design">
+        <h3 class="s_title">Editing Skills:</h3>
+        <h3>Photoshop</h3>
+        <h3>Cinema4D</h3>
+        <h3>Adobe After Effects</h3>
+        <h3>Adobe Premiere Pro</h3>
+        <h3>Sony Vegas Pro</h3>
+      </div>
+    </div>
+  </div>
+  <div class="h h3">
 
-  </script>
+  </div>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
+
 </html>
