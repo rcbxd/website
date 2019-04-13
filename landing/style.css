@@ -92,7 +92,7 @@ h3 {
 }
 
 .h1 {
-  padding-bottom: 55vh;
+  margin-bottom: 300px;
   overflow: hidden;
   transform: translateZ(-1px);
 }
@@ -229,8 +229,8 @@ h3 {
 .skills>div {
   position: relative;
   margin-top: 5vh;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .s_title {
@@ -238,7 +238,7 @@ h3 {
 }
 
 .h2 {
-  padding-bottom: 50vh;
+  padding-bottom: 10%;
 }
 
 .menu_title {
