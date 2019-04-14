@@ -4,7 +4,7 @@ body {
   color: white;
   font-size: 16px;
   overflow-x: hidden;
-
+  cursor: none;
 }
 
 * {
