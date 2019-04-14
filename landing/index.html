@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>rcbxd's homepage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="rcbxd - software developer" />
   <link href=" https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -37,15 +38,20 @@
     <div class="bg2">
     </div>
     <div class="bg_sec">
-      <i class="fas fa-times" onclick="menu()" id="close"></i>
+      <i class="fas fa-times" onclick="menu()" id="close" onmouseover="cursorHighlight(false)"
+        onmouseout="cursorBack()"></i>
       <h1 class="menu_title">Menu</h1>
-      <a href="#h2" class="menu_item" onclick="menu()">About me/Skills</a>
-      <a href="#h3" class="menu_item" onclick="menu()">Projects</a>
-      <a href="#h2" class="menu_item" onclick="menu()">Contact</a>
+      <a href="#h2" class="menu_item" onclick="menu()" onmouseover="cursorHighlight(true)"
+        onmouseout="cursorBack()">About
+        me/Skills</a>
+      <a href="#h3" class="menu_item" onclick="menu()" onmouseover="cursorHighlight(true)"
+        onmouseout="cursorBack()">Projects</a>
+      <a href="#h2" class="menu_item" onclick="menu()" onmouseover="cursorHighlight(true)"
+        onmouseout="cursorBack()">Contact</a>
     </div>
   </div>
   <div class="header">
-    <a href="#" id="menu" onclick="menu()">Menu</a>
+    <a href="#" id="menu" onclick="menu()" onmouseover="cursorHighlight(false)" onmouseout="cursorBack()">Menu</a>
   </div>
   <div class="h h1">
     <h1 class="title">rcbxd</h1>
@@ -57,10 +63,12 @@
       <h2 class="title skill">JavaScript</h2>
     </div>
     <div class="social_h1">
-      <a href="https://www.instagram.com/rcbxd/" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
-      <a href="https://codepen.io/rcbxd/" target="_blank" class="social"><i class="fab fa-codepen"></i></a>
-      <a href="https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg" target="_blank" class="social"><i
-          class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/rcbxd/" target="_blank" class="social" onmouseover="cursorHighlight(true)"
+        onmouseout="cursorBack()"><i class="fab fa-instagram"></i></a>
+      <a href="https://codepen.io/rcbxd/" target="_blank" class="social" onmouseover="cursorHighlight(true)"
+        onmouseout="cursorBack()"><i class="fab fa-codepen"></i></a>
+      <a href="https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg" target="_blank" class="social"
+        onmouseover="cursorHighlight(true)" onmouseout="cursorBack()"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
   <div class="h h2" id="h2">
@@ -96,6 +104,7 @@
   <div class="h h3" id="h3">
 
   </div>
+  <div id="cursor"></div>
   <script type="text/javascript" src="landing_files/app.js"></script>
 </body>
 
