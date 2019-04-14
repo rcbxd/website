@@ -67,7 +67,7 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   overflow: auto;
-  top: -2%;
+  top: 10%;
   font-size: 6em;
   mask-image: -webkit-gradient(linear, left bottom, left top,
     from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
@@ -355,7 +355,11 @@ h3 {
 
 /* bubbles animation */
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-device-width: 480px) {
+
+  #cursor {
+    display: none;
+  }
 
   .skills>div {
     margin-top: 5vh;
@@ -366,6 +370,12 @@ h3 {
     align-items: left;
   }
 
+}
+
+@media only screen and (orientation: landscape) {
+  #cursor {
+    display: none;
+  }
 }
 
 @keyframes animate {
