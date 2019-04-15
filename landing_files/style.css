@@ -422,6 +422,7 @@ h3 {
   left: -8px;
   animation: cursorAnimation2 0.5s infinite alternate;
   mix-blend-mode: difference;
+  -webkit-mix-blend-mode: fifference;
 }
 
 @keyframes cursorAnimation {
@@ -470,4 +471,5 @@ h3 {
 .cursor_highlight {
   background-color: white;
   mix-blend-mode: difference;
+  -webkit-mix-blend-mode: fifference;
 }
