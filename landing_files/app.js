@@ -1,5 +1,5 @@
 const cursor = document.getElementById("cursor");
-var h = cursor.offsetHeight - 2;
+const h = cursor.offsetHeight - 2;
 
 const menu = () => {
   document
