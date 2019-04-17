@@ -255,10 +255,7 @@ h3 {
   min-width: 430px;
   min-height: 200px;
   background: white;
-  mix-blend-mode: difference;
-  -webkit-mix-blend-mode: difference;
-  -mz-mix-blend-mode: difference;
-  opacity: 0.3;
+  opacity: 0.35;
   margin: 10px;
 }
 
