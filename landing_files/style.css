@@ -66,10 +66,9 @@ h3 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  overflow: auto;
-  max-width: 80%;
+  overflow: hidden;
   top: 10%;
-  font-size: 6em;
+  font-size: 5.8em;
   mask-image: -webkit-gradient(linear, left bottom, left top,
     from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
   -webkit-mask-image: -webkit-gradient(linear, left bottom, left top,
