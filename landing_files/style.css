@@ -257,6 +257,7 @@ h3 {
   background: white;
   mix-blend-mode: difference;
   -webkit-mix-blend-mode: difference;
+  -mz-mix-blend-mode: difference;
   opacity: 0.3;
   margin: 10px;
 }
