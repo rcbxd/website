@@ -1,5 +1,6 @@
 const cursor = document.getElementById("cursor");
 const h = cursor.offsetHeight - 2;
+var sc = true;
 
 const menu = () => {
   document
@@ -20,8 +21,7 @@ const menu = () => {
     if (i == 3) {
       clearInterval(load);
     }
-  }, 70);
-  sc = true;
+  }, 100);
 };
 
 const cursorHighlight = s => {
@@ -60,21 +60,23 @@ window.addEventListener("load", () => {
   );
 });
 
-var sc = true;
+
 
 window.addEventListener("wheel", (e) => {
   if (e.deltaY < 0 && sc && window.scrollY == 0) {
-    console.log('scrolling up');
     sc = false;
     menu()
   }
 })
+
 
 window.addEventListener("scroll", (e) => {
-  if (sc && window.scrollY == 0) {
-    console.log('scrolling up');
-    sc = false;
+  if (sc && window.scrollY == 0 && isMobile()) {
     menu()
-
+    sc = false;
   }
 })
+
+const isMobile = () => {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
