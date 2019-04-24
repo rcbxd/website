@@ -13,15 +13,15 @@ const menu = () => {
     .classList.toggle("mobile_menu_active");
   cursor.classList.toggle("cursor_invert");
   var i = 0;
-  var load = setInterval(function() {
+  var load = setInterval(function () {
     document
-      .getElementsByClassName("menu_item")
-      [i].classList.toggle("menu_item_active");
+      .getElementsByClassName("menu_item")[i].classList.toggle("menu_item_active");
     i++;
     if (i == 3) {
       clearInterval(load);
     }
   }, 70);
+  sc = true;
 };
 
 const cursorHighlight = s => {
@@ -54,8 +54,26 @@ window.addEventListener("load", () => {
   cursor.setAttribute(
     "style",
     "top: " +
-      (window.innerHeight / 2 - h / 2) +
-      "px; left: " +
-      (window.innerWidth / 2 - h / 2 + "px")
+    (window.innerHeight / 2 - h / 2) +
+    "px; left: " +
+    (window.innerWidth / 2 - h / 2 + "px")
   );
 });
+
+var sc = true;
+
+window.addEventListener("wheel", (e) => {
+  if (e.deltaY < 0 && sc && window.scrollY == 0) {
+    console.log('scrolling up');
+    menu()
+    sc = false;
+  }
+})
+
+window.addEventListener("scroll", (e) => {
+  if (e.deltaY < 0 && sc && window.scrollY == 0) {
+    console.log('scrolling up');
+    menu()
+    sc = false;
+  }
+})
