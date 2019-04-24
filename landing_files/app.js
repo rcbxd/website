@@ -65,15 +65,16 @@ var sc = true;
 window.addEventListener("wheel", (e) => {
   if (e.deltaY < 0 && sc && window.scrollY == 0) {
     console.log('scrolling up');
-    menu()
     sc = false;
+    menu()
   }
 })
 
 window.addEventListener("scroll", (e) => {
-  if (e.deltaY < 0 && sc && window.scrollY == 0) {
+  if (sc && window.scrollY == 0) {
     console.log('scrolling up');
-    menu()
     sc = false;
+    menu()
+
   }
 })
