@@ -1,0 +1,213 @@
+$small-font: 1.5em;
+$smaller-font: 1em;
+
+body {
+    font-family: 'Raleway', cursive;
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bolder;
+    cursor: none;
+}
+
+li {
+    background: inherit;
+}
+
+.header {
+    min-height: 15px;
+    padding: 50px 0;
+    text-align: right;
+    width: 100vw;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    background: inherit;
+}
+
+h2 {
+    text-align: center;
+    font-size: $small-font;
+}
+
+h3 {
+    font-size: $smaller-font;
+}
+
+.title {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    top: 10%;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.h1>.title:nth-child(1) {
+    margin-top: 10%;
+}
+
+.back_title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    top: 10%;
+    font-size: 5.8em;
+    mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+    -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+    opacity: 0.1;
+}
+
+.skills_short {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.social_h1 {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+}
+
+.h1 {
+    margin-bottom: 300px;
+    overflow: hidden;
+    transform: translateZ(-1px);
+}
+
+.social {
+    font-size: 2em;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.skill {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: underline;
+}
+
+@media only screen and (max-device-width: 480px) {
+    #cursor {
+        display: none;
+    }
+
+    .skills {
+        >div {
+            margin-top: 5vh;
+        }
+
+        justify-content: left;
+        align-items: left;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-device-height: 480px) {
+    #cursor {
+        display: none;
+    }
+}
+
+
+::selection {
+    background-color: white;
+    color: #FB3C5C;
+}
+
+.contacts {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 100;
+    list-style-type: none;
+    font-size: $small-font;
+    flex-wrap: wrap;
+
+    >li {
+        margin: 10px;
+    }
+}
+
+
+#copyright {
+    text-align: center;
+    font-size: $smaller-font;
+}
+
+.skills {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+
+    >div {
+        position: relative;
+        margin-top: 5vh;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+.s_title {
+    font-size: 1.6em;
+}
+
+.h2,
+.h3 {
+    padding-bottom: 10%;
+}
+
+.projects {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.p {
+    min-width: 430px;
+    min-height: 200px;
+    background: white;
+    opacity: 0.35;
+    margin: 10px;
+    padding: 5px;
+
+    >h1 {
+        padding: 70px 0;
+        color: black;
+    }
+
+}
