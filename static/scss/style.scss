@@ -1,0 +1,12 @@
+@mixin textshadow($s, $c) {
+    text-shadow: $s $s 0px $c;
+}
+
+$small-font: 1.5em;
+$smaller-font: 1em;
+
+
+@import 'menu';
+@import 'bg';
+@import 'cursor';
+@import 'base';
