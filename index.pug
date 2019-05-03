@@ -1,0 +1,143 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title rcbxd's homepage
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(name='description', content='rcbxd - software developer')
+    link(href=' https://fonts.googleapis.com/css?family=Source+Code+Pro', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+    link(rel='stylesheet', href='static/style.css')
+    script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
+    script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
+  body
+    .area
+      ul.circles
+        li
+        li
+        li
+        li
+        li
+        li
+        li
+        li
+        li
+        li
+    #mobile_menu
+      .bg
+      .bg2
+      .bg_sec
+        i#close.fas.fa-times(onclick='menu(); sc = true', onmouseover='cursorHighlight(false)', onmouseout='cursorBack()')
+        h1.menu_title #Menu
+        a.menu_item(href='#h2', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          | About
+          | me/Skills
+        a.menu_item(href='#h3', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Projects
+        a.menu_item(href='#h4', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Contact
+    .header
+      a#menu(href='#', onclick='menu()', onmouseover='cursorHighlight(false)', onmouseout='cursorBack()') Menu
+    h1.back_title
+      | rcbxd. 
+      br
+      | front-end
+      br
+      | web
+      br
+      | back-end
+      br
+      | git
+      br
+      | design
+      br
+      | graphics
+      br
+      | photo
+    .h.h1
+      h1.title rcbxd
+      h2.title Software Developer
+      .skills_short
+        h2.title.skill Web
+        h2.title.skill Python
+        h2.title.skill JavaScript
+      .social_h1
+        a.social(href='https://www.instagram.com/rcbxd/', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          i.fab.fa-instagram
+        a.social(href='https://codepen.io/rcbxd/', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          i.fab.fa-codepen
+        a.social(href='https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          i.fab.fa-youtube
+    #h2.h.h2
+      h1.title About me:
+      h2.title Junior Full-stack Developer
+      .skills
+        .web.box
+          h3.s_title Web Skills:
+          h3 PHP(mySQL)
+          h3 HTML
+          h3 CSS(SASS)
+          h3 JavaScript(Vue.js, Angular)
+          h3 Django
+        .programming.box
+          h3.s_title Programming Skills:
+          h3 Python(Gui, Bots, OOP, APIs)
+          h3 Java(Gui, Canvas, OOP)
+          h3 JavaScript(Node.js - beginner, OOP, Canvas, APIs)
+          h3 Object-Oriented Programming
+          h3 Ruby - just started
+        .design.box
+          h3.s_title Editing Skills:
+          h3 Photoshop
+          h3 3D-modeling(Cinema4D)
+          h3 Adobe After Effects
+          h3 Adobe Premiere Pro
+          h3 Sony Vegas Pro
+    #h3.h.h3
+      h1.title Projects
+      .projects
+        .p.p1(onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          h1
+            a(href='https://uptime.xobb.me') Uptime
+        .p.p2(onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          h1
+            a(href='https://todosjs.rcbxd.xyz') Todos.js
+        .p.p3(onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          h1
+            a(href='landing_files/projects/weatherjs')
+              | Weather.js
+              br
+              | (beta)
+        .p.p4(onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+          h1
+            a(href='landing_files/projects/notesjs')
+              | Notes.js
+              br 
+              | (alpha, bad gui)
+    #h4.h.h4
+      h1.title #Contact
+      ul.contacts
+        li
+          a(href='https://www.instagram.com/rcbxd/') Instagram 
+            i.fab.fa-instagram
+        li
+          a(href='https://codepen.io/rcbxd/') Codepen 
+            i.fab.fa-codepen
+        li
+          a(href='https://github.com/') GitHub 
+            i.fab.fa-github
+        li
+          a(href='https://gitlab.com/rcbxd?nav_source=navbar') GitLab 
+            i.fab.fa-gitlab
+        li
+          a(href='https://discord.gg/') Discord: ee#8995 
+            i.fab.fa-discord
+        li
+          a(href='https://www.youtube.com/channel/UCu0A1bPWtaZ4gqob6STC_gg') YouTube 
+            i.fab.fa-youtube
+      p#copyright © rcbxd 
+        script.
+          document.write(new Date().getFullYear());
+    #cursor
+    script(type='text/javascript', src='static/app.js')
