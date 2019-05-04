@@ -73,3 +73,7 @@ window.addEventListener("scroll", (e) => { // mobile menu on scroll to the top
 const isMobile = () => { // return if the device is mobile
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
+
+const goBlack = () => {
+  document.getElementsByClassName('area')[0].classList.toggle('goBlack');
+}
