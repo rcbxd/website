@@ -6,6 +6,7 @@ const h = cursor.offsetHeight - 2;
 var sc = true;
 
 const menu = () => {
+  document.body.classList.toggle('stable_bg');
   document
     .getElementsByClassName("bg_sec")[0]
     .classList.toggle("mobile_menu_active");

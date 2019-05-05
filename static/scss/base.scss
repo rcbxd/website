@@ -147,6 +147,7 @@ h3 {
     justify-content: center;
     display: flex;
     font-weight: 100;
+    font-size: 1.2em !important;
     list-style-type: none;
     font-size: $small-font;
     flex-wrap: wrap;
@@ -196,8 +197,8 @@ h3 {
 }
 
 .p {
-    min-width: 430px;
-    min-height: 200px;
+    min-width: 400px;
+    min-height: 170px;
     background: white;
     opacity: 0.35;
     margin: 10px;
@@ -208,4 +209,8 @@ h3 {
         color: black;
     }
 
+}
+
+#h4 {
+    padding-bottom: 10%;
 }

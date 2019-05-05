@@ -96,6 +96,9 @@
   transform: translateY(0px);
   opacity: 1; }
 
+.stable_bg {
+  position: fixed; }
+
 .area {
   z-index: -1;
   position: fixed;
@@ -359,6 +362,7 @@ h3 {
   justify-content: center;
   display: flex;
   font-weight: 100;
+  font-size: 1.2em !important;
   list-style-type: none;
   font-size: 1.5em;
   flex-wrap: wrap; }
@@ -397,8 +401,8 @@ h3 {
   flex-wrap: wrap; }
 
 .p {
-  min-width: 430px;
-  min-height: 200px;
+  min-width: 400px;
+  min-height: 170px;
   background: white;
   opacity: 0.35;
   margin: 10px;
@@ -406,5 +410,8 @@ h3 {
   .p > h1 {
     padding: 70px 0;
     color: black; }
+
+#h4 {
+  padding-bottom: 10%; }
 
 /*# sourceMappingURL=style.css.map */
