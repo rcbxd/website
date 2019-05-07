@@ -313,7 +313,7 @@ h3 {
   opacity: 0.1 !important; }
 
 .bp {
-  margin-top: 300px; }
+  margin-top: 200px; }
 
 .skills_short {
   text-align: center;
@@ -367,13 +367,14 @@ h3 {
 .contacts {
   text-align: center;
   justify-content: center;
+  align-content: center;
   display: flex;
+  position: relative;
   font-weight: 100;
   font-size: 1.2em !important;
-  list-style-type: none;
-  font-size: 1.5em;
+  margin-bottom: 30px;
   flex-wrap: wrap; }
-  .contacts > li {
+  .contacts a {
     margin: 10px; }
 
 #copyright {

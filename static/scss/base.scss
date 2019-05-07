@@ -80,7 +80,7 @@ h3 {
 }
 
 .bp {
-    margin-top: 300px;
+    margin-top: 200px;
 }
 
 .skills_short {
@@ -153,14 +153,15 @@ h3 {
 .contacts {
     text-align: center;
     justify-content: center;
+    align-content: center;
     display: flex;
+    position: relative;
     font-weight: 100;
     font-size: 1.2em !important;
-    list-style-type: none;
-    font-size: $small-font;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 
-    >li {
+    a {
         margin: 10px;
     }
 }

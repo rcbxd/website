@@ -39,7 +39,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         a.menu_item(href='#h4', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Contact
     .header
       a#menu( onclick='menu()', onmouseover='cursorHighlight(false)', onmouseout='cursorBack()') Menu
-    h1.back_title
+    h1.back_title.bp
       | rcbxd. 
       br
       | Anthony Skorupskyy.
@@ -120,21 +120,17 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     hr
     #h4.h.h4
       h1.title #Contact
-      ul.contacts
-        li
+      div.contacts
           a(href='https://www.instagram.com/rcbxd/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Instagram 
             i.fab.fa-instagram
-        li
-          a(href='https://codepen.io/rcbxd/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Codepen 
+          a(href='https://codepen.io/rcbxd/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") 
+            | Codepen 
             i.fab.fa-codepen
-        li
-          a(href='https://github.com/rcbxd' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitHub 
+          a(href='https://www.github.com/rcbxd' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitHub 
             i.fab.fa-github
-        li
-          a(href='https://gitlab.com/rcbxd?nav_source=navbar' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitLab 
+          a(href='https://www.gitlab.com/rcbxd?nav_source=navbar' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitLab 
             i.fab.fa-gitlab
-        li
-          a(href='https://discord.gg/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Discord: ee#8995 
+          a(href='https://www.discord.gg/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Discord: ee#8995 
             i.fab.fa-discord
       p#copyright(onmouseover="cursorHighlight(true)" onmouseout="cursorBack()" ) © rcbxd 
         script.

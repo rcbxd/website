@@ -5,6 +5,17 @@ const cursor = document.getElementById("cursor");
 const h = cursor.offsetHeight - 2;
 var sc = true;
 var menu_open = false;
+var theme = 'white';
+window.addEventListener('load', () => {
+  if (window.localStorage) {
+    theme = window.localStorage.getItem('theme');
+    if (theme == 'black')
+      document.getElementsByClassName('area')[0].classList.add('goBlack')
+    else
+      document.getElementsByClassName('area')[0].classList.remove('goBlack')
+  }
+})
+
 
 const menu = () => {
   menu_open = !menu_open
@@ -84,5 +95,11 @@ const isMobile = () => { // return if the device is mobile
 }
 
 const goBlack = () => {
-  document.getElementsByClassName('area')[0].classList.toggle('goBlack');
+  if (theme == 'black') {
+    theme = 'white';
+  } else {
+    theme = 'black'
+  }
+  document.getElementsByClassName('area')[0].classList.toggle('goBlack')
+  window.localStorage.setItem('theme', theme);
 }
