@@ -31,7 +31,7 @@ echo "<body>";
 
     $views = $article['views']+1;
     
-    $sql = 'UPDATE blog SET views = ' . $views . ' WHERE id = ' . $id . '';
+    $sql = "UPDATE blog SET views = ' . $views . ' WHERE id = ' . $id . '";
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
