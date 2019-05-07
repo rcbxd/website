@@ -31,13 +31,12 @@ echo "<body>";
 
     $views = $article['views']+1;
     
-    $sql = 'INSERT INTO blog (views) WHERE id = ' . $id . ' VALUES (' . $views .')';
+    $sql = 'UPDATE blog SET views = ' . $views . ' WHERE id = ' . $id . '';
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
-    $date = strtotime($article['data']);
-
-    $normdate = date( 'Y-m-d H:i', $date );
+    $phpdate = strtotime( $article['date'] );
+    $normdate = date( 'Y-m-d H:i', $phpdate );
 
     echo '<h2 class="data">Posted on ' . $normdate . '.</h2>';
 

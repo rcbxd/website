@@ -50,7 +50,8 @@ hr {
   margin-top: 50px; }
 
 .data {
-  font-weight: 100;
-  font-size: 0.8em; }
+  font-weight: 200;
+  font-size: 0.8em;
+  margin-left: 60px; }
 
 /*# sourceMappingURL=blog_style.css.map */
