@@ -4,9 +4,10 @@
 const cursor = document.getElementById("cursor");
 const h = cursor.offsetHeight - 2;
 var sc = true;
+var menu_open = false;
 
 const menu = () => {
-  document.body.classList.toggle('stable_bg');
+  menu_open = !menu_open
   document
     .getElementsByClassName("bg_sec")[0]
     .classList.toggle("mobile_menu_active");
@@ -26,6 +27,13 @@ const menu = () => {
       clearInterval(load);
     }
   }, 100);
+  if (menu_open) {
+    setTimeout(() => {
+      document.body.classList.toggle('stable_bg');
+    }, 200)
+  } else {
+    document.body.classList.toggle('stable_bg')
+  }
 };
 
 const cursorHighlight = s => { // highlight the cursor if not a link, expand if a link

@@ -64,15 +64,23 @@ h3 {
 }
 
 .back_title {
-    position: absolute;
+    max-width: 90%;
+    height: auto;
+    transform: translate(-50%, -50%);
     left: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-    top: 10%;
-    font-size: 5.5em;
-    mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
-    -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
-    opacity: 0.1;
+    overflow-wrap: break-word;
+    margin: 0 auto;
+    overflow: hidden !important;
+    position: absolute;
+    margin-top: 130px;
+    font-size: 4em !important;
+    mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0))) !important;
+    -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0))) !important;
+    opacity: 0.1 !important;
+}
+
+.bp {
+    margin-top: 300px;
 }
 
 .skills_short {
@@ -197,20 +205,19 @@ h3 {
 }
 
 .p {
-    min-width: 430px;
-    min-height: 200px;
-    background: white;
-    opacity: 0.35;
-    margin: 10px;
-    padding: 5px;
+    margin: 20px;
+    @include textshadow(3px, rgb(187, 115, 115));
 
-    >h1 {
-        padding: 70px 0;
-        color: black;
-    }
-
+    .back_title {}
 }
 
 #h4 {
     padding-bottom: 10%;
+}
+
+hr {
+    color: white;
+    max-width: 80%;
+    opacity: 0.5;
+    box-shadow: none;
 }
