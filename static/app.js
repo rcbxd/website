@@ -34,7 +34,8 @@ const menu = () => {
     document
       .getElementsByClassName("menu_item")[i].classList.toggle("menu_item_active");
     i++;
-    if (i == 3) {
+    if (i == document
+      .getElementsByClassName("menu_item").length) {
       clearInterval(load);
     }
   }, 100);
