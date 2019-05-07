@@ -29,6 +29,18 @@ echo "<body>";
 
     $article = mysqli_fetch_assoc($result);
 
+    $views = $article['views']+1;
+    
+    $sql = 'INSERT INTO blog (views) WHERE id = ' . $id . ' VALUES (' . $views .')';
+
+    echo '<h2 class="data">' . $views . ' views. </h2>';
+
+    $date = strtotime($article['data']);
+
+    $normdate = date( 'Y-m-d H:i', $date );
+
+    echo '<h2 class="data">Posted on ' . $normdate . '.</h2>';
+
     echo '<p class="article">' . $article['body'] . '</p>';
 
     mysqli_close($connection);

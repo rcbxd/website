@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>rcbxd's blog</title>
     <meta name='viewport', content='width=device-width, initial-scale=1, user-scalable=no'>
     <meta name='description', content='rcbxd blog'>
     <link rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700'>
@@ -15,7 +15,7 @@
 <body>
     <?php 
 
-    $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'blog_base');
+    $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
 
     if($connection == true){
         echo '<h1 class="title">rcbxd\'s blog</h1>';

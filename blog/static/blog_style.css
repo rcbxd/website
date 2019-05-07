@@ -5,7 +5,8 @@ body {
 
 .title {
   text-align: center;
-  margin-top: 80px; }
+  margin-top: 80px;
+  max-width: 80%; }
 
 ul {
   list-style-type: none;
@@ -48,4 +49,8 @@ hr {
   margin: 0 auto;
   margin-top: 50px; }
 
-/*# sourceMappingURL=style.css.map */
+.data {
+  font-weight: 100;
+  font-size: 0.8em; }
+
+/*# sourceMappingURL=blog_style.css.map */
