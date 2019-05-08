@@ -31,7 +31,7 @@ echo "<body>";
 
     $views = $article['views']+1;
     
-    $sql = mysqli_query("UPDATE blog set views = " . $views . " WHERE article_id = " . $id);
+    $query = mysql_query("UPDATE blog set views = " . $views . " WHERE article_id = " . $id);
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
