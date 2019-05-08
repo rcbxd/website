@@ -33,6 +33,10 @@ echo "<body>";
     
     $query = mysql_query("UPDATE blog set views = " . $views . " WHERE article_id = " . $id);
 
+    $result = mysqli_query($connection, 'SELECT * FROM blog WHERE id = ' . $id . '');
+
+    $article = mysqli_fetch_assoc($result);
+
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
     $phpdate = strtotime( $article['date'] );
