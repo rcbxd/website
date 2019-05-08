@@ -41,8 +41,8 @@ echo "<body>";
 
     echo '<p class="article">' . $article['body'] . '</p>';
 
-    $query = mysql_query("UPDATE blog SET views = " . $views . " WHERE article_id = " . $id);
-    $connection -> exec($query);
+    $query = "UPDATE blog SET views = " . $views . " WHERE article_id = " . $id;
+    mysqli_query($connection, $query);
 
     mysqli_close($connection);
 
