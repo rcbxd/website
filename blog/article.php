@@ -31,11 +31,8 @@ echo "<body>";
 
     $views = $article['views']+1;
     
-    $query = mysql_query($connection, "UPDATE blog SET views = " . $views . " WHERE article_id = " . $id);
-
-    $result = mysqli_query($connection, 'SELECT * FROM blog WHERE id = ' . $id . '');
-
-    $article = mysqli_fetch_assoc($result);
+    $query = mysql_query("UPDATE blog SET views = " . $views . " WHERE article_id = " . $id);
+    $connection -> exec($query);
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
