@@ -60,6 +60,7 @@ hr {
     font-weight: 100;
     margin: 0 auto;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .data {
@@ -68,4 +69,11 @@ hr {
     font-size: 0.8em;
     margin-left: 60px;
     margin-top: 30px;
+}
+
+.image {
+    max-width: 80%;
+    max-height: auto;
+    min-height: auto;
+    min-width: 80%;
 }

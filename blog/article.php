@@ -30,10 +30,12 @@ echo "<body>";
 
     if ($ipData['timezone']) {
         $tz = new DateTimeZone( $ipData['timezone']);
-        $now = new DateTime( 'now', $tz); 
+        $now = new DateTime($te['date'], $tz); 
     } else {
    
     }
+
+    echo $now;
 
     echo '<h1 class="title">' . $te['title'] . '</h1>';
 
@@ -43,8 +45,6 @@ echo "<body>";
 
     $views = $article['views']+1;
 
-    $query = mysqli_query($connection,'select CONVERT(datetime,SWITCHOFFSET(CONVERT(datetimeoffset,GetUTCDate()),' . $article['date'] . ')) '.  $tz . '');
-
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
     $phpdate = strtotime( $article['date'] );
@@ -53,6 +53,8 @@ echo "<body>";
     echo '<h2 class="data">Posted on ' . $normdate . '.</h2>';
 
     echo '<p class="article">' . $article['body'] . '</p>';
+
+    echo '<img src="' . $article['imgpath'] . '" class="image">';
 
     $query = "UPDATE blog SET views = " . $views . " WHERE id = " . $id;
     mysqli_query($connection, $query);
