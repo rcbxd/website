@@ -1,7 +1,8 @@
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
-  font-size: 16pt; }
+  font-size: 16pt;
+  background: white; }
 
 .title {
   margin: 0 auto;
@@ -30,7 +31,8 @@ li {
   outline: 0;
   transition: all 0.2s ease-out;
   width: 80px;
-  height: 25px; }
+  height: 25px;
+  background: white; }
 
 .view_btn:hover {
   background: gray;

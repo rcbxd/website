@@ -23,6 +23,18 @@
 echo "</head>";
 echo "<body>";
 
+    $ip     = $_SERVER['REMOTE_ADDR']; 
+    $json   = file_get_contents( 'http://smart-ip.net/geoip-json/' . $ip); 
+
+    $ipData = json_decode( $json, true);
+
+    if ($ipData['timezone']) {
+        $tz = new DateTimeZone( $ipData['timezone']);
+        $now = new DateTime( 'now', $tz); 
+    } else {
+   
+    }
+
     echo '<h1 class="title">' . $te['title'] . '</h1>';
 
     $result = mysqli_query($connection, 'SELECT * FROM blog WHERE id = ' . $id . '');
@@ -30,7 +42,8 @@ echo "<body>";
     $article = mysqli_fetch_assoc($result);
 
     $views = $article['views']+1;
-    
+
+    $query = mysqli_query($connection,'select CONVERT(datetime,SWITCHOFFSET(CONVERT(datetimeoffset,GetUTCDate()),' . $article['date'] . ')) '.  $tz . '');
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 

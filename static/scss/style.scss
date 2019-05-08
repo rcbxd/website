@@ -5,6 +5,10 @@
 $small-font: 1.5em;
 $smaller-font: 1em;
 
+html {
+    -webkit-appearance: none;
+}
+
 .goBlack {
     background: #292929 !important;
 }
