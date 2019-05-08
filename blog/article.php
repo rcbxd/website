@@ -31,8 +31,6 @@ echo "<body>";
 
     $views = $article['views']+1;
     
-    $query = mysql_query("UPDATE blog SET views = " . $views . " WHERE article_id = " . $id);
-    $connection -> exec($query);
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
@@ -42,6 +40,9 @@ echo "<body>";
     echo '<h2 class="data">Posted on ' . $normdate . '.</h2>';
 
     echo '<p class="article">' . $article['body'] . '</p>';
+
+    $query = mysql_query("UPDATE blog SET views = " . $views . " WHERE article_id = " . $id);
+    $connection -> exec($query);
 
     mysqli_close($connection);
 
