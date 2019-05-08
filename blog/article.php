@@ -25,13 +25,13 @@ echo "<body>";
 
     echo '<h1 class="title">' . $te['title'] . '</h1>';
 
-    $result = mysqli_query($connection, 'SELECT * FROM blog WHERE id = ' . $id . '');
+    $result = mysqli_query($connection, 'SELECT * FROM blog WHERE id $id');
 
     $article = mysqli_fetch_assoc($result);
 
     $views = $article['views']+1;
     
-    $sql = "UPDATE blog SET views = ' . $views . ' WHERE id = ' . $id . '";
+    $sql = 'UPDATE blog SET views $views WHERE id = $id';
 
     echo '<h2 class="data">' . $views . ' views. </h2>';
 
