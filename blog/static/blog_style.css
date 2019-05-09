@@ -61,9 +61,13 @@ hr {
   margin-top: 30px; }
 
 .image {
+  margin-left: 10%;
+  margin-right: 10%;
   max-width: 80%;
-  max-height: auto;
-  min-height: auto;
-  min-width: 80%; }
+  height: auto;
+  min-width: 80%;
+  margin-bottom: 50px; }
+
+/*# sourceMappingURL=blog_style.css.map */
 
 /*# sourceMappingURL=blog_style.css.map */
