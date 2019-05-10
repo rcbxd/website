@@ -29,7 +29,7 @@
                 if($a['login'] == $login && $a['password'] == $password){
                     $_SESSION['login'] = $login;
                     $_SESSION['remember_me'] = $_POST['remember'];
-                    header('Location: http://blog.rcbxd.xyz/admin.php');
+                    header('Location: http://blog.rcbxd.xyz/admin/');
                     die();
                 }
                 else {
@@ -41,8 +41,8 @@
         mysqli_close($connection);
     ?>
     <div class="mt-5">
-        <h1 class="mx-auto text-center" style="width: 800px">Log In to access the admin control panel</h1>
-        <form action="login.php" method="POST" class="mx-auto align-middle" style="width: 700px" >
+        <h1 class="mx-auto text-center" style="width: 80%">Log In to access the admin control panel</h1>
+        <form action="login.php" method="POST" class="mx-auto align-middle" style="max-width: 90%" >
         <div class="form-group mt-4">
             <label for="l">Your login: </label>
             <input type="login" class="form-control" name="login" id="l">

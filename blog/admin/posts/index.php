@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php
-    require 'session.php';
+    require '../session.php';
     if(isset($_SESSION['login'])){
         $name = $_SESSION['login'];
     }
@@ -26,6 +26,9 @@
             <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
                     <a class="nav-link active" href="/logout.php">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin">Admin Panel</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Welcome, <?php echo $name ?></a>

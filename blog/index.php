@@ -33,7 +33,7 @@
                 echo '<li><form action="article.php">
                     <input type="hidden" value="' . $a['id'] . '" name="id">
                     <p class="blog_title">' . $a['title'] . '</p>
-                    <p>posted on ' . $normdate . '</p>
+                    <p>posted on ' . $normdate . ' </p>
                     <input type="submit" value="view post" class="view_btn">
                     </form></li><hr>';
             }

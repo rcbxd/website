@@ -22,20 +22,7 @@
     
 echo "</head>";
 echo "<body>";
-
-    $ip     = $_SERVER['REMOTE_ADDR']; 
-    $json   = file_get_contents( 'http://smart-ip.net/geoip-json/' . $ip); 
-
-    $ipData = json_decode( $json, true);
-
-    if ($ipData['timezone']) {
-        $tz = new DateTimeZone( $ipData['timezone']);
-        $now = new DateTime($te['date'], $tz); 
-    } else {
-   
-    }
-
-    echo $now;
+    
 
     echo '<h1 class="title">' . $te['title'] . '</h1>';
 
@@ -50,7 +37,7 @@ echo "<body>";
     $phpdate = strtotime( $article['date'] );
     $normdate = date( 'Y-m-d H:i', $phpdate );
 
-    echo '<h2 class="data">Posted on ' . $normdate . '.</h2>';
+    echo "<h2 class='data'>Posted on " . $normdate . "</h2>";
 
     echo '<p class="article">' . $article['body'] . '</p>';
 
