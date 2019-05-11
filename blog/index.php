@@ -19,6 +19,7 @@
 
     if($connection == true){
         echo '<h1 class="title">rcbxd\'s blog</h1>';
+        echo '<a href="/admin" class="admin">Admin panel</a>';
     }
 
     $result = mysqli_query($connection, "SELECT * FROM blog ORDER BY date DESC")
@@ -33,7 +34,7 @@
                 echo '<li><form action="article.php">
                     <input type="hidden" value="' . $a['id'] . '" name="id">
                     <p class="blog_title">' . $a['title'] . '</p>
-                    <p>posted on ' . $normdate . ' </p>
+                    <p>posted on ' . $normdate . '</p>
                     <input type="submit" value="view post" class="view_btn">
                     </form></li><hr>';
             }

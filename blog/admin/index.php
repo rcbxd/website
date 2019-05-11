@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="./logout.php">Logout</a>
                 </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active" href="../">See the posts</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Welcome, <?php echo $name ?></a>
                 </li>
