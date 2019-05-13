@@ -17,11 +17,16 @@
         $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
         $result = mysqli_query($connection, 'SELECT * FROM admins');
         
+        if(empty($login) && empty($password)){
+            echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
+            echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
+        }
+    
         if(empty($login) && !empty($password)){
             echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
         }
         if(empty($password) && !empty($login)){
-            echo '<div class="alert alert-danger" role="alert">The password is required</div>';
+            echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
         }
         
         else if(!empty($login) && !empty($password)){
@@ -32,10 +37,8 @@
                     header('Location: http://blog.rcbxd.xyz/admin/');
                     die();
                 }
-                else {
-                    echo '<div class="alert alert-danger" role="alert">Incorrect password</div>';
-                }
             }
+            echo '<div class="alert alert-danger" role="alert">Incorrect password</div>';
         }
         
         mysqli_close($connection);
