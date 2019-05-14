@@ -3,64 +3,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>login to admin panel</title>
+    <title>rcbxd's blog</title>
     <meta name='viewport', content='width=device-width, initial-scale=1, user-scalable=no'>
-    <meta name='description', content='login'>
+    <meta name='description', content='rcbxd blog'>
+    <link rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700'>
     <link rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet', href='static/blog_style.css'>
+    <script src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js'></script>
+    <script src='https://unpkg.com/smoothscroll-anchor-polyfill'></script>
 </head>
 <body>
     <?php 
-        require "session.php";
-        $login = $_POST['login'];
-        $password = $_POST['pass'];
-        $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
-        $result = mysqli_query($connection, 'SELECT * FROM admins');
-        
-        if(empty($login) && empty($password)){
-            echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
-            echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
-        }
-    
-        if(empty($login) && !empty($password)){
-            echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
-        }
-        if(empty($password) && !empty($login)){
-            echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
-        }
-        
-        else if(!empty($login) && !empty($password)){
-            while($a = mysqli_fetch_assoc($result)){
-                if($a['login'] == $login && $a['password'] == $password){
-                    $_SESSION['login'] = $login;
-                    $_SESSION['remember_me'] = $_POST['remember'];
-                    header('Location: http://blog.rcbxd.xyz/admin/');
-                    die();
-                }
-            }
-            echo '<div class="alert alert-danger" role="alert">Incorrect password</div>';
-        }
-        
-        mysqli_close($connection);
+    $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
+    if($connection == true){
+        echo '<h1 class="title">rcbxd\'s blog</h1>';
+        echo '<a href="/admin" class="admin">Admin panel</a>';
+    }
+    $result = mysqli_query($connection, "SELECT * FROM blog ORDER BY date DESC")
     ?>
-    <div class="mt-5">
-        <h1 class="mx-auto text-center" style="width: 80%">Log In to access the admin control panel</h1>
-        <form action="login.php" method="POST" class="mx-auto align-middle" style="max-width: 90%" >
-        <div class="form-group mt-4">
-            <label for="l">Your login: </label>
-            <input type="login" class="form-control" name="login" id="l">
-        </div>
-        <div class="form-group">   
-            <label for="p">Your password: </label>
-            <input type="password" class="form-control" name="pass" id="p">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="check" name="remember">
-            <label class="form-check-label" for="check">Remember Me</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-    </form>
-    </div>
-    
-    
+
+    <ul class="posts">
+        <?php
+            while(($a = mysqli_fetch_assoc($result))){
+                $phpdate = strtotime( $a['date'] );
+                $normdate = date( 'Y-m-d H:i', $phpdate );
+                echo '<li><form action="article.php">
+                    <input type="hidden" value="' . $a['id'] . '" name="id">
+                    <p class="blog_title">' . $a['title'] . '</p>
+                    <p>posted on ' . $normdate . '</p>
+                    <input type="submit" value="view post" class="view_btn">
+                    </form></li><hr>';
+            }
+        ?>
+    </ul>
+
 </body>
+</html>
