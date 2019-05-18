@@ -208,10 +208,9 @@ h3 {
 }
 
 .p {
-    margin: 20px;
-    @include textshadow(3px, rgb(187, 115, 115));
-
-    .back_title {}
+    margin: 10px;
+    @include textshadow(3px, #bb7373);
+    font-size: 1.5em;
 }
 
 #h4 {

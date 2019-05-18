@@ -415,8 +415,9 @@ h3 {
   flex-wrap: wrap; }
 
 .p {
-  margin: 20px;
-  text-shadow: 3px 3px 0px #bb7373; }
+  margin: 10px;
+  text-shadow: 3px 3px 0px #bb7373;
+  font-size: 1.5em; }
 
 #h4 {
   padding-bottom: 10%; }

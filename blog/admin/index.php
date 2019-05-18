@@ -12,13 +12,17 @@
 </head>
 <body>
     <?php
+
+    echo '<h1 class="title">rcbxd\'s blog</h1>';
+    echo '<a href="/admin" class="admin">Admin panel</a>';
     require 'session.php';
-    if(isset($_SESSION['login'])){
-        $name = $_SESSION['login'];
-    }
-    else {
-        header('Location: ./login.php');
-        die();
+    if(isset($_SESSION['login']) || isset($_COOKIE['login'])){
+        if(isset($_SESSION['login'])){
+            $name = $_SESSION['login'];
+        }
+        else {
+            $name = $_COOKIE['login'];
+        }
     }
     ?>
     <div class="card text-center">
