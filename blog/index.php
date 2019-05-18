@@ -15,14 +15,16 @@
 <body>
     <?php 
 
+    echo '<h1 class="title">rcbxd\'s blog</h1>';
+    echo '<a href="/admin" class="admin">Admin panel</a>';
+
     $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
 
     if($connection != true){
         header('Location: ./404');
     }
 
-    echo '<h1 class="title">rcbxd\'s blog</h1>';
-    echo '<a href="/admin" class="admin">Admin panel</a>';
+    
 
 
     $result = mysqli_query($connection, "SELECT * FROM blog ORDER BY date DESC")
