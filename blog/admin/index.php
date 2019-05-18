@@ -13,13 +13,8 @@
 <body>
     <?php
     require 'session.php';
-    if(isset($_SESSION['login']) || isset($_COOKIE['login'])){
-        if(isset($_SESSION['login'])){
-            $name = $_SESSION['login'];
-        }
-        else {
-            $name = $_COOKIE['login'];
-        }
+    if(isset($_SESSION['login'])){
+        $name = $_SESSION['login'];
     }
     else {
         header('Location: ./login.php');

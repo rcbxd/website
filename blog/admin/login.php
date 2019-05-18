@@ -17,15 +17,15 @@
         $connection = mysqli_connect('127.0.0.1:3306', 'u334366972_rbcxd', 'GFWVm7da4d99', 'u334366972_test');
         $result = mysqli_query($connection, 'SELECT * FROM admins');
         
-        if(empty($login) && empty($password) && isset($password) && isset($login)){
+        if(empty($login) && empty($password)){
             echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
             echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
         }
     
-        if(empty($login) && !empty($password) && isset($password) && isset($login)){
+        if(empty($login) && !empty($password)){
             echo '<div class="alert alert-danger" role="alert">The login field is requierd</div>';
         }
-        if(empty($password) && !empty($login) && isset($password) && isset($login)){
+        if(empty($password) && !empty($login)){
             echo '<div class="alert alert-danger" role="alert">The password field is required</div>';
         }
         
@@ -34,10 +34,6 @@
                 if($a['login'] == $login && $a['password'] == $password){
                     $_SESSION['login'] = $login;
                     $_SESSION['remember_me'] = $_POST['remember'];
-                    if(isset($_SESSION['remember_me'])){
-                        setcookie("login", $login, time() + (86400 * 30), 'blog.rcbxd.xyz'); 
-                        setcookie("password", $password, time() + (86400 * 30), 'blog.rcbxd.xyz'); 
-                    }
                     header('Location: http://blog.rcbxd.xyz/admin/');
                     die();
                 }
