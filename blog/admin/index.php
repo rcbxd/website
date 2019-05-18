@@ -21,6 +21,9 @@
             $name = $_COOKIE['login'];
         }
     }
+    else {
+        header('Location: login.php');
+    }
     ?>
     <div class="card text-center">
         <div class="card-header">
