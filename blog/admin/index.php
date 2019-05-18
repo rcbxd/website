@@ -12,9 +12,6 @@
 </head>
 <body>
     <?php
-
-    echo '<h1 class="title">rcbxd\'s blog</h1>';
-    echo '<a href="/admin" class="admin">Admin panel</a>';
     require 'session.php';
     if(isset($_SESSION['login']) || isset($_COOKIE['login'])){
         if(isset($_SESSION['login'])){
