@@ -1,11 +1,10 @@
 // js app core
 
-
 const cursor = document.getElementById("cursor");
 const h = cursor.offsetHeight - 2;
 var sc = true;
 var menu_open = false;
-var theme = 'white';
+var theme = 'black';
 window.addEventListener('load', () => {
   if (window.localStorage) {
     theme = window.localStorage.getItem('theme');

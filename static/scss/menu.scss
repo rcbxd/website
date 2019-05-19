@@ -11,8 +11,8 @@
 #mobile_menu {
     height: 100vh;
     width: 100%;
-    position: absolute;
-    overflow: hidden;
+    position: absolute !important;
+    overflow: scroll;
     transition: all 0.3s ease-out;
 }
 
