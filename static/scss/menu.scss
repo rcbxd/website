@@ -44,7 +44,7 @@
 .bg_sec {
     display: block;
     top: -130vh;
-    position: fixed;
+    position: absolute;
     z-index: 3;
     height: 120vh;
     width: 100%;
@@ -98,8 +98,9 @@
     display: block;
     z-index: 4;
     position: relative;
-    top: 13%;
-    font-size: 3.5em;
+    text-align: center;
+    top: 15%;
+    font-size: 4em;
     text-shadow: 3px 3px 0px rgba(130, 133, 130, 0.8);
 }
 

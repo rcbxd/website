@@ -5,7 +5,19 @@ const h = cursor.offsetHeight - 2;
 var sc = true;
 var menu_open = false;
 var theme = 'black';
+
+const isMobile = () => { // return if the device is mobile
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
 window.addEventListener('load', () => {
+  if (isMobile()) {
+    window.setTimeout(() => {
+      document.getElementById('cursor').style.display = "none";
+    }, 1)
+
+  }
+
   if (window.localStorage) {
     theme = window.localStorage.getItem('theme');
     if (theme == 'black')
@@ -89,10 +101,6 @@ window.addEventListener("scroll", (e) => { // mobile menu on scroll to the top
     sc = false;
   }
 })
-
-const isMobile = () => { // return if the device is mobile
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-}
 
 const goBlack = () => {
   if (theme == 'black') {
