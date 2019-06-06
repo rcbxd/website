@@ -26,8 +26,7 @@ html {
   height: 110vh;
   width: 100%;
   background-color: #2D2D2D;
-  border-radius: 700px;
-  transition: all 0.3s ease-out; }
+  border-radius: 700px; }
 
 .bg {
   position: fixed;
@@ -37,8 +36,7 @@ html {
   height: 110vh;
   width: 100%;
   background-color: #646262;
-  border-radius: 500px;
-  transition: all 0.2s ease-out; }
+  border-radius: 500px; }
 
 .bg_sec {
   display: block;
@@ -48,8 +46,7 @@ html {
   height: 110vh;
   width: 100%;
   background-color: #171717;
-  border-radius: 900px;
-  transition: all 0.5s ease-out; }
+  border-radius: 900px; }
 
 .mobile_menu_active {
   top: -10vh;

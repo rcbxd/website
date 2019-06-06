@@ -9,8 +9,36 @@ var theme = 'black';
 const isMobile = () => { // return if the device is mobile
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
-
+var t1;
 window.addEventListener('load', () => {
+  t1 = new TimelineMax({
+    paused: true
+  });
+  t1.to(".bg", 0.3, {
+    top: "-10vh",
+    borderRadius: 0,
+    ease: Expo.easeInOut,
+    delay: 0,
+    opacity: 1,
+  });
+  t1.to(".bg2", 0.6, {
+    top: "-10vh",
+    opacity: 1,
+    borderRadius: 0,
+    ease: Expo.easeInOut,
+    delay: -0.3
+  });
+  t1.to(".bg_sec", 0.8, {
+    top: "-10vh",
+    borderRadius: 0,
+    ease: Expo.easeInOut,
+    delay: -0.5
+  });
+
+
+
+  t1.reverse();
+
   if (isMobile()) {
     window.setTimeout(() => {
       document.getElementById('cursor').style.display = "none";
@@ -29,16 +57,8 @@ window.addEventListener('load', () => {
 
 
 const menu = () => {
-  menu_open = !menu_open
-  document
-    .getElementsByClassName("bg_sec")[0]
-    .classList.toggle("mobile_menu_active");
-  document
-    .getElementsByClassName("bg")[0]
-    .classList.toggle("mobile_menu_active");
-  document
-    .getElementsByClassName("bg2")[0]
-    .classList.toggle("mobile_menu_active");
+  menu_open = !menu_open;
+  t1.reversed(!t1.reversed());
   cursor.classList.toggle("cursor_invert");
   var i = 0;
   var load = setInterval(function () { // menu items loader
