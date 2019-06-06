@@ -179,6 +179,11 @@ html {
       height: 150px;
       animation-delay: 0s;
       animation-duration: 11s; }
+    .circles li:nth-child(11) {
+      color: rgba(255, 255, 255, 0.2);
+      background: none;
+      font-size: 20pt;
+      animation-duration: 15s; }
 
 @keyframes animate {
   0% {
