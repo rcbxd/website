@@ -16,7 +16,7 @@ html {
   height: 100vh;
   width: 100%;
   position: absolute !important;
-  overflow: scroll;
+  overflow: hidden;
   transition: all 0.3s ease-out; }
 
 .bg2 {
@@ -46,7 +46,8 @@ html {
   height: 110vh;
   width: 100%;
   background-color: #171717;
-  border-radius: 900px; }
+  border-radius: 900px;
+  padding-bottom: 5%; }
 
 .mobile_menu_active {
   top: -10vh;

@@ -11,6 +11,7 @@ const isMobile = () => { // return if the device is mobile
 }
 var t1;
 window.addEventListener('load', () => {
+
   t1 = new TimelineMax({
     paused: true
   });
@@ -34,8 +35,6 @@ window.addEventListener('load', () => {
     ease: Expo.easeInOut,
     delay: -0.5
   });
-
-
 
   t1.reverse();
 
