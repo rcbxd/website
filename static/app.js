@@ -49,9 +49,9 @@ window.addEventListener("load", () => {
 
   if (window.localStorage) {
     theme = window.localStorage.getItem("theme");
-    if (theme == "black")
-      document.getElementsByClassName("area")[0].classList.add("goBlack");
-    else document.getElementsByClassName("area")[0].classList.remove("goBlack");
+    if (theme == "white")
+      document.getElementsByClassName("area")[0].classList.remove("goBlack");
+    else document.getElementsByClassName("area")[0].classList.add("goBlack");
   }
 });
 
@@ -60,16 +60,15 @@ const menu = () => {
   t1.reversed(!t1.reversed());
   cursor.classList.toggle("cursor_invert");
   var i = 0;
-  var load = setInterval(function() {
+  var load = setInterval(function () {
     // menu items loader
     document
-      .getElementsByClassName("menu_item")
-      [i].classList.toggle("menu_item_active");
+      .getElementsByClassName("menu_item")[i].classList.toggle("menu_item_active");
     i++;
     if (i == document.getElementsByClassName("menu_item").length) {
       clearInterval(load);
     }
-  }, 100);
+  }, 150);
   if (menu_open) {
     setTimeout(() => {
       document.body.classList.toggle("stable_bg");
@@ -114,9 +113,9 @@ window.addEventListener("load", () => {
   cursor.setAttribute(
     "style",
     "top: " +
-      (window.innerHeight / 2 - h / 2) +
-      "px; left: " +
-      (window.innerWidth / 2 - h / 2 + "px")
+    (window.innerHeight / 2 - h / 2) +
+    "px; left: " +
+    (window.innerWidth / 2 - h / 2 + "px")
   );
 });
 
