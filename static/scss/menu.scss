@@ -80,8 +80,9 @@
 }
 
 #close {
-    position: absolute;
-    top: 120px;
+    position: relative;
+    top: 15%;
+    margin-top: 10px;
     float: left;
     color: white;
     z-index: 5;

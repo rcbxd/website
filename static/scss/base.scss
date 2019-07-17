@@ -131,6 +131,7 @@ h3 {
     }
 
     .skills {
+
         >div {
             margin-top: 5vh;
         }
@@ -177,9 +178,9 @@ h3 {
 .skills {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     @include textshadow(2px, rgba(0, 0, 0, 0.3));
 
     >div {
@@ -206,14 +207,14 @@ h3 {
     text-align: center;
     justify-content: center;
     align-content: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 310px);
     position: relative;
     font-weight: 100;
     margin-bottom: 30px;
-    flex-wrap: wrap;
 
     h1 {
-        font-size: 2em;
+        font-size: 1.4em;
     }
 }
 
@@ -231,4 +232,10 @@ hr {
     max-width: 80%;
     opacity: 0.5;
     box-shadow: none;
+}
+
+.down {
+    position: fixed;
+    right: 3%;
+    top: 90%
 }
