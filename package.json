@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "gulp": "~3.9",
+    "gulp-util": "latest",
+    "gulp-sass": "latest",
+    "gulp-coffee": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-pug": "~3.9"
+  },
+  "name": "rcbxd.xyz",
+  "version": "1.0.0",
+  "description": "rcbxd's website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcbxd/rcbxd.xyz.git"
+  },
+  "author": "rcbxd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcbxd/rcbxd.xyz/issues"
+  },
+  "homepage": "https://github.com/rcbxd/rcbxd.xyz#readme",
+  "dependencies": {
+    "gulp-pug": "^4.0.1"
+  }
+}
