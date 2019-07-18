@@ -3,10 +3,10 @@ var connect = require('gulp-connect');
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
 
-gulp.task('sass', () => {
-    return gulp.src('static/scss/style.scss').pipe(sass({
+gulp.task('sass-landing', () => {
+    return gulp.src('static/landing/scss/style.scss').pipe(sass({
         style: 'expanded'
-    })).pipe(gulp.dest('static/')).pipe(connect.reload());
+    })).pipe(gulp.dest('static/landing')).pipe(connect.reload());
 });
 
 gulp.task('pug', () => {
@@ -21,7 +21,7 @@ gulp.task('connect', () => {
 })
 
 gulp.task('watch', () => {
-    gulp.watch('static/scss/*.scss', ['sass']);
+    gulp.watch('static/landing/scss/*.scss', ['sass-landing']);
     gulp.watch('index.pug', ['pug']);
 })
 

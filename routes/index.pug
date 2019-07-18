@@ -10,7 +10,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
-    link(rel='stylesheet', href='static/style.css')
+    link(rel='stylesheet', href='/static/landing/style.css', type='text/css')
     script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
     script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
@@ -46,7 +46,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
       br
       | Anthony S.
     .h.h1
-      h1.title(onclick="goBlack()") rcbxd
+      h1.title(onclick="goBlack()") rcbxd #{title}
       h2.title Software Developer
       .skills_short
         h2.title.skill Front-end
@@ -156,4 +156,4 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         script.
           document.write(new Date().getFullYear());
     #cursor
-    script(type='text/javascript', src='static/app.js')
+    script(type='text/javascript', src='/static/landing/app.js')
