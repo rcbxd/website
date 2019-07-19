@@ -24,7 +24,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
             span(class="day")
               | #{post.date.getDate()} 
           h1(class="title") #{post.title}
-          p #{post.body.substring(0,100)}...
-          a(href=`article/${post.id}`) READ MORE
+          p #{post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, "")}...
+          a(href=`./article/${post.id}`) READ MORE
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')

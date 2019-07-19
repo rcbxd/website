@@ -7,50 +7,11 @@ body {
     font-weight: lighter;
 }
 
-#posts {
-    margin-top: 50px;
-}
-
-.day {
-    font-weight: 300;
-}
-
-.title {
-    font-size: 32pt;
-    margin-top: -5px;
-    margin-bottom: -5px;
-}
-
-#newest {
-    position: relative;
-    letter-spacing: 3px;
-    left: -50px;
-    top: 190px;
-    font-size: 15pt;
-    transform-origin: 0 0;
-    transform: rotate(-90deg);
-}
-
-.post {
-    margin-bottom: 70px;
-    margin-left: 20%;
-}
-
 a {
     color: inherit;
     font-weight: bold;
     text-decoration: none;
     outline: 0;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-#page_title {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 32pt;
 }
 
 #nav {
@@ -67,7 +28,25 @@ a:hover {
 
 }
 
+h1 {
+    margin-left: 20%;
+    margin-top: 50px;
+    font-size: 50pt !important;
+}
+
 ::selection {
     color: #FFF862;
     background: black;
+}
+
+p,
+li,
+h2 {
+    margin-left: 20%;
+    font-size: 18pt;
+    margin-right: 20%;
+}
+
+h2 {
+    font-size: 24pt;
 }

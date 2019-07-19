@@ -1,0 +1,43 @@
+body {
+  font-family: bio-sans, sans-serif;
+  background: #FFF862;
+  color: black;
+  font-style: normal;
+  font-weight: lighter; }
+
+a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  outline: 0; }
+
+#nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  font-size: 32pt !important;
+  margin-top: 30px; }
+  #nav a {
+    font-weight: lighter !important;
+    margin-right: 20px; }
+
+h1 {
+  margin-left: 20%;
+  margin-top: 50px;
+  font-size: 50pt !important; }
+
+::selection {
+  color: #FFF862;
+  background: black; }
+
+p,
+li,
+h2 {
+  margin-left: 20%;
+  font-size: 18pt;
+  margin-right: 20%; }
+
+h2 {
+  font-size: 24pt; }
+
+/*# sourceMappingURL=style.css.map */
