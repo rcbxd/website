@@ -10,7 +10,7 @@ gulp.task('sass-landing', () => {
 });
 
 gulp.task('pug', () => {
-    return gulp.src('./index.pug').pipe(pug({})).pipe(gulp.dest('./')).pipe(connect.reload());
+    return gulp.src('./routes/index.pug').pipe(pug({})).pipe(gulp.dest('./')).pipe(connect.reload());
 })
 
 gulp.task('connect', () => {
@@ -22,7 +22,7 @@ gulp.task('connect', () => {
 
 gulp.task('watch', () => {
     gulp.watch('static/landing/scss/*.scss', ['sass-landing']);
-    gulp.watch('index.pug', ['pug']);
+    gulp.watch('./routes/index.pug', ['pug']);
 })
 
 gulp.task('default', ['connect', 'watch'])

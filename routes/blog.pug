@@ -2,22 +2,29 @@ doctype html
 html(lang='en', dir='ltr', style='scroll-behavior: smooth')
   head
     meta(charset='utf-8')
-    title rcbxd's homepage
+    title rcbxd's blog
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
     meta(name='description', content='rcbxd\s blog')
     link(href=' https://fonts.googleapis.com/css?family=Source+Code+Pro', rel='stylesheet')
-    link(href='https://fonts.googleapis.com/css?family=Indie+Flower', rel='stylesheet')
-    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700')
-    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     link(rel='stylesheet', href='/static/blog/style.css', type='text/css')
     script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
     script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
   body
-    h1 This is rcbxd's blog!
-    ul
-        each post in posts
-            li= post.title
+    div(id="nav")
+      a(href="../") rcbxd
+      a(href="/archives") archives
+      a(href="/archives") twitter
+    div(id="posts")
+      each post in posts
+        div(class="post")
+          if posts[0].id == post.id
+            h1(id="newest") Newest Post
+          h2 
+            | #{months[post.date.getMonth()]} 
+            span(class="day")
+              | #{post.date.getDate()} 
+          h1(class="title") #{post.title}
+          p #{post.body.substring(0,100)}...
+          a(href=`article/${post.id}`) READ MORE
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')

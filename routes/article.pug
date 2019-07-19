@@ -1,0 +1,14 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title rcbxd's homepage
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(name='description', content='rcbxd\s blog')
+    link(href=' https://fonts.googleapis.com/css?family=Source+Code+Pro', rel='stylesheet')
+    link(rel='stylesheet', href='/static/blog/style.css', type='text/css')
+  body
+    h1 #{post.title}
+    p #{post.body}
+    #cursor
+    script(type='text/javascript', src='/static/blog/blog.js')
