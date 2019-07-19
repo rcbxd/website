@@ -40,7 +40,8 @@ app.get('/blog/article/:id/', (req, res) => {
             throw err
         }
         res.render('routes/article', {
-            post: result[0]
+            post: result[0],
+            months: months
         })
     })
 
