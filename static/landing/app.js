@@ -9,8 +9,7 @@ var theme = "black";
 const isMobile = () => {
   // return if the device is mobile
   return (
-    typeof window.orientation !== "undefined" ||
-    navigator.userAgent.indexOf("IEMobile") !== -1
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   );
 };
 var t1;
@@ -19,21 +18,21 @@ window.addEventListener("load", () => {
     paused: true
   });
   t1.to(".bg", 0.3, {
-    top: "-10vh",
+    top: "0%",
     borderRadius: 0,
     ease: Expo.easeInOut,
     delay: 0,
     opacity: 1
   });
   t1.to(".bg2", 0.6, {
-    top: "-10vh",
+    top: "0%",
     opacity: 1,
     borderRadius: 0,
     ease: Expo.easeInOut,
     delay: -0.3
   });
   t1.to(".bg_sec", 0.8, {
-    top: "-10vh",
+    top: "0%",
     borderRadius: 0,
     ease: Expo.easeInOut,
     delay: -0.5
@@ -82,6 +81,11 @@ const cursorHighlight = s => {
   // highlight the cursor if not a link, expand if a link
   if (s) {
     cursor.classList.add("expand");
+    if (isMobile()) {
+      window.setTimeout(() => {
+        document.getElementById("cursor").style.display = "none";
+      }, 1);
+    }
   }
   cursor.classList.add("cursor_highlight");
 };
@@ -103,6 +107,11 @@ document.addEventListener("mousemove", e => {
 document.addEventListener("click", () => {
   // cursor expand on click
   cursor.classList.add("expand");
+  if (isMobile()) {
+    window.setTimeout(() => {
+      document.getElementById("cursor").style.display = "none";
+    }, 1);
+  }
   window.setTimeout(() => {
     cursor.classList.remove("expand");
   }, 500);

@@ -9,6 +9,8 @@
     background-color: none;
     pointer-events: none;
     z-index: 10;
+    display: block;
+    -webkit-appearance: none;
 
     &::after {
         content: "";

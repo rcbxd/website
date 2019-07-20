@@ -3,7 +3,7 @@
 }
 
 #menu {
-    position: sticky;
+    position: relative;
     float: left;
     margin-left: 5vh;
 }
@@ -12,15 +12,14 @@
     height: 100vh;
     width: 100%;
     position: absolute !important;
-    overflow: hidden;
     transition: all 0.3s ease-out;
 }
 
 .bg2 {
     position: fixed;
-    top: -130vh;
+    top: -130%;
     z-index: 2;
-    height: 110vh;
+    height: 100%;
     width: 100%;
     background-color: #2D2D2D;
     border-radius: 700px;
@@ -28,10 +27,9 @@
 
 .bg {
     position: fixed;
-    overflow: hidden;
-    top: -130vh;
+    top: -130%;
     z-index: 2;
-    height: 110vh;
+    height: 100%;
     width: 100%;
     background-color: #646262;
     border-radius: 500px;
@@ -39,14 +37,14 @@
 
 .bg_sec {
     display: block;
-    top: -130vh;
+    top: -130%;
     position: absolute;
+    overflow-y: scroll;
     z-index: 3;
-    height: 110vh;
+    height: 100%;
     width: 100%;
     background-color: #171717;
     border-radius: 900px;
-    padding-bottom: 5%;
 }
 
 .mobile_menu_active {
@@ -61,7 +59,7 @@
     font-size: $small-font;
     margin-right: 0;
     position: relative;
-    top: 20%;
+    top: 10vh;
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(20px);
@@ -81,7 +79,7 @@
 
 #close {
     position: relative;
-    top: 15%;
+    top: 7%;
     margin-top: 10px;
     float: left;
     color: white;
@@ -96,7 +94,7 @@
     z-index: 4;
     position: relative;
     text-align: center;
-    top: 15%;
+    top: 5%;
     font-size: 4em;
     text-shadow: 3px 3px 0px rgba(130, 133, 130, 0.8);
 }
