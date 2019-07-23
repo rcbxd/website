@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var mysql = require('mysql');
-
+app.use(express.json());
+app.use(express.urlencoded());
 var con = mysql.createConnection({
     host: '192.168.64.2',
     user: 'rcbxd',
@@ -46,6 +47,10 @@ app.get('/blog/article/:id/', (req, res) => {
     })
 
 });
+
+app.post('/blog/admin/login/', (req, res) => {
+    console.log(req.body.password)
+})
 
 app.get('/blog/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {

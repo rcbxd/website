@@ -4,15 +4,14 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title rcbxd's blog
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content='rcbxd\s blog')
     meta(name='description', content='rcbxd\'s blog')
-    link(href=' https://fonts.googleapis.com/css?family=Source+Code+Pro', rel='stylesheet')
     link(rel='stylesheet', href='/static/blog/style.css', type='text/css')
+    base(href='blog/')
     script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
     script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
   body
     div(id="nav")
-      a(href="../") rcbxd
+      a(href="/") rcbxd
       a(href="/archives") archives
       a(href="/archives") twitter
     div(id="posts")
@@ -26,6 +25,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
               | #{post.date.getDate()} 
           h1(class="title") #{post.title}
           p #{post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, "")}...
-          a(href=`./article/${post.id}`) READ MORE
+          a(href=`/blog/article/${post.id}`) READ MORE
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')

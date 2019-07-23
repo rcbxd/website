@@ -5,6 +5,13 @@ body {
     color: black;
     font-style: normal;
     font-weight: lighter;
+    cursor: default;
+}
+
+pre {
+    position: relative;
+    max-width: 75%;
+    left: 15%;
 }
 
 a {
@@ -24,6 +31,10 @@ a {
     a {
         font-weight: lighter !important;
         margin-right: 20px;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
 }
@@ -64,4 +75,26 @@ h3 {
     margin-left: 15%;
     font-weight: bold;
     font-size: 18pt;
+}
+
+b {
+    transition: 0.2s ease-in;
+}
+
+br {
+    user-select: none;
+}
+
+b:hover {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 6px;
+    padding-left: 6px;
+    background: black;
+    color: #FFF862;
+
+    ::selection {
+        background: #FFF862 !important;
+        color: black;
+    }
 }
