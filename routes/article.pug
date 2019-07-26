@@ -2,12 +2,11 @@ doctype html
 html(lang='en', dir='ltr', style='scroll-behavior: smooth')
   head
     meta(charset='utf-8')
-    title rcbxd's blog
+    title #{post.title}
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content='rcbxd\s blog')
+    meta(name='description', content = post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, ""))
     link(rel='stylesheet', href='/static/article/style.css', type='text/css')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css', rel='stylesheet')
-    link(href='/static/prism-atom-dark.css' rel='stylesheet')
+    link(rel="stylesheet", href='/static/prism/prism.css')
   body
     div(id="nav")
       a(href="../../") rcbxd
@@ -23,7 +22,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     p !{post.body}
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js' defer)
+    script(src='/static/prism/prism.js' defer)
     script. 
         window.addEventListener('load', ()=>{
             var entries = document.getElementsByTagName('h2');

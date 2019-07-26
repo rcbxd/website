@@ -8,8 +8,8 @@ body {
 
 pre {
   position: relative;
-  max-width: 75%;
-  left: 15%; }
+  max-width: 80%;
+  left: 10%; }
 
 a {
   color: inherit;
@@ -34,9 +34,11 @@ a {
   letter-spacing: 8px; }
 
 h1 {
-  margin-left: 15%;
+  margin-left: 10%;
   margin-top: 50px;
-  font-size: 42pt !important; }
+  font-size: 42pt !important;
+  word-break: break-word;
+  margin-right: 10%; }
 
 ::selection {
   color: #FFF862;
@@ -45,9 +47,9 @@ h1 {
 p,
 li,
 h2 {
-  margin-left: 15%;
+  margin-left: 10%;
   font-size: 18pt;
-  margin-right: 5%; }
+  margin-right: 10%; }
 
 h2 {
   font-size: 24pt; }
@@ -56,9 +58,10 @@ li {
   font-weight: 500; }
 
 h3 {
-  margin-left: 15%;
+  margin-left: 10%;
   font-weight: bold;
-  font-size: 18pt; }
+  font-size: 18pt;
+  margin-right: 10%; }
 
 b {
   transition: 0.2s ease-in; }

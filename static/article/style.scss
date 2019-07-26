@@ -10,8 +10,8 @@ body {
 
 pre {
     position: relative;
-    max-width: 75%;
-    left: 15%;
+    max-width: 80%;
+    left: 10%;
 }
 
 a {
@@ -45,9 +45,11 @@ a {
 }
 
 h1 {
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 50px;
     font-size: 42pt !important;
+    word-break: break-word;
+    margin-right: 10%;
 }
 
 ::selection {
@@ -58,9 +60,9 @@ h1 {
 p,
 li,
 h2 {
-    margin-left: 15%;
+    margin-left: 10%;
     font-size: 18pt;
-    margin-right: 5%;
+    margin-right: 10%;
 }
 
 h2 {
@@ -72,9 +74,10 @@ li {
 }
 
 h3 {
-    margin-left: 15%;
+    margin-left: 10%;
     font-weight: bold;
     font-size: 18pt;
+    margin-right: 10%;
 }
 
 b {
