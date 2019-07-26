@@ -1,0 +1,30 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title rcbxd's blog
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(name='description', content='rcbxd\'s blog')
+    link(rel='stylesheet', href='/static/blog/style.css', type='text/css')
+    base(href='blog/')
+    script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
+    script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
+  body
+    div(id="nav")
+      a(href="/") rcbxd
+      a(href="/archives") archives
+      a(href="/archives") twitter
+    div(id="posts")
+      each post in posts
+        div(class="post")
+          if posts[0].id == post.id
+            h1(id="newest") Newest Post
+          h2 
+            | #{months[post.date.getMonth()]} 
+            span(class="day")
+              | #{post.date.getDate()} 
+          h1(class="title") #{post.title}
+          p #{post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, "")}...
+          a(href=`/blog/article/${post.id}`) READ MORE
+    #cursor
+    script(type='text/javascript', src='/static/blog/blog.js')
