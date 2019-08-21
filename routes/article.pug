@@ -8,11 +8,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(rel='stylesheet', href='/static/article/style.css', type='text/css')
     link(rel="stylesheet", href='/static/prism/prism.css')
   body
-    div(id="nav")
-      a(href="../../") rcbxd
-      a(href="/archives") archives
-      a(href="/archives") twitter
-      a(href="../") home
+    include nav.pug
     h1  
         span(class="month") 
             | #{months[post.date.getMonth()]} 
@@ -23,6 +19,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')
     script(src='/static/prism/prism.js' defer)
+    script(src='/static/article/article.js')
     script. 
         window.addEventListener('load', ()=>{
             var entries = document.getElementsByTagName('h2');
