@@ -35,6 +35,8 @@ var months = [
 app.set('views', path.join(__dirname, '/'));
 app.use('/static/', express.static('static'));
 app.set('view engine', 'pug');
+app.use(express.urlencoded());
+app.use(express.json());
 app.get('/blog/article/:id/', (req, res) => {
     console.log(`user viewing ${req.params.id}`)
     con.query("SELECT * FROM article WHERE id = " + req.params.id, (err, result, fields) => {
@@ -49,8 +51,24 @@ app.get('/blog/article/:id/', (req, res) => {
 
 });
 
-app.post('/blog/admin/login/', (req, res) => {
-    console.log(req.body.password)
+app.post('/blog/admin/', (req, res) => {
+    var email = req.body.email
+    var password = req.body.pass
+    con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
+        if (err)
+            throw err
+        if (result.length == 0)
+            res.render('routes/admin.pug', {
+                error: 'No user exists with these credentials'
+            })
+        else
+        if (result[0].password == password) {
+            console.log('granted')
+        } else
+            res.render('routes/admin.pug', {
+                error: 'Invalid password provided'
+            })
+    })
 })
 
 app.get('/blog/', (req, res) => {
@@ -66,10 +84,30 @@ app.get('/blog/', (req, res) => {
 
 })
 
+app.get('/blog/admin/', (req, res) => {
+    res.render('routes/admin')
+})
+
 app.get('/', (req, res) => {
     res.render('routes/index');
 })
 
 app.listen('8000', () => {
     console.log('listening on port 8000')
+})
+
+app.get('/blog/api/posts', cors(), (req, res) => {
+    con.query('SELECT * FROM article ORDER BY date DESC', (err, result, fields) => {
+        if (err)
+            throw err;
+        res.json(result)
+    })
+})
+
+app.get('/blog/api/post/:id', cors(), (req, res) => {
+    con.query('SELECT * FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
+        if (err)
+            throw err;
+        res.json(results);
+    })
 })
