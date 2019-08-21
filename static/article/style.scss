@@ -10,8 +10,18 @@ body {
 
 pre {
     position: relative;
-    max-width: 80%;
+    margin-left: 10%;
     left: 10%;
+    max-width: 75%;
+    background: #2d2b55 !important;
+    padding: 30px !important;
+    margin-right: 10%;
+    clip-path: url(#svgblob)
+}
+
+code {
+    margin: 10px;
+    right: 10%;
 }
 
 a {
