@@ -8,13 +8,12 @@ body {
 
 pre {
   position: relative;
-  margin-left: 10%;
-  left: 10%;
-  max-width: 75%;
+  max-width: 80%;
+  min-width: 80%;
+  left: 52%;
+  transform: translate(-50%);
   background: #2d2b55 !important;
-  padding: 30px !important;
-  margin-right: 10%;
-  clip-path: url(#svgblob); }
+  padding: 30px !important; }
 
 code {
   margin: 10px;
@@ -79,10 +78,6 @@ br {
   user-select: none; }
 
 b:hover {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-right: 6px;
-  padding-left: 6px;
   background: black;
   color: #FFF862; }
   b:hover ::selection {
