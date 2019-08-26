@@ -1,0 +1,4 @@
+language: javascript
+
+script:
+  - "docker-compose run app sh -c "node tests.js""

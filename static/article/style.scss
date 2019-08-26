@@ -6,12 +6,22 @@ body {
     font-style: normal;
     font-weight: lighter;
     cursor: default;
+
 }
 
 pre {
     position: relative;
     max-width: 80%;
-    left: 10%;
+    min-width: 80%;
+    left: 52%;
+    transform: translate(-50%);
+    background: #2d2b55 !important;
+    padding: 30px !important;
+}
+
+code {
+    margin: 10px;
+    right: 10%;
 }
 
 a {
@@ -89,10 +99,6 @@ br {
 }
 
 b:hover {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-right: 6px;
-    padding-left: 6px;
     background: black;
     color: #FFF862;
 
