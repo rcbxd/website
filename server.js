@@ -97,7 +97,7 @@ app.get('/blog/', (req, res) => {
         }
         res.render('routes/blog', {
             months: months,
-            posts: result.slice(0, 10)
+            posts: result
         })
     })
 
