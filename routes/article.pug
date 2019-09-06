@@ -7,6 +7,8 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(name='description', content = post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, ""))
     link(rel='stylesheet', href='/static/article/style.css', type='text/css')
     link(rel="stylesheet", href='/static/prism/prism.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
   body
     include nav.pug
     h1  
@@ -15,7 +17,23 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
             | #{post.date.getDate()} 
             br
         | #{post.title}
+  
     p !{post.body}
+    
+    div.bottom-like
+      h3
+        | Hit the like button to save this article.
+        br
+        span(class="month")
+          | #{post.likes}
+        if post.likes == 1
+          | person liked this post.
+        else
+          | people liked this post.
+      div.likebtn(post_id=post.id, post_title=post.title)
+        i.fas.fa-heart#heart
+      br
+    
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')
     script(src='/static/prism/prism.js' defer)

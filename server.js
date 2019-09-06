@@ -111,6 +111,38 @@ app.get('/', (req, res) => {
     res.render('routes/index');
 })
 
+app.get('/blog/favorites/', (req, res) => {
+    res.render('routes/favorites.pug')
+})
+
+app.post('/blog/post/:id/like', (req, res) => {
+    var likes = 0;
+    con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
+        if (err)
+            throw err;
+        likes = results[0].likes + 1;
+        con.query('UPDATE article SET likes = ' + likes + ' WHERE id = ' + req.params.id, (err, results, fields) => {
+            if (err)
+                throw err;
+        })
+    })
+    res.json(likes)
+})
+
+app.post('/blog/post/:id/unlike/', (req, res) => {
+    var likes = 0;
+    con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
+        if (err)
+            throw err;
+        likes = results[0].likes - 1;
+        con.query('UPDATE article SET likes = ' + likes + ' WHERE id = ' + req.params.id, (err, results, fields) => {
+            if (err)
+                throw err;
+        })
+    })
+    res.json(likes)
+})
+
 var listener = app.listen('8000', () => {
     console.log(`listening on port ${listener.address().port}`)
 })
