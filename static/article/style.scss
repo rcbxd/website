@@ -140,6 +140,7 @@ b:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, 350px);
     position: relative;
+    overflow: hidden;
     margin-left: 10%;
     margin-right: 10% !important;
     margin-top: 50px;
