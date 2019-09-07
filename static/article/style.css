@@ -94,6 +94,8 @@ b:hover {
   transition: all 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22);
   border-radius: 50%;
   margin-top: 15px;
+  max-width: 80%;
+  margin-right: 50%;
   /*-webkit-box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);
   box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);*/ }
@@ -108,17 +110,18 @@ b:hover {
   z-index: 0; }
 
 .bottom-like {
-  width: 80%;
+  max-width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 350px);
   position: relative;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10% !important;
   margin-top: 50px;
   margin-bottom: 50px; }
   .bottom-like h3 {
     margin-right: 0 !important;
     margin-left: 0 !important;
-    margin-bottom: 25px; }
+    margin-bottom: 25px;
+    max-width: 80%; }
 
 /*# sourceMappingURL=style.css.map */
