@@ -130,3 +130,17 @@ app.get('/blog/api/post/:id', cors(), (req, res) => {
         res.json(results);
     })
 })
+
+app.get('/blog/*', (req, res) => {
+    res.status(404).render('routes/error-blog.pug', {
+        error_code: '404',
+        title: 'This Page is Unavailable'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.status(404).render('routes/error-regular.pug', {
+        error_code: '404',
+        title: 'This Page is Unavailable'
+    })
+})
