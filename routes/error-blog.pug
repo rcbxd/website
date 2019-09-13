@@ -1,0 +1,22 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title rcbxd's blog
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(name='description', content='rcbxd\'s blog')
+    link(rel='stylesheet', href='/static/blog/style.css', type='text/css')
+    base(href='blog/')
+    script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
+    script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
+  body
+    include nav.pug
+    div(style="top: 50%; left: 50%; position: absolute; transform: translate(-50%,-50%);")
+        h1(align="center" )
+            | Oops!
+        h1(align="center")
+            | #{title}
+        h2(align="center")
+            | Please try again later
+        p(align="center")
+            | Error Code: #{error_code}
