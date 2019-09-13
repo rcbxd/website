@@ -42,7 +42,7 @@ function throwRender500Error(res, blog = false) {
 }
 
 con.connect(function (err) {
-    if (err) throw err;
+    if (err) console.log(`Database error: ${err}`);
     console.log("Connected!");
 });
 
@@ -57,7 +57,7 @@ app.get('/blog/article/:id/', (req, res) => {
     console.log(`user viewing ${req.params.id}`)
     con.query("SELECT * FROM article WHERE id = " + req.params.id, (err, result, fields) => {
         if (err) {
-            throw err
+            throwRender500Error(res, true)
         }
         res.render('routes/article', {
             post: result[0],
@@ -72,7 +72,7 @@ app.post('/blog/admin/', (req, res) => {
     var password = req.body.pass
     con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
         if (err)
-            throw err
+            throwRender500Error(res, true)
         if (result.length == 0)
             res.render('routes/admin.pug', {
                 error: 'No user exists with these credentials'
@@ -90,12 +90,13 @@ app.post('/blog/admin/', (req, res) => {
 app.get('/blog/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
         if (err) {
-            throw err
+            throwRender500Error(res, true)
+        } else {
+            res.render('routes/blog', {
+                months: months,
+                posts: result.slice(0, 10)
+            })
         }
-        res.render('routes/blog', {
-            months: months,
-            posts: result.slice(0, 10)
-        })
     })
 
 })

@@ -101,3 +101,4 @@ typings/
 
 ._.DS_STORE
 ._server.js
+db.sql
