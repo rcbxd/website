@@ -5,51 +5,48 @@ var mysql = require('mysql');
 var cors = require('cors');
 require('dotenv').config();
 
-var environment = {
-    db_host: '192.168.64.2',
-    db_user: 'rcbxd',
-    db_password: 'tester',
-    db: 'blog_base',
+var db_config = {
+    host: 'localhost',
+    user: 'rcbxd',
+    password: 'tester',
+    database: 'blog_base',
 }
 
-if (process.env.TYPE == "deploy") {
+if (process.env.DEPLOY == "true") {
     console.log('Running the deploy version.')
-    var environment = {
-        db_host: 'localhost',
-        db_user: 'rcbxd',
-        db_password: 'gfwvm7da4d99',
-        db: 'blog_base'
+    var db_config = {
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB
     }
 }
 
 app.use(express.json());
 app.use(express.urlencoded());
-var con = mysql.createConnection({
-    host: environment.db_host,
-    user: environment.db_user,
-    password: environment.db_password,
-    database: environment.db
-})
+var con = mysql.createConnection(db_config)
+
+function throwRender500Error(res, blog = false) {
+    res.status(500);
+    if (!blog) {
+        res.render('routes/error-regular.pug', {
+            title: 'This is A Server Error',
+            error_code: '500'
+        })
+    } else {
+        res.render('routes/error-blog.pug', {
+            title: 'This is A Server Error',
+            error_code: '500'
+        })
+    }
+}
 
 con.connect(function (err) {
-    if (err) throw err;
+    if (err) console.log(`Database error: ${err}`);
     console.log("Connected!");
 });
 
-var months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-];
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 app.set('views', path.join(__dirname, '/'));
 app.use('/static/', express.static('static'));
@@ -60,7 +57,7 @@ app.get('/blog/article/:id/', (req, res) => {
     console.log(`user viewing ${req.params.id}`)
     con.query("SELECT * FROM article WHERE id = " + req.params.id, (err, result, fields) => {
         if (err) {
-            throw err
+            throwRender500Error(res, true)
         }
         res.render('routes/article', {
             post: result[0],
@@ -75,7 +72,7 @@ app.post('/blog/admin/', (req, res) => {
     var password = req.body.pass
     con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
         if (err)
-            throw err
+            throwRender500Error(res, true)
         if (result.length == 0)
             res.render('routes/admin.pug', {
                 error: 'No user exists with these credentials'
@@ -93,12 +90,13 @@ app.post('/blog/admin/', (req, res) => {
 app.get('/blog/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
         if (err) {
-            throw err
+            throwRender500Error(res, true)
+        } else {
+            res.render('routes/blog', {
+                months: months,
+                posts: result.slice(0, 10)
+            })
         }
-        res.render('routes/blog', {
-            months: months,
-            posts: result
-        })
     })
 
 })
@@ -111,54 +109,20 @@ app.get('/', (req, res) => {
     res.render('routes/index');
 })
 
-app.get('/blog/favorites/', (req, res) => {
-    res.render('routes/favorites.pug')
+app.get('/blog/*', (req, res) => {
+    res.status(404).render('routes/error-blog.pug', {
+        error_code: '404',
+        title: 'This Page is Unavailable'
+    })
 })
 
-app.post('/blog/post/:id/like', (req, res) => {
-    var likes = 0;
-    con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
-        if (err)
-            throw err;
-        likes = results[0].likes + 1;
-        con.query('UPDATE article SET likes = ' + likes + ' WHERE id = ' + req.params.id, (err, results, fields) => {
-            if (err)
-                throw err;
-        })
+app.get('*', (req, res) => {
+    res.status(404).render('routes/error-regular.pug', {
+        error_code: '404',
+        title: 'This Page is Unavailable'
     })
-    res.json(likes)
-})
-
-app.post('/blog/post/:id/unlike/', (req, res) => {
-    var likes = 0;
-    con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
-        if (err)
-            throw err;
-        likes = results[0].likes - 1;
-        con.query('UPDATE article SET likes = ' + likes + ' WHERE id = ' + req.params.id, (err, results, fields) => {
-            if (err)
-                throw err;
-        })
-    })
-    res.json(likes)
 })
 
 var listener = app.listen('8000', () => {
     console.log(`listening on port ${listener.address().port}`)
-})
-
-app.get('/blog/api/posts', cors(), (req, res) => {
-    con.query('SELECT * FROM article ORDER BY date DESC', (err, result, fields) => {
-        if (err)
-            throw err;
-        res.json(result)
-    })
-})
-
-app.get('/blog/api/post/:id', cors(), (req, res) => {
-    con.query('SELECT * FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
-        if (err)
-            throw err;
-        res.json(results);
-    })
 })

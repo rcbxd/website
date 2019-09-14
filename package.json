@@ -10,12 +10,8 @@
     "gulp-pug": "~3.9"
   },
   "name": "rcbxd.xyz",
-  "env": {
-    "TYPE": "deploy"
-  },
   "version": "1.0.0",
   "description": "rcbxd's website",
-  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
