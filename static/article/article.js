@@ -74,7 +74,6 @@ function findLikedPostIndex(post_id) {
 
 var post_id = document.getElementsByClassName('likebtn')[0].getAttribute('post_id');
 var post_title = document.getElementsByClassName('likebtn')[0].getAttribute('post_title')
-console.log(isLikedPost(post_id))
 if (isLikedPost(post_id))
     t1.reversed(!t1.reversed());
 
@@ -88,11 +87,13 @@ document.getElementsByClassName('likebtn')[0].addEventListener('click', () => {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', `/blog/post/${liked_post.post}/like/`, true);
         xhr.send();
+        document.getElementById('like-count').innerHTML = parseInt(document.getElementById('like-count').innerHTML) + 1;
     } else {
         likedposts.splice(findLikedPostIndex(post_id), 1);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', `/blog/post/${liked_post.post}/unlike/`, true);
         xhr.send();
+        document.getElementById('like-count').innerHTML -= 1;
     }
     localStorage.setItem('liked_posts', JSON.stringify(likedposts))
     t1.reversed(!t1.reversed());
@@ -101,6 +102,46 @@ document.getElementsByClassName('likebtn')[0].addEventListener('click', () => {
 var entries = document.getElementsByTagName('h2');
 var entries = Array.from(entries);
 var id = 0;
+
+var commentForm = document.getElementById('comment-form');
+commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    var xhr = new XMLHttpRequest();
+    var name = document.getElementById('form-name-field').value;
+    var body = document.getElementById('form-text-field').value;
+    var date = new Date();
+    var params = `name=${name}&body=${body}`;
+    xhr.open("POST", `/blog/post/${document.getElementsByClassName('likebtn')[0].getAttribute('post_id')}/comment/`, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+        if (this.responseText == 'Done') {
+            console.log('Comment Submitted');
+            var new_comment = document.createElement('div');
+            new_comment.classList.add('comment');
+            var new_comment_title = document.createElement('h3');
+            new_comment_title.innerText = name;
+            var new_comment_dateholder = document.createElement('p');
+            var new_comment_date = document.createElement('span');
+            new_comment_date.classList.add('month');
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            new_comment_date.innerHTML = `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
+            new_comment_dateholder.appendChild(new_comment_date);
+            var new_comment_body = document.createElement('p');
+            new_comment_body.innerHTML = body;
+            new_comment.appendChild(new_comment_title);
+            new_comment.appendChild(new_comment_dateholder);
+            new_comment.appendChild(new_comment_body);
+            var hr = document.createElement('hr');
+            console.log(document.getElementsByClassName('comments')[0])
+            document.getElementsByClassName('comments')[0].insertBefore(new_comment, document.getElementsByClassName('comments')[0].childNodes[0]);
+            document.getElementsByClassName('comments')[0].insertBefore(hr, new_comment);
+        } else {
+            alert('Failed to comment.')
+        }
+    };
+    xhr.send(params);
+
+})
 
 entries.forEach(e => {
     e.innerHTML = `<a href="#${id}">#</a>${e.innerHTML}`;
@@ -116,18 +157,3 @@ function gotoDefiniton(event) {
     var url = `https://google.com/search?q=${event.target.getAttribute('search-query')}`
     window.location.href = url;
 }
-
-window.addEventListener('load', function () {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener('submit', function (event) {
-            if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-        }, false);
-    });
-}, false);

@@ -60,7 +60,7 @@ app.get('/blog/article/:id/', (req, res) => {
             throwRender500Error(res, true)
         } else {
             var post = result[0];
-            con.query("SELECT * FROM comments WHERE post = " + req.params.id, (err, result, fields) => {
+            con.query("SELECT * FROM comments WHERE post = " + req.params.id + " ORDER BY id DESC", (err, result, fields) => {
                 if (err) {
                     throwRender500Error(res, true)
                 } else {
@@ -144,9 +144,10 @@ app.post('/blog/post/:id/comment/', (req, res) => {
     con.query("INSERT INTO comments (name, body, post) VALUES ('" + name + "', '" + comment + "', " + req.params.id + ")", (err, results, fields) => {
         if (err) {
             throwRender500Error(res, true);
+            res.send('Error')
         }
     })
-    res.redirect('back')
+    res.send('Done')
 })
 
 app.post('/blog/post/:id/unlike/', (req, res) => {

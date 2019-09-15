@@ -154,4 +154,7 @@ form {
     height: 30px !important;
     width: 60px !important; }
 
+hr {
+  border: 1px solid black; }
+
 /*# sourceMappingURL=style.css.map */
