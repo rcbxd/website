@@ -6,3 +6,12 @@ build-services:
 
 stop-services:
 	docker-compose down
+
+start-db:
+	brew services start mysql
+
+restart-db:
+	brew services restart mysql
+
+stop-db:
+	brew services stop mysql

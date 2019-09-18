@@ -190,65 +190,21 @@
     transform: translateY(-100vh) rotate(720deg);
     opacity: 0;
     border-radius: 50%; } }
-
-#cursor {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 50%;
-  position: absolute;
-  transition: 300ms ease-out;
-  animation: cursorAnimation .5s infinite alternate;
-  background-color: none;
+.cursor {
   pointer-events: none;
-  z-index: 10;
-  display: block;
-  -webkit-appearance: none; }
-  #cursor::after {
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    border: 8px solid black;
-    border-radius: 50%;
-    opacity: 0.5;
-    top: -8px;
-    left: -8px;
-    animation: cursorAnimation2 0.5s infinite alternate;
-    mix-blend-mode: difference;
-    -webkit-mix-blend-mode: difference; }
-
-@keyframes cursorAnimation {
-  from {
-    transform: scale(1); }
-  to {
-    transform: scale(0.7); } }
-
-@keyframes cursorAnimation2 {
-  from {
-    transform: scale(1); }
-  to {
-    transform: scale(0.4); } }
-
-@keyframes cursorAnimation3 {
-  0% {
-    transform: scale(1); }
-  50% {
-    transform: scale(3); }
-  100% {
-    transform: scale(1); } }
-
-.expand {
-  animation: cursorAnimation3 .5s forwards !important;
-  border: 1px solid red; }
-
-.cursor_invert {
-  filter: invert(100%); }
-
-.cursor_highlight {
-  background-color: white;
+  position: fixed;
+  padding: 0.3rem;
+  background-color: #fff;
+  border-radius: 50%;
   mix-blend-mode: difference;
-  -webkit-mix-blend-mode: difference; }
+  transition: transform 0.3s ease;
+  z-index: 1000; }
+
+a.cursor {
+  transform: translate(-50%, -50%) scale(8); }
+
+a {
+  transition: all 1s ease; }
 
 body {
   font-family: 'Raleway', cursive;
@@ -338,7 +294,8 @@ h3 {
   display: flex;
   position: relative;
   margin-top: 20px;
-  z-index: 1; }
+  z-index: 1;
+  height: 50px; }
 
 .h1 {
   margin-bottom: 300px;
@@ -360,16 +317,15 @@ h3 {
 @media only screen and (max-device-width: 480px) {
   #cursor {
     display: none; }
+
   .skills {
     justify-content: left;
     align-items: left; }
     .skills > div {
       margin-top: 5vh; } }
-
 @media only screen and (orientation: landscape) and (max-device-height: 480px) {
   #cursor {
     display: none; } }
-
 ::selection {
   background-color: white;
   color: #FB3C5C; }
@@ -443,3 +399,5 @@ hr {
   position: fixed;
   right: 3%;
   top: 90%; }
+
+/*# sourceMappingURL=style.css.map */

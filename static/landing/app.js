@@ -1,7 +1,5 @@
 // js app core
 
-const cursor = document.getElementById("cursor");
-const h = cursor.offsetHeight - 2;
 var sc = true;
 var menu_open = false;
 var theme = "black";
@@ -42,7 +40,7 @@ window.addEventListener("load", () => {
 
   if (isMobile()) {
     window.setTimeout(() => {
-      document.getElementById("cursor").style.display = "none";
+      document.getElementsByClassName("cursor")[0].style.display = "none";
     }, 1);
   }
 
@@ -57,7 +55,6 @@ window.addEventListener("load", () => {
 const menu = () => {
   menu_open = !menu_open;
   t1.reversed(!t1.reversed());
-  cursor.classList.toggle("cursor_invert");
   var i = 0;
   var load = setInterval(function () {
     // menu items loader
@@ -77,57 +74,6 @@ const menu = () => {
   }
 };
 
-const cursorHighlight = s => {
-  // highlight the cursor if not a link, expand if a link
-  if (s) {
-    cursor.classList.add("expand");
-    if (isMobile()) {
-      window.setTimeout(() => {
-        document.getElementById("cursor").style.display = "none";
-      }, 1);
-    }
-  }
-  cursor.classList.add("cursor_highlight");
-};
-
-const cursorBack = () => {
-  // get the cursor to its inial state
-  cursor.classList.remove("expand");
-  cursor.classList.remove("cursor_highlight");
-};
-
-document.addEventListener("mousemove", e => {
-  // cursor movement
-  cursor.setAttribute(
-    "style",
-    "top: " + (e.pageY - h / 2) + "px; left: " + (e.pageX - h / 2) + "px"
-  );
-});
-
-document.addEventListener("click", () => {
-  // cursor expand on click
-  cursor.classList.add("expand");
-  if (isMobile()) {
-    window.setTimeout(() => {
-      document.getElementById("cursor").style.display = "none";
-    }, 1);
-  }
-  window.setTimeout(() => {
-    cursor.classList.remove("expand");
-  }, 500);
-});
-
-window.addEventListener("load", () => {
-  // put the cursor in the middle of the screen onload
-  cursor.setAttribute(
-    "style",
-    "top: " +
-    (window.innerHeight / 2 - h / 2) +
-    "px; left: " +
-    (window.innerWidth / 2 - h / 2 + "px")
-  );
-});
-
 window.addEventListener("scroll", e => {
   // mobile menu on scroll to the top
   if (sc && window.scrollY == 0 && isMobile()) {
@@ -145,3 +91,36 @@ const goBlack = () => {
   document.getElementsByClassName("area")[0].classList.toggle("goBlack");
   window.localStorage.setItem("theme", theme);
 };
+
+window.addEventListener('load', () => {
+  const link = document.querySelectorAll('a');
+  const cursor = document.querySelector('.cursor');
+
+  const animateit = function (e) {
+    console.log(this)
+    const a = this;
+    const {
+      offsetX: x,
+      offsetY: y
+    } = e, {
+      offsetWidth: width,
+      offsetHeight: height
+    } = this,
+    move = 25,
+      xMove = x / width * (move * 2) - move,
+      yMove = y / height * (move * 2) - move;
+    a.style.transform = `translate(${xMove}px, ${yMove}px)`;
+    if (e.type === 'mouseleave') a.style.transform = '';
+  };
+  const editCursor = e => {
+    const {
+      clientX: x,
+      clientY: y
+    } = e;
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+  };
+  link.forEach(b => b.addEventListener('mousemove', animateit));
+  link.forEach(b => b.addEventListener('mouseleave', animateit));
+  window.addEventListener('mousemove', editCursor);
+})
