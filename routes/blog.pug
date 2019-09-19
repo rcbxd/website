@@ -13,11 +13,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     include nav.pug
     div(id="posts")
       each post in posts
-        if posts[posts.length-1].id == post.id
-          div(class="additional")
-            h2 Check out the GitHub repository for this blog!
-            a(href="https://github.com/rcbxd/rcbxd.xyz")
-              | Here
         div(class="post")
           if posts[0].id == post.id
             h1(id="newest") Newest Post
