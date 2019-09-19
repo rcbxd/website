@@ -4,7 +4,8 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title #{post.title}
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content = post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, ""))
+    meta(name='description', content = post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, "")) 
+    link(rel="stylesheet", href="/static/bootstrap.min.css")
     link(rel='stylesheet', href='/static/article/style.css', type='text/css')
     link(rel="stylesheet", href='/static/prism/prism.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css')
@@ -17,14 +18,13 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
             | #{post.date.getDate()} 
             br
         | #{post.title}
-  
     p !{post.body}
     
     div.bottom-like
       h3
         | Hit the like button to save this article.
         br
-        span(class="month")
+        span(class="month" id="like-count")
           | #{post.likes}
         if post.likes == 1
           | person liked this post.
@@ -33,7 +33,36 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
       div.likebtn(post_id=post.id, post_title=post.title)
         i.fas.fa-heart#heart
       br
-    
+    div.bottom-comments
+      h1 Comments
+      if comments.length == 0
+        h3
+          | No comments; Be the first one to comment!
+      form(class="col-6" id="comment-form")
+        div(class="form-group")
+            label(for="name") Name
+            input(type="name" class="form-control" id="form-name-field" name="name" placeholder="Your Name" required)
+            small(id="emailHelp" class="form-text text-muted")
+                | Comments with irrelevant names/content will be removed
+        div(class="form-group")
+            label(for="text") Text
+            input(type="text" class="form-control" name="body" id="form-text-field" placeholder="Your Text" required)
+            
+        button(type="submit" class="btn btn-secondary") Send
+      div.comments
+        each comment in comments
+          hr
+          div.comment
+            h3
+              | #{comment.name} 
+            p
+              span.month
+                | #{months[new Date(comment.time).getMonth()]}
+                | #{new Date(comment.time).getDate()}
+                | #{new Date(comment.time).getFullYear()}
+            p 
+              | #{comment.body}
+
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')
     script(src='/static/prism/prism.js' defer)

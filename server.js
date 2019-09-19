@@ -58,11 +58,20 @@ app.get('/blog/article/:id/', (req, res) => {
     con.query("SELECT * FROM article WHERE id = " + req.params.id, (err, result, fields) => {
         if (err) {
             throwRender500Error(res, true)
+        } else {
+            var post = result[0];
+            con.query("SELECT * FROM comments WHERE post = " + req.params.id + " ORDER BY id DESC", (err, result, fields) => {
+                if (err) {
+                    throwRender500Error(res, true)
+                } else {
+                    res.render('routes/article', {
+                        post: post,
+                        months: months,
+                        comments: result,
+                    })
+                }
+            })
         }
-        res.render('routes/article', {
-            post: result[0],
-            months: months
-        })
     })
 
 });
@@ -73,17 +82,19 @@ app.post('/blog/admin/', (req, res) => {
     con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
         if (err)
             throwRender500Error(res, true)
-        if (result.length == 0)
+        else if (result.length == 0)
             res.render('routes/admin.pug', {
                 error: 'No user exists with these credentials'
             })
-        else
-        if (result[0].password == password) {
-            console.log('granted')
-        } else
-            res.render('routes/admin.pug', {
-                error: 'Invalid password provided'
-            })
+        else {
+            if (result[0].password == password) {
+                console.log('granted')
+            } else
+                res.render('routes/admin.pug', {
+                    error: 'Invalid password provided'
+                })
+        }
+
     })
 })
 
@@ -94,11 +105,19 @@ app.get('/blog/', (req, res) => {
         } else {
             res.render('routes/blog', {
                 months: months,
-                posts: result.slice(0, 10)
+                posts: result
             })
         }
     })
 
+})
+
+app.get('/blog/admin/', (req, res) => {
+    res.render('routes/admin')
+})
+
+app.get('/', (req, res) => {
+    res.render('routes/index');
 })
 
 app.get('/blog/favorites/', (req, res) => {
@@ -119,6 +138,18 @@ app.post('/blog/post/:id/like', (req, res) => {
     res.json(likes)
 })
 
+app.post('/blog/post/:id/comment/', (req, res) => {
+    var name = req.body.name;
+    var comment = req.body.body;
+    con.query("INSERT INTO comments (name, body, post) VALUES ('" + name + "', '" + comment + "', " + req.params.id + ")", (err, results, fields) => {
+        if (err) {
+            throwRender500Error(res, true);
+            res.send('Error')
+        }
+    })
+    res.send('Done')
+})
+
 app.post('/blog/post/:id/unlike/', (req, res) => {
     var likes = 0;
     con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
@@ -132,15 +163,6 @@ app.post('/blog/post/:id/unlike/', (req, res) => {
     })
     res.json(likes)
 })
-
-app.get('/blog/admin/', (req, res) => {
-    res.render('routes/admin')
-})
-
-app.get('/', (req, res) => {
-    res.render('routes/index');
-})
-
 
 app.get('/blog/*', (req, res) => {
     res.status(404).render('routes/error-blog.pug', {
