@@ -28,16 +28,16 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
       .bg
       .bg2
       .bg_sec
-        i#close.fas.fa-times(onclick='menu(); sc = true', onmouseover='cursorHighlight(false)', onmouseout='cursorBack()')
+        i#close.fas.fa-times(onclick='menu(); sc = true',)
         h1.menu_title #Menu
-        a.menu_item(href='#h2', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+        a.menu_item(href='#h2', onclick='menu()',)
           | About
           | me/Skills
-        a.menu_item(href='#h3', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Projects
-        a.menu_item(href='#h4', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Contact
-        a.menu_item(href='/blog/', onclick='menu()', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') Blog
+        a.menu_item(href='#h3', onclick='menu()',) Projects
+        a.menu_item(href='#h4', onclick='menu()',) Contact
+        a.menu_item(href='/blog/', onclick='menu()',) Blog
     .header
-      a#menu( onclick='menu()', onmouseover='cursorHighlight(false)', onmouseout='cursorBack()') Menu
+      a#menu( onclick='menu()',) Menu
     h1.back_title.bp
       | rcbxd 
       br
@@ -49,12 +49,13 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         h2.title.skill Front-end
         h2.title.skill Back-end
         h2.title.skill Graphics
+      
       .social_h1
-        a.social(href='https://www.instagram.com/rcbxd/', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+        a.social(href='https://www.instagram.com/rcbxd/', target='_blank',) 
           i.fab.fa-instagram
-        a.social(href='https://codepen.io/rcbxd/', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+        a.social(href='https://codepen.io/rcbxd/', target='_blank',) 
           i.fab.fa-codepen
-        a.social(href='https://www.github.com/rcbxd', target='_blank', onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+        a.social(href='https://www.github.com/rcbxd', target='_blank',)
           i.fab.fa-github
     h1.back_title
       | About Me.
@@ -100,25 +101,25 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
       .projects
         .p
           h1
-            a(href='https://uptime.xobb.me' onmouseover='cursorHighlight(true)', onmouseout='cursorBack()') 
+            a(href='https://uptime.xobb.me') 
               | Uptime 🔥
               br
               | Python(Django), Sass, PostgreSQL, Docker
         .p
           h1
-            a(href='http://ntbk.xyz' onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+            a(href='http://ntbk.xyz')
               | Notekeeper 🔥
               br 
               | PHP, MySQL
         .p
           h1
-            a(href='' onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+            a(href='')
               | Mobile Todos App 🔥
               br
               | JavaScript(Angular, Ionic)
         .p
           h1
-            a(href='/blog' onmouseover='cursorHighlight(true)', onmouseout='cursorBack()')
+            a(href='/blog')
               | My Blog
               br
               | JavaScript(Node.js), MySQL, Pug, Sass, Gulp
@@ -130,19 +131,19 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     #h4.h.h4
       h1.title #Contact
       div.contacts
-          a(href='https://www.instagram.com/rcbxd/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Instagram 
+          a(href='https://www.instagram.com/rcbxd/') Instagram 
             i.fab.fa-instagram
-          a(href='https://codepen.io/rcbxd/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") 
+          a(href='https://codepen.io/rcbxd/') 
             | Codepen 
             i.fab.fa-codepen
-          a(href='https://www.github.com/rcbxd' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitHub 
+          a(href='https://www.github.com/rcbxd') GitHub 
             i.fab.fa-github
-          a(href='https://www.gitlab.com/rcbxd?nav_source=navbar' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") GitLab 
+          a(href='https://www.gitlab.com/rcbxd?nav_source=navbar') GitLab 
             i.fab.fa-gitlab
-          a(href='https://www.discord.gg/' onmouseover="cursorHighlight(true)" onmouseout="cursorBack()") Discord: ee#8995 
+          a(href='https://www.discord.gg/') Discord: ee#8995 
             i.fab.fa-discord
       p#copyright() © rcbxd 
         script.
           document.write(new Date().getFullYear());
-    #cursor
+    .cursor
     script(type='text/javascript', src='/static/landing/app.js')
