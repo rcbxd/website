@@ -204,7 +204,10 @@ a.cursor {
   transform: translate(-50%, -50%) scale(8); }
 
 a {
-  transition: all 1s ease; }
+  transition: all 0.3s ease; }
+
+i {
+  transition: all 1s ease !important; }
 
 body {
   font-family: 'Raleway', cursive;
@@ -306,8 +309,6 @@ h3 {
   margin-left: 20px;
   margin-right: 20px;
   transition: all 0.1s ease-in; }
-  .social:hover {
-    transform: translateY(-5px); }
 
 .skill {
   margin-left: 20px;

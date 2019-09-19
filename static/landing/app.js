@@ -93,11 +93,12 @@ const goBlack = () => {
 };
 
 window.addEventListener('load', () => {
-  const link = document.querySelectorAll('a');
+  let link = Array.from(document.querySelectorAll('a'));
+  //remove all menu links
+  link = link.slice(4, link.length)
   const cursor = document.querySelector('.cursor');
 
   const animateit = function (e) {
-    console.log(this)
     const a = this;
     const {
       offsetX: x,
