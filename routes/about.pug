@@ -1,0 +1,52 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title info
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(name='description') 
+    link(rel='stylesheet', href='/static/article/style.css', type='text/css')
+    link(rel="stylesheet", href='/static/prism/prism.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
+  body
+    include nav.pug
+    h1 
+      | About
+    h3 Everything you need to know about this blog
+
+    .body
+      p
+        h2 What is this blog?
+        p
+          | This is my personal blog, where I share different things I know about Web Development or post some tutorials on front-end and back-end programming.
+        h2 How many people are working on it?
+        p
+          | At the moment, it is just me. The project is easy enough to have only one person working on it.
+        h2 What tools/languages are you using?
+        p | For this blog I mostly use JavaScript, but there are also other technologies involved:
+        li Node (Expess)
+        li Pug
+        li Sass
+        li Git
+        li Docker
+        li MySQL
+        li Gulp
+        li GSAP
+        h2 Do you have any other blogs?
+        p 
+          | No, I don't. I have Twitter, Instagram, and some other social media accounts where I can post stuff,
+          | but I want to build something that I could tweak and change however I want.
+        h2 GitHub repo?
+        p
+          | Yes, I use GitHub for this project, but it is currently private.
+        p Following my  
+          a(href="https://github.com/rcbxd/") profile 
+          | may change this
+        h2 How much did you spend building this?
+        p
+          | The blog was ready in a few days.
+          | At that point it did not have all the features it has now, so I think that the whole worktime was around 20 hours.
+
+    script(type='text/javascript', src='/static/about/about.js')
+    script(src='/static/prism/prism.js' defer)
