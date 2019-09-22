@@ -1,7 +1,7 @@
 body {
   font-family: bio-sans, sans-serif !important;
   background: #FFF862;
-  color: black;
+  color: #4a4c52;
   font-style: normal !important;
   font-weight: lighter !important;
   cursor: default;
@@ -55,7 +55,7 @@ h1 {
 
 ::selection {
   color: #FFF862;
-  background: black; }
+  background: #4a4c52; }
 
 p,
 li,
@@ -63,7 +63,7 @@ h2 {
   margin-left: 10%;
   font-size: 18pt;
   margin-right: 10%;
-  line-height: 1.25; }
+  line-height: 30px; }
 
 h2 {
   font-size: 24pt; }
@@ -84,14 +84,14 @@ br {
   user-select: none; }
 
 b:hover {
-  background: black;
-  color: #FFF862;
+  background: #4a4c52;
+  color: white;
   border-radius: 5px;
   padding-left: 2px;
   padding-right: 2px; }
   b:hover ::selection {
-    background: #FFF862 !important;
-    color: black; }
+    background: #4a4c52 !important;
+    color: white !important; }
 
 .likebtn {
   height: 100px;
@@ -99,7 +99,7 @@ b:hover {
   margin: 0 auto;
   transition: all 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22);
   border-radius: 50%;
-  margin-top: 15px;
+  margin-top: 25px;
   max-width: 80%;
   margin-right: 50%;
   /*-webkit-box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);
@@ -132,7 +132,20 @@ b:hover {
     max-width: 80%; }
 
 .bottom-comments {
-  margin-top: 100px; }
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: white; }
+  .bottom-comments ::selection {
+    color: white;
+    background: black; }
+
+.comment {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 80%;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px; }
 
 form {
   margin-left: 10%;
@@ -155,6 +168,15 @@ form {
     width: 60px !important; }
 
 hr {
-  border: 1px solid black; }
+  border: 1px solid rgba(0, 0, 0, 0.5); }
+
+.body {
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: white !important; }
+  .body ::selection {
+    color: white;
+    background: black; }
 
 /*# sourceMappingURL=style.css.map */
