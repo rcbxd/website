@@ -164,6 +164,10 @@ app.post('/blog/post/:id/unlike/', (req, res) => {
     res.json(likes)
 })
 
+app.get('/blog/about/', (req, res) => {
+    res.render('routes/about.pug');
+})
+
 app.get('/blog/*', (req, res) => {
     res.status(404).render('routes/error-blog.pug', {
         error_code: '404',

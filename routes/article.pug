@@ -18,7 +18,10 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
             | #{post.date.getDate()} 
             br
         | #{post.title}
-    p !{post.body}
+    .description
+      h3 !{post.description}
+    .body
+      p !{post.body}
     
     div.bottom-like
       h3
@@ -51,11 +54,9 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         button(type="submit" class="btn btn-secondary") Send
       div.comments
         each comment in comments
-          hr
           div.comment
             h3
-              | #{comment.name} 
-            p
+              | @#{comment.name} &nbsp; &nbsp; 
               span.month
                 | #{months[new Date(comment.time).getMonth()]}
                 | #{new Date(comment.time).getDate()}
