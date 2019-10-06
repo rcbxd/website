@@ -5,145 +5,63 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     title rcbxd's homepage
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
     meta(name='description', content='rcbxd - software developer')
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     link(rel='stylesheet', href='/static/landing/style.css', type='text/css')
-    script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
-    script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
+    link(href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet")
+    
+    link(rel="icon", type="image/png", href="/static/favicon/favicon.ico")
   body
-    .area
-      ul.circles
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-    #mobile_menu
-      .bg
-      .bg2
-      .bg_sec
-        i#close.fas.fa-times(onclick='menu(); sc = true',)
-        h1.menu_title #Menu
-        a.menu_item(href='#h2', onclick='menu()',)
-          | About
-          | me/Skills
-        a.menu_item(href='#h3', onclick='menu()',) Projects
-        a.menu_item(href='#h4', onclick='menu()',) Contact
-        a.menu_item(href='/blog/', onclick='menu()',) Blog
-    .header
-      a#menu( onclick='menu()',) Menu
-    h1.back_title.bp
-      | rcbxd 
-      br
-      | Anthony S.
-    .h.h1
-      h1.title(onclick="goBlack()") rcbxd #{title}
-      h2.title Software Developer
-      .skills_short
-        h2.title.skill Front-end
-        h2.title.skill Back-end
-        h2.title.skill Graphics
-      
-      .social_h1
-        a.social(href='https://www.instagram.com/rcbxd/', target='_blank',) 
-          i.fab.fa-instagram
-        a.social(href='https://codepen.io/rcbxd/', target='_blank',) 
-          i.fab.fa-codepen
-        a.social(href='https://www.github.com/rcbxd', target='_blank',)
-          i.fab.fa-github
-    h1.back_title
-      | About Me.
-      br
-      | 16 y.o. Software Developer  
-    hr    
-    #h2.h.h2
-      h1.title About me:
-      h2.title Web Developer.
-      h3.title(align="center") Currently learning Django REST Framework and Docker.
-      .skills
-        .web.box
-          h3.s_title Front:
-          h3 HTML(Pug)
-          h3 CSS(Sass) <i class="fas fa-fire"></i>
-          h3 JavaScript(React, Angular, Ionic) <i class="fas fa-fire"></i>
-          h3 TypeScript(Angular, Ionic) <i class="fas fa-fire"></i>
-          h3 Web Design(PSD -> HTML, GSAP, Bootstrap, XD) <i class="fas fa-fire"></i>
-        .programming.box
-          h3.s_title Back:
-          h3 PHP
-          h3 Python(Bots, Django, Django REST) <i class="fas fa-fire"></i>
-          h3 Java(Desktop Applications)
-          h3 Node.js(Socket.io, Express) <i class="fas fa-fire"></i>
-          h3 C++
-          h3 Databases(MySQL, PostgreSQL)
-        .design.box
-          h3.s_title Other:
-          h3 Photo Editing(Photoshop) <i class="fas fa-fire"></i>
-          h3 3D-modeling(Cinema4D) 
-          h3 Version control: Git
-          h3 Development tools: Gulp
-          h3 Deployment and Hosting(DigitalOcean)
-          h3 Shell
-          h3 Docker <i class="fas fa-fire"></i>
-    h1.back_title.bp
-      | Projects.
-      br
-      | Applications.  
-    hr
-    #h3.h.h3
-      h1.title Projects
-      .projects
-        .p
-          h1
-            a(href='https://uptime.xobb.me') 
-              | Uptime 🔥
-              br
-              | Python(Django), Sass, PostgreSQL, Docker
-        .p
-          h1
-            a(href='http://ntbk.xyz')
-              | Notekeeper 🔥
-              br 
-              | PHP, MySQL
-        .p
-          h1
-            a(href='')
-              | Mobile Todos App 🔥
-              br
-              | JavaScript(Angular, Ionic)
-        .p
-          h1
-            a(href='/blog')
-              | My Blog
-              br
-              | JavaScript(Node.js), MySQL, Pug, Sass, Gulp
-    h1.back_title
-        | Contact.
-        br
-        | Social Media
-    hr
-    #h4.h.h4
-      h1.title #Contact
-      div.contacts
-          a(href='https://www.instagram.com/rcbxd/') Instagram 
-            i.fab.fa-instagram
-          a(href='https://codepen.io/rcbxd/') 
-            | Codepen 
-            i.fab.fa-codepen
-          a(href='https://www.github.com/rcbxd') GitHub 
-            i.fab.fa-github
-          a(href='https://www.gitlab.com/rcbxd?nav_source=navbar') GitLab 
-            i.fab.fa-gitlab
-          a(href='https://www.discord.gg/') Discord: ee#8995 
-            i.fab.fa-discord
-      p#copyright() © rcbxd 
-        script.
-          document.write(new Date().getFullYear());
-    .cursor
-    script(type='text/javascript', src='/static/landing/app.js')
+    h1 #Anthony S. (rcbxd)
+    h2 Personal Website and Blog.
+    div(id="about")
+      h1 #About Me
+      p My name is Anthony and I am a high school enthusiast who loves programming.
+      p This is a page about me and programming. On the blog section you can find different interesting posts about web development and tutorials.
+      .info
+        .info-block
+          h3 Life 
+            i(class="fas fa-heartbeat")
+          li First opened my eyes in 2003
+          li Started programming in 2018
+          li Will graduate HS in 2021
+          li Music helps a lot
+
+        .info-block
+          h3 Professional 
+            i(class="fas fa-briefcase")
+          li Python(Django, Django REST)
+          li Web Design(Pug, Sass, Bootstrap, XD)
+          li Java
+          li JavaScript(Node, Express, Socket.io, React, Angular, Ionic)
+          li Linux Server operations
+          li Databases
+
+        .info-block
+          h3 Interests 
+            i(class="fas fa-binoculars")
+          li Astronomy
+          li Photography
+          li Programming
+          li Engineering (Circutry)
+          li History
+
+    h1 #Projects
+    h2 Some of things I am/was working on.
+    .projects
+      .project
+        h3 1. Sitebeatz
+        p Website monitoring service. Credit: @xobb.
+        tags
+          | #Python
+          | #Django
+          | #Docker
+
+      .project
+        h3 2. Personal website and blog
+        p You are on it right now.
+        tags
+          | #Node
+          | #Express          
+          | #MySQL
+
+
