@@ -117,7 +117,15 @@ app.get('/blog/admin/', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('routes/index');
+    con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
+        if (err) {
+            throwRender500Error(res, true)
+        } else {
+            res.render('routes/index', {
+                posts: result
+            });
+        }
+    })
 })
 
 app.get('/blog/favorites/', (req, res) => {
