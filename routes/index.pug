@@ -8,13 +8,14 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     link(rel='stylesheet', href='/static/landing/style.css', type='text/css')
     link(href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet")
-    
     link(rel="icon", type="image/png", href="/static/favicon/favicon.ico")
   body
-    h1 #Anthony S. (rcbxd)
+    h1(id="me") 
+      a(href="#me") #Anthony S. (rcbxd)
     h2 Personal Website and Blog.
     div(id="about")
-      h1 #About Me
+      h1(id="about")
+        a(href="#about") #About Me
       p My name is Anthony and I am a high school enthusiast who loves programming.
       p This is a page about me and programming. On the blog section you can find different interesting posts about web development and tutorials.
       .info
@@ -33,8 +34,9 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           li Web Design(Pug, Sass, Bootstrap, XD)
           li Java
           li JavaScript(Node, Express, Socket.io, React, Angular, Ionic)
+          li PHP
           li Linux Server operations
-          li Databases
+          li SQL
 
         .info-block
           h3 Interests 
@@ -42,26 +44,99 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           li Astronomy
           li Photography
           li Programming
-          li Engineering (Circutry)
           li History
 
-    h1 #Projects
+    h1(id="projects")
+      a(href="#projects") #Projects
     h2 Some of things I am/was working on.
     .projects
       .project
         h3 1. Sitebeatz
         p Website monitoring service. Credit: @xobb.
         tags
-          | #Python
+          i(class="fas fa-tag") 
+          |  #Python
           | #Django
           | #Docker
+          | #Git
+          | #Postgre
 
       .project
         h3 2. Personal website and blog
         p You are on it right now.
         tags
-          | #Node
+          i(class="fas fa-tag")
+          |  #Node
           | #Express          
           | #MySQL
+          | #Git
+      
+      .project
+        h3 3. Web Notebook App
+        p Simple web application which allows users to create their own notes with markdown formatting and secure auth system.
+        tags
+          i(class="fas fa-tag")
+          |  #PHP
+          | #Bootstrap
+          | #MySQL
 
+      .project
+        h3 4. Shopping List App
+        p My first full stack application. 
+        tags
+          i(class="fas fa-tag")
+          |  #Firebase
+          | #Angular
+          | #NoSQL
+          | #Bootstrap
 
+      .project
+        h3 Other Projects
+        h4 Available Here:
+        a(href="https://github.com/rcbxd")
+          i(class="fab fa-github") &nbsp;
+          | GitHub
+        | &nbsp;
+        a(href="https://gitlab.com/rcbxd")
+          i(class="fab fa-gitlab") &nbsp;
+          | GitLab
+        | &nbsp;
+        a(href="https://gitlab.com/rcbxd")
+          i(class="fab fa-codepen") &nbsp;
+          | Codepen
+
+    .blog 
+      h1(id="blog")
+        a(href="#blog") #My Blog
+      h2 Check out programming tutorials there.
+      each post in posts
+        h4 
+          a(href="/blog/article/" + post.id) #{post.title}
+    
+    .contact
+      h1(id="contact")
+        a(href="#contact") #Contact 
+      h2 Ways to reach me.
+      .contacts
+        a(href="mailto:rbcxdd@gmail.com")
+          i(class="fas fa-envelope-open-text") &nbsp;
+          | Email
+      
+        a(href="https://t.me/rcbxd")
+          i(class="fab fa-telegram") &nbsp;
+          | Telegram
+
+        a(href="https://github.com/rcbxd")
+          i(class="fab fa-github") &nbsp;
+          | GitHub
+        
+        a(href="https://gitlab.com/rcbxd")
+          i(class="fab fa-gitlab") &nbsp;
+          | GitLab
+
+    h3 rcbxd 
+      script.
+        document.write(new Date().getFullYear());
+    
+  .cursor
+  script(src="/static/landing/app.js")
