@@ -6,6 +6,11 @@ body {
   padding-right: 10%;
   padding-top: 5%;
   line-height: 1.25;
+  cursor: none;
+}
+
+a {
+  cursor: none;
 }
 
 #avatar {
@@ -42,8 +47,72 @@ li {
   margin-bottom: 50px;
 }
 
+.info-block {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 720px) {
   .info {
     grid-template-columns: repeat(1, auto) !important;
   }
+}
+
+::selection {
+  color: #1E1F23;
+  background: #DFDFDF;
+}
+
+h1::selection {
+  color: #1E1F23;
+  background: white;
+}
+
+a {
+  color: inherit;
+}
+
+.projects {
+  margin-bottom: 100px;
+}
+
+.contacts {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
+
+.blog {
+  margin-bottom: 100px;
+}
+
+.contact {
+  margin-bottom: 100px;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  padding: 0.3rem;
+  background-color: #fff;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+a.cursor {
+  transform: translate(-50%, -50%) scale(8);
+}
+
+a {
+  transition: all 0.3s ease;
+}
+
+i {
+  transition: all 1s ease !important;
+}
+
+h1 a {
+  text-decoration: none;
 }
