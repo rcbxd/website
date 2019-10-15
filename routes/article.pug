@@ -4,7 +4,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title #{post.title}
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content = post.body.substring(0,100).replace(/<h2>/g, "").replace(/<\/h2>/g, "").replace(/<br>/g, "").replace(/<p>/g, "")) 
+    meta(name='description', content = post.description) 
     link(rel="stylesheet", href="/static/bootstrap.min.css")
     link(rel='stylesheet', href='/static/article/style.css', type='text/css')
     link(rel="stylesheet", href='/static/prism/prism.css')

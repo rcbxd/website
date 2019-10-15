@@ -4,6 +4,9 @@ var path = require('path');
 var mysql = require('mysql');
 var cors = require('cors');
 require('dotenv').config();
+const {
+    Remarkable
+} = require('remarkable');
 
 var db_config = {
     host: 'localhost',
@@ -64,6 +67,9 @@ app.get('/blog/article/:id/', (req, res) => {
                 if (err) {
                     throwRender500Error(res, true)
                 } else {
+                    var md = new Remarkable();
+                    post.body = md.render(post.body);
+                    console.log(post.likes)
                     res.render('routes/article', {
                         post: post,
                         months: months,
