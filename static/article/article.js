@@ -35,32 +35,30 @@ t1.to("#heart", 0.2, {
 });
 
 t1.reverse();
-t1.reversed(!t1.reversed())
+t1.reversed(!t1.reversed());
 
-var b_elements = Array.from(document.getElementsByTagName('b'));
+var b_elements = Array.from(document.getElementsByTagName('strong'));
 
 b_elements.forEach(b => {
     query = b.innerHTML;
-    b.setAttribute('search-query', query)
+    b.setAttribute('search-query', query);
     b.onclick = gotoDefiniton;
 })
 
-
 if (localStorage.getItem('liked_posts')) {
-    likedposts = JSON.parse(localStorage.getItem('liked_posts'))
+    likedposts = JSON.parse(localStorage.getItem('liked_posts'));
 } else {
     likedposts = [];
 }
 
 function isLikedPost(post_id) {
     if (likedposts.length == 0)
-        return false
+        return false;
 
     for (post in likedposts) {
         if (likedposts[post].post == post_id)
             return true;
     }
-
     return false;
 }
 
@@ -73,9 +71,9 @@ function findLikedPostIndex(post_id) {
 }
 
 var post_id = document.getElementsByClassName('likebtn')[0].getAttribute('post_id');
-var post_title = document.getElementsByClassName('likebtn')[0].getAttribute('post_title')
-if (isLikedPost(post_id))
-    t1.reversed(!t1.reversed());
+var post_title = document.getElementsByClassName('likebtn')[0].getAttribute('post_title');
+if (isLikedPost(post_id));
+t1.reversed(!t1.reversed());
 
 document.getElementsByClassName('likebtn')[0].addEventListener('click', () => {
     var liked_post = {
@@ -95,7 +93,7 @@ document.getElementsByClassName('likebtn')[0].addEventListener('click', () => {
         xhr.send();
         document.getElementById('like-count').innerHTML -= 1;
     }
-    localStorage.setItem('liked_posts', JSON.stringify(likedposts))
+    localStorage.setItem('liked_posts', JSON.stringify(likedposts));
     t1.reversed(!t1.reversed());
 })
 
@@ -132,11 +130,11 @@ commentForm.addEventListener('submit', (event) => {
             new_comment.appendChild(new_comment_dateholder);
             new_comment.appendChild(new_comment_body);
             var hr = document.createElement('hr');
-            console.log(document.getElementsByClassName('comments')[0])
+            console.log(document.getElementsByClassName('comments')[0]);
             document.getElementsByClassName('comments')[0].insertBefore(new_comment, document.getElementsByClassName('comments')[0].childNodes[0]);
             document.getElementsByClassName('comments')[0].insertBefore(hr, new_comment);
         } else {
-            alert('Failed to comment.')
+            alert('Failed to comment.');
         }
     };
     xhr.send(params);
@@ -149,11 +147,11 @@ entries.forEach(e => {
     id++;
 })
 
-var url = document.URL
+var url = document.URL;
 var hid = url.substring(url.lastIndexOf('#') + 1);
-window.scrollTo(0, document.getElementById(hid).offsetTop)
+window.scrollTo(0, document.getElementById(hid).offsetTop);
 
 function gotoDefiniton(event) {
-    var url = `https://google.com/search?q=${event.target.getAttribute('search-query')}`
+    var url = `https://google.com/search?q=${event.target.getAttribute('search-query')}`;
     window.location.href = url;
 }
