@@ -3,6 +3,8 @@ var app = express();
 var path = require('path');
 var mysql = require('mysql');
 var cors = require('cors');
+var session = require('express-session');
+
 require('dotenv').config();
 const {
     Remarkable
@@ -16,30 +18,30 @@ var db_config = {
 }
 
 if (process.env.DEPLOY == "true") {
-    console.log('Running the deploy version.')
+    console.log('Running the deploy version.');
     var db_config = {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
-        database: process.env.DB
+        database: process.env.DB,
     }
 }
 
 app.use(express.json());
 app.use(express.urlencoded());
-var con = mysql.createConnection(db_config)
+var con = mysql.createConnection(db_config);
 
 function throwRender500Error(res, blog = false) {
     res.status(500);
     if (!blog) {
         res.render('routes/error-regular.pug', {
             title: 'This is A Server Error',
-            error_code: '500'
+            error_code: '500',
         })
     } else {
         res.render('routes/error-blog.pug', {
             title: 'This is A Server Error',
-            error_code: '500'
+            error_code: '500',
         })
     }
 }
@@ -57,19 +59,19 @@ app.set('view engine', 'pug');
 app.use(express.urlencoded());
 app.use(express.json());
 app.get('/blog/article/:id/', (req, res) => {
-    console.log(`user viewing ${req.params.id}`)
+    console.log(`user viewing ${req.params.id}`);
     con.query("SELECT * FROM article WHERE id = " + req.params.id, (err, result, fields) => {
         if (err) {
-            throwRender500Error(res, true)
+            throwRender500Error(res, true);
         } else {
             var post = result[0];
             con.query("SELECT * FROM comments WHERE post = " + req.params.id + " ORDER BY id DESC", (err, result, fields) => {
                 if (err) {
-                    throwRender500Error(res, true)
+                    throwRender500Error(res, true);
                 } else {
                     var md = new Remarkable();
                     post.body = md.render(post.body);
-                    console.log(post.likes)
+                    console.log(post.likes);
                     res.render('routes/article', {
                         post: post,
                         months: months,
@@ -83,59 +85,57 @@ app.get('/blog/article/:id/', (req, res) => {
 });
 
 app.post('/blog/admin/', (req, res) => {
-    var email = req.body.email
-    var password = req.body.pass
+    var email = req.body.email;
+    var password = req.body.pass;
     con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
         if (err)
-            throwRender500Error(res, true)
+            throwRender500Error(res, true);
         else if (result.length == 0)
             res.render('routes/admin.pug', {
-                error: 'No user exists with these credentials'
+                error: 'No user exists with these credentials',
             })
         else {
             if (result[0].password == password) {
-                console.log('granted')
+                console.log('granted');
             } else
                 res.render('routes/admin.pug', {
-                    error: 'Invalid password provided'
+                    error: 'Invalid password provided',
                 })
         }
-
     })
 })
 
 app.get('/blog/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
         if (err) {
-            throwRender500Error(res, true)
+            throwRender500Error(res, true);
         } else {
             res.render('routes/blog', {
                 months: months,
-                posts: result
+                posts: result,
             })
         }
     })
-
 })
 
 app.get('/blog/admin/', (req, res) => {
-    res.render('routes/admin')
+    res.render('routes/admin');
 })
 
 app.get('/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
         if (err) {
-            throwRender500Error(res, true)
+            throwRender500Error(res, true);
         } else {
             res.render('routes/index', {
-                posts: result
+                posts: result,
             });
         }
     })
 })
 
 app.get('/blog/favorites/', (req, res) => {
-    res.render('routes/favorites.pug')
+    res.render('routes/favorites.pug');
 })
 
 app.post('/blog/post/:id/like', (req, res) => {
@@ -149,7 +149,7 @@ app.post('/blog/post/:id/like', (req, res) => {
                 throw err;
         })
     })
-    res.json(likes)
+    res.json(likes);
 })
 
 app.post('/blog/post/:id/comment/', (req, res) => {
@@ -158,10 +158,10 @@ app.post('/blog/post/:id/comment/', (req, res) => {
     con.query("INSERT INTO comments (name, body, post) VALUES ('" + name + "', '" + comment + "', " + req.params.id + ")", (err, results, fields) => {
         if (err) {
             throwRender500Error(res, true);
-            res.send('Error')
+            res.send('Error');
         }
     })
-    res.send('Done')
+    res.send('Done');
 })
 
 app.post('/blog/post/:id/unlike/', (req, res) => {
@@ -175,7 +175,7 @@ app.post('/blog/post/:id/unlike/', (req, res) => {
                 throw err;
         })
     })
-    res.json(likes)
+    res.json(likes);
 })
 
 app.get('/blog/about/', (req, res) => {
@@ -185,17 +185,17 @@ app.get('/blog/about/', (req, res) => {
 app.get('/blog/*', (req, res) => {
     res.status(404).render('routes/error-blog.pug', {
         error_code: '404',
-        title: 'This Page is Unavailable'
+        title: 'This Page is Unavailable',
     })
 })
 
 app.get('*', (req, res) => {
     res.status(404).render('routes/error-regular.pug', {
         error_code: '404',
-        title: 'This Page is Unavailable'
+        title: 'This Page is Unavailable',
     })
 })
 
-var listener = app.listen('8000', () => {
-    console.log(`listening on port ${listener.address().port}`)
+var listener = app.listen('7000', () => {
+    console.log(`listening on port ${listener.address().port}`);
 })
