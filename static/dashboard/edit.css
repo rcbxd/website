@@ -1,0 +1,66 @@
+body {
+    font-family: bio-sans, sans-serif;
+    background: white;
+    color: #4a4c52;
+    font-style: normal !important;
+    font-weight: lighter !important;
+    cursor: default;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+h2 {
+    margin-left: 10%;
+}
+
+a {
+    color: inherit !important;
+    font-weight: bold !important;
+    text-decoration: none;
+    outline: 0;
+}
+
+.title {
+    margin-left: 10%;
+    margin-top: 50px;
+    font-size: 42pt !important;
+    word-break: break-word;
+    margin-right: 10%;
+}
+
+.editor {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.actions {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.actions>a {
+    margin: 0 auto;
+}
+
+#nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    font-size: 32pt !important;
+    margin-top: 30px;
+}
+
+#nav a {
+    font-weight: lighter !important;
+    margin-right: 20px;
+}
+
+#nav a:hover {
+    text-decoration: underline;
+}
+
+h2>a:hover {
+    text-decoration: underline;
+}

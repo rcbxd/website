@@ -29,6 +29,14 @@ if (process.env.DEPLOY == "true") {
 
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 86400000
+    }
+}))
 var con = mysql.createConnection(db_config);
 
 function throwRender500Error(res, blog = false) {
@@ -71,11 +79,11 @@ app.get('/blog/article/:id/', (req, res) => {
                 } else {
                     var md = new Remarkable();
                     post.body = md.render(post.body);
-                    console.log(post.likes);
                     res.render('routes/article', {
                         post: post,
                         months: months,
                         comments: result,
+                        user: req.session.user,
                     })
                 }
             })
@@ -83,27 +91,6 @@ app.get('/blog/article/:id/', (req, res) => {
     })
 
 });
-
-app.post('/blog/admin/', (req, res) => {
-    var email = req.body.email;
-    var password = req.body.pass;
-    con.query("SELECT * FROM admins WHERE email = '" + email + "'", (err, result, fields) => {
-        if (err)
-            throwRender500Error(res, true);
-        else if (result.length == 0)
-            res.render('routes/admin.pug', {
-                error: 'No user exists with these credentials',
-            })
-        else {
-            if (result[0].password == password) {
-                console.log('granted');
-            } else
-                res.render('routes/admin.pug', {
-                    error: 'Invalid password provided',
-                })
-        }
-    })
-})
 
 app.get('/blog/', (req, res) => {
     con.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
@@ -113,13 +100,10 @@ app.get('/blog/', (req, res) => {
             res.render('routes/blog', {
                 months: months,
                 posts: result,
+                user: req.session.user,
             })
         }
     })
-})
-
-app.get('/blog/admin/', (req, res) => {
-    res.render('routes/admin');
 })
 
 app.get('/', (req, res) => {
@@ -135,7 +119,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/blog/favorites/', (req, res) => {
-    res.render('routes/favorites.pug');
+    res.render('routes/favorites.pug', {
+        user: req.session.user
+    });
 })
 
 app.post('/blog/post/:id/like', (req, res) => {
@@ -156,10 +142,8 @@ app.post('/blog/post/:id/comment/', (req, res) => {
     var name = req.body.name;
     var comment = req.body.body;
     con.query("INSERT INTO comments (name, body, post) VALUES ('" + name + "', '" + comment + "', " + req.params.id + ")", (err, results, fields) => {
-        if (err) {
+        if (err)
             throwRender500Error(res, true);
-            res.send('Error');
-        }
     })
     res.send('Done');
 })
@@ -168,7 +152,7 @@ app.post('/blog/post/:id/unlike/', (req, res) => {
     var likes = 0;
     con.query('SELECT likes FROM article WHERE id = ' + req.params.id, (err, results, fields) => {
         if (err)
-            throw err;
+            res.send('Error');
         likes = results[0].likes - 1;
         con.query('UPDATE article SET likes = ' + likes + ' WHERE id = ' + req.params.id, (err, results, fields) => {
             if (err)
@@ -180,6 +164,134 @@ app.post('/blog/post/:id/unlike/', (req, res) => {
 
 app.get('/blog/about/', (req, res) => {
     res.render('routes/about.pug');
+})
+
+app.get('/blog/login', (req, res) => {
+    res.render('routes/login.pug');
+})
+
+app.post('/blog/login', (req, res) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    con.query("SELECT * FROM admins WHERE `email` = '" + email + "' and `password` = '" + password + "' ", (err, results, fields) => {
+        if (err) {
+            throwRender500Error(res, true);
+            res.send('Error');
+        } else {
+            if (results.length) {
+                req.session.userID = results[0].id;
+                req.session.user = {
+                    name: results[0].name,
+                    email: results[0].email
+                };
+                res.redirect('/blog/dashboard');
+            } else
+                res.render('routes/login.pug', {
+                    message: "Invalid Credentials, try again"
+                })
+        }
+    });
+})
+
+app.get('/blog/dashboard', (req, res) => {
+    if (!req.session.userID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        res.render('routes/dashboard.pug', {
+            user: req.session.user
+        });
+    }
+})
+
+app.get('/blog/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err)
+            throwRender500Error(res, true);
+        else
+            res.redirect('/blog/login');
+    })
+})
+
+app.get('/blog/add', (req, res) => {
+    if (!req.session.userID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        res.render('routes/add.pug', {
+            user: req.session.user
+        });
+    }
+})
+
+app.post('/blog/add', (req, res) => {
+    con.query("INSERT INTO article (title, description, body) VALUES ('" + req.body.name + "', '" + req.body.desc + "', '" + req.body.txt + "');", (err, result, fields) => {
+        if (err)
+            throwRender500Error(res, true);
+        else {
+            res.redirect('/blog/add');
+        }
+    });
+})
+
+app.get('/blog/edit', (req, res) => {
+    if (!req.session.userID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        con.query("SELECT * FROM article;", (err, result, fields) => {
+            if (err)
+                throwRender500Error(res, true);
+            else {
+                res.render('routes/edit.pug', {
+                    user: req.session.user,
+                    posts: result.reverse(),
+                });
+            }
+        })
+    }
+})
+
+app.get('/blog/edit/:id', (req, res) => {
+    if (!req.session.userID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        let id = req.params.id;
+        con.query("SELECT * FROM article WHERE id = " + id, (err, result, fields) => {
+            if (err)
+                throwRender500Error(res, true);
+            else {
+                res.render('routes/editor.pug', {
+                    post: result[0],
+                    user: req.session.user
+                })
+            }
+        })
+    }
+})
+
+app.post('/blog/edit/:id', (req, res) => {
+    if (!req.sessionID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        let text = req.body.txt;
+        let description = req.body.desc;
+        let title = req.body.name;
+        con.query("UPDATE article SET title = '" + title + "', description = '" + description + "', body = '" + text + "' WHERE id = " + req.params.id, (err, results, fields) => {
+            if (err)
+                throwRender500Error(res, true);
+            else {
+                res.redirect('/blog/edit/');
+            }
+        })
+    }
+})
+
+app.get('/blog/delete', (req, res) => {
+    if (!req.session.userID || !req.session.user)
+        res.redirect('/blog/login');
+    else {
+        res.render('routes/delete.pug', {
+            user: req.session.user
+        });
+    }
 })
 
 app.get('/blog/*', (req, res) => {
