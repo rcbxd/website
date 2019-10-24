@@ -1,0 +1,30 @@
+doctype html
+html(lang='en', dir='ltr', style='scroll-behavior: smooth')
+  head
+    meta(charset='utf-8')
+    title Add A New Post
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel="stylesheet", href="/static/bootstrap.min.css")
+    link(rel='stylesheet', href='/static/dashboard/add.css', type='text/css')
+    link(rel="stylesheet", href='/static/prism/prism.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
+    link(rel="stylesheet" href="http://lab.lepture.com/editor/editor.css")
+    script(type="text/javascript" src="http://lab.lepture.com/editor/editor.js")
+    script(type="text/javascript" src="http://lab.lepture.com/editor/marked.js")
+  body
+    include nav.pug
+    h1.title
+      | Edit Post
+    div.editor
+      form(class="col-12" id="form" method="post")   
+        div(class="form-group")
+          label(for="form-name-field") Title
+          input(type="name" class="form-control" id="form-name-field" name="name" placeholder="Title" value=post.title required) 
+        div(class="form-groud")
+          label(for="form-desc-field") Description
+          textarea(type="text" class="form-control" id="form-desc-field" name="desc" placeholder="Description" required)
+            | #{post.description}
+        textarea(name="txt", cols="30", rows="10" id="txt")
+            | #{post.body}
+        button(class="btn btn-secondary" id="add-post") Edit
+    script(src="/static/dashboard/add.js")
