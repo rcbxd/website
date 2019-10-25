@@ -223,6 +223,8 @@ app.get('/blog/add', (req, res) => {
 })
 
 app.post('/blog/add', (req, res) => {
+    req.body.txt.replace(/'/g, "\\'");
+    req.body.txt.replace(/"/g, '\\"');
     con.query("INSERT INTO article (title, description, body) VALUES ('" + req.body.name + "', '" + req.body.desc + "', '" + req.body.txt + "');", (err, result, fields) => {
         if (err)
             throwRender500Error(res, true);
@@ -268,6 +270,8 @@ app.get('/blog/edit/:id', (req, res) => {
 })
 
 app.post('/blog/edit/:id', (req, res) => {
+    req.body.txt.replace(/'/g, "\\'");
+    req.body.txt.replace(/"/g, '\\"');
     if (!req.sessionID || !req.session.user)
         res.redirect('/blog/login');
     else {
