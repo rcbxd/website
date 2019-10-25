@@ -6,7 +6,8 @@ body {
   font-weight: lighter !important;
   cursor: default;
   margin: 0 !important;
-  padding: 0 !important; }
+  padding: 0 !important;
+}
 
 pre {
   position: relative;
@@ -15,47 +16,59 @@ pre {
   left: 52%;
   transform: translate(-50%);
   background: #2d2b55 !important;
-  padding: 30px !important; }
+  padding: 30px !important;
+}
 
 h2 {
-  font-weight: bold !important; }
+  font-weight: bold !important;
+}
 
 code {
   margin: 10px;
-  right: 10%; }
+  right: 10%;
+}
 
 a {
   color: inherit !important;
   font-weight: bold !important;
   text-decoration: none;
-  outline: 0; }
+  outline: 0;
+}
 
 #nav {
   display: flex;
   flex-wrap: wrap;
   margin-left: 20%;
   font-size: 32pt !important;
-  margin-top: 30px; }
-  #nav a {
-    font-weight: lighter !important;
-    margin-right: 20px; }
-  #nav a:hover {
-    text-decoration: underline; }
+  margin-top: 30px;
+}
+
+#nav a {
+  font-weight: lighter !important;
+  margin-right: 20px;
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
 
 .month {
   font-weight: 300 !important;
-  letter-spacing: 8px; }
+  letter-spacing: 8px;
+}
 
 h1 {
   margin-left: 10%;
   margin-top: 50px;
   font-size: 42pt !important;
   word-break: break-word;
-  margin-right: 10%; }
+  margin-right: 10%;
+}
 
 ::selection {
   color: #FFF862;
-  background: #4a4c52; }
+  background: #4a4c52;
+}
 
 p,
 li,
@@ -63,35 +76,44 @@ h2 {
   margin-left: 10%;
   font-size: 18pt;
   margin-right: 10%;
-  line-height: 30px; }
+  line-height: 30px;
+}
 
 h2 {
-  font-size: 24pt; }
+  font-size: 24pt;
+}
 
 li {
-  font-weight: 500 !important; }
+  font-weight: 500 !important;
+}
 
 h3 {
   margin-left: 10%;
   font-weight: bold !important;
   font-size: 18pt;
-  margin-right: 10%; }
+  margin-right: 10%;
+}
 
 b {
-  transition: 0.2s ease-in; }
+  transition: 0.2s ease-in;
+}
 
 br {
-  user-select: none; }
+  user-select: none;
+}
 
 b:hover {
   background: #4a4c52;
   color: white;
   border-radius: 5px;
   padding-left: 2px;
-  padding-right: 2px; }
-  b:hover ::selection {
-    background: #4a4c52 !important;
-    color: white !important; }
+  padding-right: 2px;
+}
+
+b:hover ::selection {
+  background: #4a4c52 !important;
+  color: white !important;
+}
 
 .likebtn {
   height: 100px;
@@ -104,7 +126,8 @@ b:hover {
   margin-right: 50%;
   /*-webkit-box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);*/ }
+  box-shadow: -12px 10px 116px -2px rgba(0, 0, 0, 0.75);*/
+}
 
 #heart {
   text-align: center;
@@ -113,7 +136,8 @@ b:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
-  z-index: 0; }
+  z-index: 0;
+}
 
 .bottom-like {
   max-width: 80%;
@@ -124,59 +148,77 @@ b:hover {
   margin-left: 10%;
   margin-right: 10% !important;
   margin-top: 50px;
-  margin-bottom: 50px; }
-  .bottom-like h3 {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    margin-bottom: 25px;
-    max-width: 80%; }
+  margin-bottom: 50px;
+}
+
+.bottom-like h3 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 25px;
+  max-width: 80%;
+}
 
 .bottom-comments {
   padding-top: 50px;
   padding-bottom: 50px;
-  background: white; }
-  .bottom-comments ::selection {
-    color: white;
-    background: black; }
+  background: white;
+}
 
-.comment {
+.bottom-comments ::selection {
+  color: white;
+  background: black;
+}
+
+.comm {
   border: 1px solid rgba(0, 0, 0, 0.2);
   width: 80%;
   border-radius: 20px;
   margin: 0 auto;
   padding-top: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+}
 
 form {
   margin-left: 10%;
-  margin-bottom: 50px; }
-  form div {
-    margin-top: 20px;
-    margin-bottom: 20px; }
-  form input {
-    width: 30%;
-    min-width: 200px;
-    height: 25px;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    border: 0; }
-  form #button {
-    height: 30px !important;
-    width: 60px !important; }
+  margin-bottom: 50px;
+}
+
+form div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 30%;
+  min-width: 200px;
+  height: 25px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  border: 0;
+}
+
+form #button {
+  height: 30px !important;
+  width: 60px !important;
+}
 
 hr {
-  border: 1px solid rgba(0, 0, 0, 0.5); }
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
 
 .body {
   margin-top: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: white !important; }
-  .body ::selection {
-    color: white;
-    background: black; }
+  background: white !important;
+}
+
+.body ::selection {
+  color: white;
+  background: black;
+}
 
 /*# sourceMappingURL=style.css.map */
