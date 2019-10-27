@@ -9,14 +9,14 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(rel="stylesheet", href='/static/prism/prism.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
   body
-    include nav.pug
+    include ../nav.pug
     h1  
         | Dashboard
     h2 
         | Welcome, #{user.name}! 
     h3 What do you want to do?
     div.actions
-        a(href="/blog/add" class="btn btn-dark" style="color: white !important") Add
-        a(href="/blog/edit" class="btn btn-dark" style="color: white !important") Edit
-        a(href="/blog/remove" class="btn btn-dark" style="color: white !important") Remove
+        a(href="./post/add" class="btn btn-dark" style="color: white !important") Add
+        a(href="./post/edit" class="btn btn-dark" style="color: white !important") Edit
+        a(href="./post/remove" class="btn btn-dark" style="color: white !important") Remove
     

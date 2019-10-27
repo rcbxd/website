@@ -8,7 +8,7 @@ liked_posts.forEach(post => {
     postholder.classList.add('post');
     var el = document.createElement('a');
     el.classList.add('title');
-    el.setAttribute('href', `/blog/article/${post.post}`);
+    el.setAttribute('href', `/blog/post/${post.post}`);
     el.innerHTML = post.title;
     postholder.appendChild(el);
     favs.appendChild(postholder);

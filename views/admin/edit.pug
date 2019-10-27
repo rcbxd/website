@@ -12,10 +12,10 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     script(type="text/javascript" src="https://lab.lepture.com/editor/editor.js")
     script(type="text/javascript" src="https://lab.lepture.com/editor/marked.js")
   body
-    include nav.pug
+    include ../nav.pug
     h1.title
       | Choose A Post
     each post in posts
         h2 
-            a(href="/blog/edit/"+post.id) #{post.title}
+            a(href="/blog/admin/post/edit/"+post.id) #{post.title}
     script(src="/static/dashboard/add.js")

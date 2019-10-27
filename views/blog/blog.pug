@@ -10,7 +10,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     script(src='https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js')
     script(src='https://unpkg.com/smoothscroll-anchor-polyfill')
   body
-    include nav.pug
+    include ../nav.pug
     div(id="posts")
       each post in posts
         div(class="post")
@@ -22,6 +22,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
               | #{post.date.getDate()} 
           h1(class="title") #{post.title}
           p #{post.description}
-          a(href=`/blog/article/${post.id}`) READ MORE
+          a(href=`/blog/post/${post.id}`) READ MORE
     #cursor
     script(type='text/javascript', src='/static/blog/blog.js')

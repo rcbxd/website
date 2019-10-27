@@ -4,5 +4,8 @@ div(id="nav")
       a(href="/archives") twitter
       a(href="/blog/favorites/") favorites
       a(href="/blog/about/") about
+      if !user 
+            a(href="/blog/admin/login/") login
       if user
             a(href="/blog/logout") logout
+            a(href="/blog/admin/dashboard") dashboard

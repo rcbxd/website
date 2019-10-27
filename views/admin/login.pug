@@ -7,10 +7,11 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(name='description') 
     link(rel='stylesheet', href='/static/dashboard/login.css', type='text/css')
     link(rel="stylesheet", href='/static/prism/prism.css')
+    base(href=".")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
     link(rel="stylesheet", href="/static/bootstrap.min.css")
   body
-    include nav.pug
+    include ../nav.pug
     h1 
         | Log In
     h2
