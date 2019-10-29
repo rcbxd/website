@@ -54,20 +54,3 @@ h3 {
 .actions>a {
     margin: 0 auto;
 }
-
-#nav {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 20%;
-    font-size: 32pt !important;
-    margin-top: 30px;
-}
-
-#nav a {
-    font-weight: lighter !important;
-    margin-right: 20px;
-}
-
-#nav a:hover {
-    text-decoration: underline;
-}

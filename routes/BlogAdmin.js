@@ -31,7 +31,7 @@ router.post('/login', (req, res) => {
                     name: results[0].name,
                     email: results[0].email
                 };
-                res.redirect('/blog/admin/dashboard');
+                res.redirect('/blog/admin/dashboard/');
             } else
                 res.render(`${path}/views/admin/login`, {
                     message: "Invalid Credentials, try again"
@@ -40,10 +40,11 @@ router.post('/login', (req, res) => {
     });
 })
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard/', (req, res) => {
     if (checkAuthentication(req, res)) {
         res.render(`${path}/views/admin/dashboard`, {
-            user: req.session.user
+            user: req.session.user,
+            path: '/blog/admin/dashboard/'
         });
     }
 })

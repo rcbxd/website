@@ -35,23 +35,6 @@ a {
   outline: 0;
 }
 
-#nav {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 20%;
-  font-size: 32pt !important;
-  margin-top: 30px;
-}
-
-#nav a {
-  font-weight: lighter !important;
-  margin-right: 20px;
-}
-
-#nav a:hover {
-  text-decoration: underline;
-}
-
 .month {
   font-weight: 300 !important;
   letter-spacing: 8px;

@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
                 months: months,
                 posts: result,
                 user: req.session.user,
+                path: `/blog/`
             })
         }
     })
@@ -23,12 +24,16 @@ router.get('/', (req, res) => {
 
 router.get('/favorites/', (req, res) => {
     res.render(`${path}/views/blog/favorites`, {
-        user: req.session.user
+        user: req.session.user,
+        path: `/blog/favorites/`
     });
 })
 
 router.get('/about/', (req, res) => {
-    res.render(`${path}/views/blog/about`);
+    res.render(`${path}/views/blog/about`, {
+        user: req.session.user,
+        path: `/blog/about/`
+    });
 })
 
 module.exports = router;

@@ -3,18 +3,24 @@ body {
   background: #FFF862;
   color: #4a4c52;
   font-style: normal;
-  font-weight: lighter; }
+  font-weight: lighter;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 #posts {
-  margin-top: 50px; }
+  margin-top: 50px;
+}
 
 .day {
-  font-weight: 300; }
+  font-weight: 300;
+}
 
 .title {
   font-size: 32pt;
   margin-top: -5px;
-  margin-bottom: -5px; }
+  margin-bottom: -5px;
+}
 
 #newest {
   position: relative;
@@ -23,39 +29,35 @@ body {
   top: 225px;
   font-size: 15pt;
   transform-origin: 0 0;
-  transform: rotate(-90deg); }
+  transform: rotate(-90deg);
+}
 
 .post {
   margin-bottom: 70px;
-  margin-left: 20%; }
+  margin-left: 20%;
+}
 
 a {
   color: inherit;
   font-weight: bold;
   text-decoration: none;
-  outline: 0; }
+  outline: 0;
+}
 
 a:hover {
-  text-decoration: underline; }
+  text-decoration: underline;
+}
 
 #page_title {
   margin-top: 50px;
   text-align: center;
-  font-size: 32pt; }
-
-#nav {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 20%;
-  font-size: 32pt !important;
-  margin-top: 30px; }
-  #nav a {
-    font-weight: lighter !important;
-    margin-right: 20px; }
+  font-size: 32pt;
+}
 
 ::selection {
   color: #FFF862;
-  background: black; }
+  background: black;
+}
 
 .additional {
   background: black;
@@ -65,8 +67,11 @@ a:hover {
   padding-bottom: 40px;
   margin-bottom: 100px;
   margin-left: 20% !important;
-  margin-right: 10% !important; }
-  .additional a {
-    margin: 0; }
+  margin-right: 10% !important;
+}
+
+.additional a {
+  margin: 0;
+}
 
 /*# sourceMappingURL=style.css.map */
