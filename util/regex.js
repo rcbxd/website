@@ -7,11 +7,11 @@ class Reg{
     for(let i = 0; i < this.string.length; i++){
       if(this.string.charAt(i) == "'"){
         this.string = this.string.substring(0,i) + "'" + this.string.substring(i);
-        i+=2;
+        i++;
       }
       if(this.string.charAt(i) == '"'){
         this.string = this.string.substring(0,i) + '"' + this.string.substring(i);
-        i+=2;
+        i++;
       }
     }
     return this.string;
