@@ -25,7 +25,7 @@ router.post('/login', (req, res) => {
             handleServerError(res, true);
             res.send('Error');
         } else {
-            if (results.length) {
+            if (results.length != 0) {
                 req.session.userID = results[0].id;
                 req.session.user = {
                     name: results[0].name,
@@ -53,7 +53,7 @@ router.get('/logout', (req, res) => {
         if (err)
             handleServerError(res, true);
         else
-            res.redirect('/login');
+            res.redirect('/blog/admin/login');
     })
 })
 
