@@ -47,6 +47,6 @@ app.get('*', (req, res) => {
     })
 })
 
-var listener = app.listen('7000', () => {
+var listener = app.listen(process.env.PORT || 7000, () => {
     console.log(`listening on port ${listener.address().port}`);
 })
