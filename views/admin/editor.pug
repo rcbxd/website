@@ -4,9 +4,9 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title Add A New Post
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    link(rel="stylesheet", href="/static/bootstrap.min.css")
-    link(rel='stylesheet', href='/static/dashboard/add.css', type='text/css')
-    link(rel="stylesheet", href='/static/prism/prism.css')
+    link(rel="stylesheet", href="/bootstrap.min.css")
+    link(rel='stylesheet', href='/dashboard/add.css', type='text/css')
+    link(rel="stylesheet", href='/prism/prism.css')
     base(href="/")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
     link(rel="stylesheet" href="https://lab.lepture.com/editor/editor.css")
@@ -28,4 +28,4 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         textarea(name="txt", cols="30", rows="10" id="txt")
             | #{post.body}
         button(class="btn btn-secondary" id="add-post") Edit
-    script(src="/static/dashboard/add.js")
+    script(src="/dashboard/add.js")

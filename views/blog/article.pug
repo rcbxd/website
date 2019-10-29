@@ -5,9 +5,9 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     title #{post.title}
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
     meta(name='description', content = post.description) 
-    link(rel="stylesheet", href="/static/bootstrap.min.css")
-    link(rel='stylesheet', href='/static/article/style.css', type='text/css')
-    link(rel="stylesheet", href='/static/prism/prism.css')
+    link(rel="stylesheet", href="/bootstrap.min.css")
+    link(rel='stylesheet', href='/article/style.css', type='text/css')
+    link(rel="stylesheet", href='/prism/prism.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
   body
@@ -65,6 +65,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
               | #{comment.body}
 
     #cursor
-    script(type='text/javascript', src='/static/blog/blog.js')
-    script(src='/static/prism/prism.js' defer)
-    script(src='/static/article/article.js')
+    script(type='text/javascript', src='/blog/blog.js')
+    script(src='/prism/prism.js' defer)
+    script(src='/article/article.js')

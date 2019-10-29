@@ -4,9 +4,9 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title Edit Post
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    link(rel="stylesheet", href="/static/bootstrap.min.css")
-    link(rel='stylesheet', href='/static/dashboard/edit.css', type='text/css')
-    link(rel="stylesheet", href='/static/prism/prism.css')
+    link(rel="stylesheet", href="/bootstrap.min.css")
+    link(rel='stylesheet', href='/dashboard/edit.css', type='text/css')
+    link(rel="stylesheet", href='/prism/prism.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
     link(rel="stylesheet" href="https://lab.lepture.com/editor/editor.css")
     script(type="text/javascript" src="https://lab.lepture.com/editor/editor.js")
@@ -18,4 +18,4 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     each post in posts
         h2 
             a(href="/blog/admin/post/edit/"+post.id) #{post.title}
-    script(src="/static/dashboard/add.js")
+    script(src="/dashboard/add.js")

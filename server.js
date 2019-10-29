@@ -14,7 +14,7 @@ const blogAdmin = require('./routes/BlogAdmin');
 
 app.set('views', path.join(__dirname, '/'));
 app.set('view engine', 'pug');
-app.use('/static/', express.static('static'));
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(session({
