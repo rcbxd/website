@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../util/db');
+const User = require('../models/User');
+const Post = require('../models/Post');
+const handleServerError = require('../util/serverError');
 
 router.get('/', (req, res, next) => {
-    db.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
-        if (err) {
-            throwRender500Error(res, false);
-        } else {
+    Post.findAll()
+        .then(posts => {
             res.render('views/index', {
-                posts: result,
+                posts: posts,
             });
-        }
-    })
+        })
+        .catch(err => {
+            handleServerError(res, true);
+        })
 })
 
 module.exports = router;

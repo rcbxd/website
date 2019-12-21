@@ -2,24 +2,25 @@ const express = require('express');
 const db = require('../util/db');
 const handleServerError = require('../util/serverError');
 const path = require('../util/path');
+const Post = require('../models/Post');
 
 const router = express.Router();
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 router.get('/', (req, res) => {
-    db.query("SELECT * FROM article ORDER BY date DESC", (err, result, fields) => {
-        if (err) {
-            handleServerError(res, true);
-        } else {
+    Post.findAll()
+        .then(posts => {
             res.render(`${path}/views/blog/blog`, {
                 months: months,
-                posts: result,
+                posts: posts.reverse(),
                 user: req.session.user,
                 path: `/blog/`
             })
-        }
-    })
+        })
+        .catch(err => {
+            handleServerError(res, true);
+        })
 })
 
 router.get('/favorites/', (req, res) => {

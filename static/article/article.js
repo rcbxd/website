@@ -72,8 +72,8 @@ function findLikedPostIndex(post_id) {
 
 var post_id = document.getElementsByClassName('likebtn')[0].getAttribute('post_id');
 var post_title = document.getElementsByClassName('likebtn')[0].getAttribute('post_title');
-if (isLikedPost(post_id));
-t1.reversed(!t1.reversed());
+if (isLikedPost(post_id))
+    t1.reversed(!t1.reversed());
 
 document.getElementsByClassName('likebtn')[0].addEventListener('click', () => {
     var liked_post = {

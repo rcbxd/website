@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('../util/path');
 const db = require('../util/db');
 const handleServerError = require('../util/serverError');
+const Post = require('../models/Post');
+const User = require('../models/User');
 
 const router = express.Router();
 
@@ -20,24 +22,27 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
-    db.query("SELECT * FROM admins WHERE `email` = '" + email + "' and `password` = '" + password + "' ", (err, results, fields) => {
-        if (err) {
-            handleServerError(res, true);
-            res.send('Error');
-        } else {
-            if (results.length != 0) {
-                req.session.userID = results[0].id;
-                req.session.user = {
-                    name: results[0].name,
-                    email: results[0].email
-                };
-                res.redirect('/blog/admin/dashboard/');
-            } else
-                res.render(`${path}/views/admin/login`, {
-                    message: "Invalid Credentials, try again"
-                })
+    User.findAll({
+        where: {
+            email: email,
+            password: password
         }
-    });
+    }).then(data => {
+        if (data.length != 0) {
+            req.session.userID = data[0].id;
+            req.session.user = {
+                name: data[0].name,
+                email: data[0].email
+            };
+            res.redirect('/blog/admin/dashboard/');
+        } else {
+            res.render(`${path}/views/admin/login`, {
+                message: "Invalid Credentials, try again"
+            })
+        }
+    }).catch(err => {
+        handleServerError(res, true);
+    })
 })
 
 router.get('/dashboard/', (req, res) => {
@@ -59,7 +64,7 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/post/add', (req, res) => {
-    if (checkAuthentication(req)) {
+    if (checkAuthentication(req, res)) {
         res.render(`${path}/views/admin/add`, {
             user: req.session.user
         });
@@ -69,60 +74,60 @@ router.get('/post/add', (req, res) => {
 router.post('/post/add', (req, res) => {
     req.body.txt.replace(/'/g, "\\'");
     req.body.txt.replace(/"/g, '\\"');
-    db.query("INSERT INTO article (title, description, body) VALUES ('" + req.body.name + "', '" + req.body.desc + "', '" + req.body.txt + "');", (err, result, fields) => {
-        if (err)
-            handleServerError(res, true);
-        else {
+    Post.create({
+            title: req.body.name,
+            description: req.body.desc,
+            body: req.body.txt
+        }).then(data => {
             res.redirect('/blog/admin/post/add');
-        }
-    });
+        })
+        .catch(err => {
+            console.log(err);
+        })
 })
 
 router.get('/post/edit', (req, res) => {
     if (checkAuthentication(req, res)) {
-        db.query("SELECT * FROM article;", (err, result, fields) => {
-            if (err)
-                handleServerError(res, true);
-            else {
+        Post.findAll()
+            .then(posts => {
                 res.render(`${path}/views/admin/edit`, {
                     user: req.session.user,
-                    posts: result.reverse(),
+                    posts: posts.reverse(),
                 });
-            }
-        })
+            })
+            .catch(err => {
+                handleServerError(res, true);
+            })
     }
 });
 
 router.get('/post/edit/:id', (req, res) => {
     if (checkAuthentication(req, res)) {
         let id = req.params.id;
-        db.query("SELECT * FROM article WHERE id = " + id, (err, result, fields) => {
-            if (err)
-                handleServerError(res, true);
-            else {
+        Post.findByPk(id)
+            .then(post => {
                 res.render(`${path}/views/admin/editor`, {
-                    post: result[0],
+                    post: post,
                     user: req.session.user
                 })
-            }
-        })
+            })
+            .catch(err => {
+                handleServerError(res, true);
+            })
     }
 })
 
 router.post('/post/edit/:id', (req, res) => {
     if (checkAuthentication(req, res)) {
-        req.body.txt.replace(/'/g, "\\'");
-        req.body.txt.replace(/"/g, '\\"');
-        let text = req.body.txt;
-        let description = req.body.desc;
-        let title = req.body.name;
-        db.query("UPDATE article SET title = '" + title + "', description = '" + description + "', body = '" + text + "' WHERE id = " + req.params.id, (err, results, fields) => {
-            if (err)
-                handleServerError(res, true);
-            else {
-                res.redirect(`/blog/admin/post/edit/${req.params.id}`);
-            }
-        })
+        Post.findByPk(req.params.id)
+            .then(post => {
+                post.update({
+                    title: req.body.name,
+                    description: req.body.desc,
+                    body: req.body.txt
+                })
+                res.redirect('/post/edit/');
+            })
     }
 })
 

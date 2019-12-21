@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const session = require('express-session');
 const db = require('./util/db');
+const testuser = require('./util/testUser');
 const throwRender500Error = require('./util/serverError');
 require('dotenv').config();
 
@@ -11,6 +12,11 @@ const homePage = require('./routes/Home');
 const blogHome = require('./routes/BlogHome');
 const blogPost = require('./routes/BlogArticle');
 const blogAdmin = require('./routes/BlogAdmin');
+
+//models
+const Post = require('./models/Post');
+const Comment = require('./models/Comment');
+const User = require('./models/User');
 
 app.set('views', path.join(__dirname, '/'));
 app.set('view engine', 'pug');
@@ -47,6 +53,31 @@ app.get('*', (req, res) => {
     })
 })
 
-var listener = app.listen(process.env.PORT || 7000, () => {
-    console.log(`listening on port ${listener.address().port}`);
-})
+/*Comment.belongsTo(User, {
+    constraints: true,
+    onDelete: 'CASCADE'
+});*/
+Post.hasMany(Comment, {
+    constraints: true,
+    onDelete: 'CASCADE'
+});
+Comment.belongsTo(Post, {
+    constraints: true,
+    onDelete: 'CASCADE'
+});
+
+db
+    .sync({
+        force: true
+    })
+    .then(res => {
+        if (process.argv.indexOf("--testuser") != -1) {
+            testuser();
+        }
+        var listener = app.listen(process.env.PORT || 7000, () => {
+            console.log(`listening on port ${listener.address().port}`);
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    });
