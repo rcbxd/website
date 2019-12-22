@@ -56,11 +56,23 @@ app.get("*", (req, res) => {
   });
 });
 
+Post.hasMany(Comment, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
 Comment.belongsTo(Post, {
   constraints: true,
   onDelete: "CASCADE"
 });
+User.hasMany(Comment, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
 Comment.belongsTo(User, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
+User.hasMany(Like, {
   constraints: true,
   onDelete: "CASCADE"
 });
