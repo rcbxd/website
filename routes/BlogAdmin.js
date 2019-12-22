@@ -131,7 +131,7 @@ router.post("/post/edit/:id", (req, res) => {
   }
 });
 
-router.get("/post/delete", (req, res) => {
+router.get("/post/remove", (req, res) => {
   if (checkAuthentication(req, res)) {
     res.render(`${path}/views/admin/delete`, {
       user: req.session.user

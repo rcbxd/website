@@ -68,9 +68,7 @@ Comment.belongsTo(Post, {
   onDelete: "CASCADE"
 });
 
-db.sync({
-  force: true
-})
+db.sync()
   .then(res => {
     if (process.argv.indexOf("--testuser") != -1) {
       testuser();

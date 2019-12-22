@@ -7,9 +7,7 @@ const createUser = () => {
     email: "johndoe@test.com",
     admin: true,
     password: "johndoe2000"
-  })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+  }).catch(err => console.log(err));
   console.log("CREATED USER USER USER");
 };
 
