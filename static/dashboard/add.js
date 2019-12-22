@@ -1,4 +1,4 @@
 var editor = new Editor({
-    element: document.getElementById("txt")
+  element: document.getElementById("txt")
 });
 editor.render();

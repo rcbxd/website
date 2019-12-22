@@ -14,14 +14,14 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     div(id="posts")
       each post in posts
         div(class="post")
-          if posts[0].id == post.id
+          if posts[0].dataValues.id == post.dataValues.id
             h1(id="newest") Newest Post
           h2 
-            | #{months[post.date.getMonth()]} 
+            | #{months[post.dataValues.date.getMonth()]} 
             span(class="day")
-              | #{post.date.getDate()} 
-          h1(class="title") #{post.title}
-          p #{post.description}
+              | #{post.dataValues.date.getDate()} 
+          h1(class="title") #{post.dataValues.title}
+          p #{post.dataValues.description}
           a(href=`/blog/post/${post.id}`) READ MORE
     #cursor
-    script(type='text/javascript', src='/blog/blog.js')
+    script(type='text/javascript', src='../../static/blog/blog.js')
