@@ -2,8 +2,8 @@
 
 const isMobile = () => {
   // return if the device is mobile
-  return (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
   );
 };
 
@@ -13,19 +13,16 @@ if (isMobile()) {
   }, 1);
 }
 
-window.addEventListener('load', () => {
-  const cursor = document.querySelector('.cursor');
+window.addEventListener("load", () => {
+  const cursor = document.querySelector(".cursor");
   const editCursor = e => {
-    const {
-      clientX: x,
-      clientY: y
-    } = e;
-    cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
+    const { clientX: x, clientY: y } = e;
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
   };
-  window.addEventListener('mousemove', editCursor);
-})
+  window.addEventListener("mousemove", editCursor);
+});
 
-var url = document.URL
-var hid = url.substring(url.lastIndexOf('#') + 1);
-window.scrollTo(0, document.getElementById(hid).offsetTop - 50)
+var url = document.URL;
+var hid = url.substring(url.lastIndexOf("#") + 1);
+window.scrollTo(0, document.getElementById(hid).offsetTop - 50);
