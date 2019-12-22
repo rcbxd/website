@@ -4,7 +4,7 @@ const path = require("path");
 const session = require("express-session");
 const db = require("./util/db");
 const testuser = require("./util/testUser");
-const throwRender500Error = require("./util/serverError");
+const handleServerError = require("./util/serverError");
 require("dotenv").config();
 
 //middleware
@@ -17,6 +17,7 @@ const blogAdmin = require("./routes/BlogAdmin");
 const Post = require("./models/Post");
 const Comment = require("./models/Comment");
 const User = require("./models/User");
+const Like = require("./models/Like");
 
 app.set("views", path.join(__dirname, "/"));
 app.set("view engine", "pug");
@@ -55,15 +56,19 @@ app.get("*", (req, res) => {
   });
 });
 
-/*Comment.belongsTo(User, {
-    constraints: true,
-    onDelete: 'CASCADE'
-});*/
-Post.hasMany(Comment, {
+Comment.belongsTo(Post, {
   constraints: true,
   onDelete: "CASCADE"
 });
-Comment.belongsTo(Post, {
+Comment.belongsTo(User, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
+Like.belongsTo(User, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
+Like.belongsTo(Post, {
   constraints: true,
   onDelete: "CASCADE"
 });
