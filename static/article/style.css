@@ -1,7 +1,7 @@
 body {
   font-family: bio-sans, sans-serif !important;
-  background: #FFF862;
-  color: #4a4c52;
+  background: #1e1f23;
+  color: #dfdfdf;
   font-style: normal !important;
   font-weight: lighter !important;
   cursor: default;
@@ -49,8 +49,8 @@ h1 {
 }
 
 ::selection {
-  color: #FFF862;
-  background: #4a4c52;
+  color: black;
+  background: white;
 }
 
 p,
@@ -60,6 +60,7 @@ h2 {
   font-size: 18pt;
   margin-right: 10%;
   line-height: 30px;
+  color: #4a4c52;
 }
 
 h2 {
@@ -145,6 +146,7 @@ b:hover ::selection {
   padding-top: 50px;
   padding-bottom: 50px;
   background: white;
+  color: #4a4c52;
 }
 
 .bottom-comments ::selection {

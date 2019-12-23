@@ -1,56 +1,55 @@
 body {
-    font-family: bio-sans, sans-serif !important;
-    background: #FFF862;
-    color: #4a4c52;
-    font-style: normal !important;
-    font-weight: lighter !important;
-    cursor: default;
-    margin: 0 !important;
-    padding: 0 !important;
+  font-family: bio-sans, sans-serif !important;
+  background: #1e1f23;
+  color: #dfdfdf;
+  font-style: normal !important;
+  font-weight: lighter !important;
+  cursor: default;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 h2 {
-    font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 a {
-    color: inherit !important;
-    font-weight: bold !important;
-    text-decoration: none;
-    outline: 0;
+  color: inherit !important;
+  font-weight: bold !important;
+  text-decoration: none;
+  outline: 0;
 }
 
-
 h1 {
-    margin-left: 10%;
-    margin-top: 50px;
-    font-size: 42pt !important;
-    word-break: break-word;
-    margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 50px;
+  font-size: 42pt !important;
+  word-break: break-word;
+  margin-right: 10%;
 }
 
 ::selection {
-    color: #FFF862;
-    background: #4a4c52;
+  color: black;
+  background: white;
 }
 
 h2 {
-    font-size: 24pt;
-    margin-left: 10%;
+  font-size: 24pt;
+  margin-left: 10%;
 }
 
 h3 {
-    font-size: 18pt;
-    font-weight: 100;
-    margin-left: 10%;
+  font-size: 18pt;
+  font-weight: 100;
+  margin-left: 10%;
 }
 
 .actions {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
 
-.actions>a {
-    margin: 0 auto;
+.actions > a {
+  margin: 0 auto;
 }
