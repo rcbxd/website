@@ -1,11 +1,4 @@
-start-services:
-	docker-compose up -d
-
-build-services:
-	docker-compose build
-
-stop-services:
-	docker-compose down
+#works only for my mac configuration with brew installed
 
 start-db:
 	brew services start mysql
@@ -15,3 +8,9 @@ restart-db:
 
 stop-db:
 	brew services stop mysql
+
+runserver:
+	node server.js
+
+run-user:
+	node server.js --testuser
