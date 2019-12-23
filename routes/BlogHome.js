@@ -60,29 +60,29 @@ router.get("/favorites/", (req, res) => {
                 path: `/blog/favorites/`
               });
             }
-            likes.forEach(like => {
-              Post.findByPk(like.post)
+            for (let i = 0; i < likes.length; i++) {
+              Post.findByPk(likes[i].post)
                 .then(post => {
                   liked_posts.push({ id: post.id, title: post.title });
-                  res.render(`${path}/views/blog/favorites`, {
-                    user: req.session.user,
-                    posts: liked_posts,
-                    path: `/blog/favorites/`
-                  });
+                  if (i == likes.length - 1) {
+                    res.render(`${path}/views/blog/favorites`, {
+                      user: req.session.user,
+                      posts: liked_posts,
+                      path: `/blog/favorites/`
+                    });
+                  }
                 })
                 .catch(err => {
                   console.log(1);
                   handleServerError(res, true);
                 });
-            });
+            }
           })
           .catch(err => {
-            console.log(2);
             handleServerError(res, true);
           });
       })
       .catch(err => {
-        console.log(3);
         handleServerError(res, true);
       });
   }

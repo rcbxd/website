@@ -17,5 +17,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
         a(style="margin-left: 10%; font-size: 22pt; text-decoration: none !important") You haven't liked any posts yet.
       each post in posts
         a(style="margin-left: 10%; font-size: 22pt" href="/blog/post/"+post.id) - #{post.title}
+        br
       
     script(src='/favorites/favorites.js')

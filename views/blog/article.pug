@@ -80,3 +80,6 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     script(type='text/javascript', src='/blog/blog.js')
     script(src='/prism/prism.js' defer)
     script(src='/article/article.js')
+    script.
+      if("#{liked}")
+        t1.reversed(!t1.reversed());

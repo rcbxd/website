@@ -48,6 +48,7 @@ router.get("/:id/", (req, res) => {
                     }
                   })
                   .then(likes => {
+                    console.log(likes);
                     if (likes.length != 0) is_liked = true;
                   })
                   .catch(err => {
