@@ -80,10 +80,6 @@ Like.belongsTo(User, {
   constraints: true,
   onDelete: "CASCADE"
 });
-Like.belongsTo(Post, {
-  constraints: true,
-  onDelete: "CASCADE"
-});
 
 db.sync()
   .then(res => {

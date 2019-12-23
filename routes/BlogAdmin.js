@@ -32,6 +32,7 @@ router.post("/login", (req, res) => {
       if (data.length != 0) {
         req.session.userID = data[0].id;
         req.session.user = {
+          id: data[0].id,
           name: data[0].name,
           email: data[0].email
         };

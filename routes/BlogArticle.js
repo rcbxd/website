@@ -5,6 +5,8 @@ const path = require("../util/path");
 const { Remarkable } = require("remarkable");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const Like = require("../models/Like");
+const User = require("../models/User");
 
 const router = express.Router();
 
@@ -24,44 +26,110 @@ const months = [
 ];
 
 router.get("/:id/", (req, res) => {
-  Post.findByPk(req.params.id).then(post => {
-    if (!post) handleServerError(res, true);
-    let md = new Remarkable();
-    post.getComments().then(comments => {
-      post.dataValues.body = md.render(post.dataValues.body);
-      res.render(`${path}/views/blog/article`, {
-        post: post.dataValues,
-        months: months,
-        comments: comments,
-        user: req.session.user
-      });
-    });
-  });
-});
-
-router.post("/:id/like", (req, res) => {
+  var logged_in = true;
+  if (!req.session.userID || !req.session.user) {
+    logged_in = false;
+  }
   Post.findByPk(req.params.id)
     .then(post => {
-      if (!post) {
-        handleServerError(res, true);
-      } else {
-        let likes = post.dataValues.likes + 1;
-        Post.update(
-          {
-            likes: likes
-          },
-          {
+      if (!post) handleServerError(res, true);
+      let md = new Remarkable();
+      post
+        .getComments()
+        .then(comments => {
+          var is_liked = false;
+          User.getLikes({
             where: {
-              id: req.params.id
+              post: post.id
             }
-          }
-        );
-        res.json(likes);
-      }
+          })
+            .then(likes => {
+              if (likes.length != 0) is_liked = true;
+            })
+            .catch(err => {
+              handleServerError(res, true);
+            });
+          post.dataValues.body = md.render(post.dataValues.body);
+          res.render(`${path}/views/blog/article`, {
+            post: post.dataValues,
+            months: months,
+            comments: comments,
+            user: req.session.user,
+            login_status: logged_in,
+            liked: is_liked
+          });
+        })
+        .catch(err => {
+          handleServerError(res, true);
+        });
     })
     .catch(err => {
       handleServerError(res, true);
     });
+});
+
+router.post("/:id/like", (req, res) => {
+  if (req.session.user || req.session.userID)
+    Post.findByPk(req.params.id)
+      .then(post => {
+        if (!post) {
+          handleServerError(res, true);
+        } else {
+          let likes = post.dataValues.likes;
+          User.findByPk(req.session.user.id)
+            .then(user => {
+              user
+                .getLikes({
+                  where: {
+                    post: post.id
+                  }
+                })
+                .then(data => {
+                  if (data.length == 0) {
+                    likes++;
+                    user
+                      .createLike({ post: post.id })
+                      .then(() => {
+                        post.update({
+                          likes: likes
+                        });
+                        res.redirect("back");
+                      })
+                      .catch(err => {
+                        console.log(err);
+                        handleServerError(res, true);
+                      });
+                  } else {
+                    likes--;
+                    console.log(data[0]);
+                    Like.destroy({
+                      where: {
+                        post: data[0].dataValues.post
+                      }
+                    })
+                      .then(() => {
+                        post.update({
+                          likes: likes
+                        });
+                        res.redirect("back");
+                      })
+                      .catch(err => {
+                        console.log(err);
+                        handleServerError(res, true);
+                      });
+                  }
+                });
+            })
+            .catch(err => {
+              console.log(err);
+              handleServerError(res, true);
+            });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        handleServerError(res, true);
+      });
 });
 
 router.post("/:id/comment/", (req, res) => {
@@ -79,31 +147,6 @@ router.post("/:id/comment/", (req, res) => {
         handleServerError(res, true);
       });
   });
-});
-
-router.post("/:id/unlike/", (req, res) => {
-  Post.findByPk(req.params.id)
-    .then(post => {
-      if (!post) {
-        handleServerError(res, true);
-      } else {
-        let likes = post.dataValues.likes - 1;
-        Post.update(
-          {
-            likes: likes
-          },
-          {
-            where: {
-              id: req.params.id
-            }
-          }
-        );
-        res.json(likes);
-      }
-    })
-    .catch(err => {
-      handleServerError(res, true);
-    });
 });
 
 module.exports = router;

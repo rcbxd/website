@@ -55,59 +55,6 @@ b_elements.forEach(b => {
   b.onclick = gotoDefiniton;
 });
 
-if (localStorage.getItem("liked_posts")) {
-  likedposts = JSON.parse(localStorage.getItem("liked_posts"));
-} else {
-  likedposts = [];
-}
-
-function isLikedPost(post_id) {
-  if (likedposts.length == 0) return false;
-
-  for (post in likedposts) {
-    if (likedposts[post].post == post_id) return true;
-  }
-  return false;
-}
-
-function findLikedPostIndex(post_id) {
-  for (post in likedposts) {
-    if (likedposts[post].post == post_id) return post;
-  }
-  return -1;
-}
-
-var post_id = document
-  .getElementsByClassName("likebtn")[0]
-  .getAttribute("post_id");
-var post_title = document
-  .getElementsByClassName("likebtn")[0]
-  .getAttribute("post_title");
-if (isLikedPost(post_id)) t1.reversed(!t1.reversed());
-
-document.getElementsByClassName("likebtn")[0].addEventListener("click", () => {
-  var liked_post = {
-    post: post_id,
-    title: post_title
-  };
-  if (!isLikedPost(post_id)) {
-    likedposts.push(liked_post);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", `/blog/post/${liked_post.post}/like/`, true);
-    xhr.send();
-    document.getElementById("like-count").innerHTML =
-      parseInt(document.getElementById("like-count").innerHTML) + 1;
-  } else {
-    likedposts.splice(findLikedPostIndex(post_id), 1);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", `/blog/post/${liked_post.post}/unlike/`, true);
-    xhr.send();
-    document.getElementById("like-count").innerHTML -= 1;
-  }
-  localStorage.setItem("liked_posts", JSON.stringify(likedposts));
-  t1.reversed(!t1.reversed());
-});
-
 var entries = document.getElementsByTagName("h2");
 var entries = Array.from(entries);
 var id = 0;

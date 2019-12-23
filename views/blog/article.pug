@@ -33,8 +33,15 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           | person liked this post.
         else
           | people liked this post.
-      div.likebtn(post_id=post.id, post_title=post.title)
-        i.fas.fa-heart#heart
+        if !login_status
+          h3 You Must Be Logged In to Leave A Like
+      if login_status
+        form(action=post.id+"/like" method="post" id="like_form")
+          div.likebtn.like_button(post_id=post.id, post_title=post.title onclick="document.getElementById('like_form').submit()")
+            i.fas.fa-heart#heart
+      else
+        div.likebtn(post_id=post.id, post_title=post.title)
+          i.fas.fa-heart#heart
       br
     div.bottom-comments
       h1 Comments
@@ -51,7 +58,12 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
             label(for="text") Text
             input(type="text" class="form-control" name="body" id="form-text-field" placeholder="Your Text" required)
             
-        button(type="submit" class="btn btn-secondary") Send
+        if !login_status
+          button(type="submit" class="btn btn-secondary" disabled) Send
+          small(id="emailHelp" class="form-text text-muted")
+                | You need to be logged in to comment.
+        else
+          button(type="submit" class="btn btn-secondary") Send
       div.comments
         each comment in comments
           div.comm

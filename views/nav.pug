@@ -7,5 +7,5 @@ div(id="nav")
       if !user 
             a(href="/blog/admin/login/") login
       if user
-            a(href="/blog/logout") logout
+            a(href="/blog/admin/logout") logout
             a(href="/blog/admin/dashboard/" class=(path === '/blog/admin/dashboard/' ? 'active' : '')) dashboard

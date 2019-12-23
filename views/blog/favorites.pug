@@ -11,7 +11,11 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
   body
     include ../nav.pug
     div(id="favorites")
-      h1(style="font-size: 48pt; margin-left: 20%")
+      h1(style="font-size: 48pt; margin-left: 10%")
         | Your Favorites
+      if posts.length == 0
+        a(style="margin-left: 10%; font-size: 22pt; text-decoration: none !important") You haven't liked any posts yet.
+      each post in posts
+        a(style="margin-left: 10%; font-size: 22pt" href="/blog/post/"+post.id) - #{post.title}
       
     script(src='/favorites/favorites.js')
