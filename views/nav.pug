@@ -2,10 +2,11 @@ link(rel="stylesheet", href="https://use.typekit.net/isx7pqv.css")
 link(rel="stylesheet" href="/nav.css")
 div(id="nav")
       a(href="/blog/" class=(path === '/blog/' ? 'active' : '')) home
-      a(href="/blog/favorites/" class=(path === '/blog/favorites/' ? 'active' : '')) favorites
       a(href="/blog/about/" class=(path === '/blog/about/' ? 'active' : '')) about
       if !user 
             a(href="/blog/admin/login/") login
+            a(href="/blog/admin/signup/") sign up
       if user
+            a(href="/blog/favorites/" class=(path === '/blog/favorites/' ? 'active' : '')) liked
             a(href="/blog/admin/logout") logout
             a(href="/blog/admin/dashboard/" class=(path === '/blog/admin/dashboard/' ? 'active' : '')) dashboard
