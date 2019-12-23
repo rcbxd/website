@@ -48,7 +48,6 @@ router.get("/:id/", (req, res) => {
                     }
                   })
                   .then(likes => {
-                    console.log(likes);
                     if (likes.length != 0) is_liked = true;
                   })
                   .catch(err => {
@@ -59,7 +58,6 @@ router.get("/:id/", (req, res) => {
                 handleServerError(res, true);
               });
           }
-          if (comments.length == 0) comments = [];
           post.dataValues.body = md.render(post.dataValues.body);
           res.render(`${path}/views/blog/article`, {
             post: post.dataValues,
