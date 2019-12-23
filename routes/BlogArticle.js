@@ -38,17 +38,19 @@ router.get("/:id/", (req, res) => {
         .getComments()
         .then(comments => {
           var is_liked = false;
-          User.getLikes({
-            where: {
-              post: post.id
-            }
-          })
-            .then(likes => {
-              if (likes.length != 0) is_liked = true;
+          if (logged_in) {
+            User.getLikes({
+              where: {
+                post: post.id
+              }
             })
-            .catch(err => {
-              handleServerError(res, true);
-            });
+              .then(likes => {
+                if (likes.length != 0) is_liked = true;
+              })
+              .catch(err => {
+                handleServerError(res, true);
+              });
+          }
           post.dataValues.body = md.render(post.dataValues.body);
           res.render(`${path}/views/blog/article`, {
             post: post.dataValues,
