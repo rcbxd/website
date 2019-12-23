@@ -39,18 +39,26 @@ router.get("/:id/", (req, res) => {
         .then(comments => {
           var is_liked = false;
           if (logged_in) {
-            User.getLikes({
-              where: {
-                post: post.id
-              }
-            })
-              .then(likes => {
-                if (likes.length != 0) is_liked = true;
+            User.findByPk(req.session.user.id)
+              .then(user => {
+                user
+                  .getLikes({
+                    where: {
+                      post: post.id
+                    }
+                  })
+                  .then(likes => {
+                    if (likes.length != 0) is_liked = true;
+                  })
+                  .catch(err => {
+                    handleServerError(res, true);
+                  });
               })
               .catch(err => {
                 handleServerError(res, true);
               });
           }
+          if (comments.length == 0) comments = [];
           post.dataValues.body = md.render(post.dataValues.body);
           res.render(`${path}/views/blog/article`, {
             post: post.dataValues,
@@ -62,6 +70,7 @@ router.get("/:id/", (req, res) => {
           });
         })
         .catch(err => {
+          console.log(err);
           handleServerError(res, true);
         });
     })
