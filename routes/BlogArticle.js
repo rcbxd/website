@@ -48,7 +48,18 @@ router.get("/:id/", (req, res) => {
                     }
                   })
                   .then(likes => {
-                    if (likes.length != 0) is_liked = true;
+                    if (likes.length != 0) {
+                      is_liked = true;
+                    }
+                    post.dataValues.body = md.render(post.dataValues.body);
+                    res.render(`${path}/views/blog/article`, {
+                      post: post.dataValues,
+                      months: months,
+                      comments: comments,
+                      user: req.session.user,
+                      login_status: logged_in,
+                      liked: is_liked
+                    });
                   })
                   .catch(err => {
                     handleServerError(res, true);
@@ -57,16 +68,17 @@ router.get("/:id/", (req, res) => {
               .catch(err => {
                 handleServerError(res, true);
               });
+          } else {
+            post.dataValues.body = md.render(post.dataValues.body);
+            res.render(`${path}/views/blog/article`, {
+              post: post.dataValues,
+              months: months,
+              comments: comments,
+              user: req.session.user,
+              login_status: logged_in,
+              liked: is_liked
+            });
           }
-          post.dataValues.body = md.render(post.dataValues.body);
-          res.render(`${path}/views/blog/article`, {
-            post: post.dataValues,
-            months: months,
-            comments: comments,
-            user: req.session.user,
-            login_status: logged_in,
-            liked: is_liked
-          });
         })
         .catch(err => {
           console.log(err);
