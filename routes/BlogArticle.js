@@ -1,10 +1,8 @@
 const express = require("express");
-const db = require("../util/db");
 const handleServerError = require("../util/serverError");
 const path = require("../util/path");
 const { Remarkable } = require("remarkable");
 const Post = require("../models/Post");
-const Comment = require("../models/Comment");
 const Like = require("../models/Like");
 const User = require("../models/User");
 

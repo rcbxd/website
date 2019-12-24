@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("../util/db");
 const handleServerError = require("../util/serverError");
 const path = require("../util/path");
 const Post = require("../models/Post");

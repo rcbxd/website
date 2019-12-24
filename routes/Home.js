@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../util/db");
-const User = require("../models/User");
 const Post = require("../models/Post");
 const handleServerError = require("../util/serverError");
 

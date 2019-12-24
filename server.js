@@ -11,6 +11,7 @@ require("dotenv").config();
 const homePage = require("./routes/Home");
 const blogHome = require("./routes/BlogHome");
 const blogPost = require("./routes/BlogArticle");
+const blogUser = require("./routes/BlogUser");
 const blogAdmin = require("./routes/BlogAdmin");
 
 //models
@@ -39,6 +40,7 @@ app.use(
 app.use("/", homePage);
 app.use("/blog/", blogHome);
 app.use("/blog/post", blogPost);
+app.use("/blog/user/", blogUser);
 app.use("/blog/admin/", blogAdmin);
 
 //404s
