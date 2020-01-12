@@ -66,14 +66,6 @@ Comment.belongsTo(Post, {
   constraints: true,
   onDelete: "CASCADE"
 });
-User.hasMany(Comment, {
-  constraints: true,
-  onDelete: "CASCADE"
-});
-Comment.belongsTo(User, {
-  constraints: true,
-  onDelete: "CASCADE"
-});
 User.hasMany(Like, {
   constraints: true,
   onDelete: "CASCADE"
@@ -83,7 +75,9 @@ Like.belongsTo(User, {
   onDelete: "CASCADE"
 });
 
-db.sync()
+db.sync({
+  force: true
+})
   .then(res => {
     if (process.argv.indexOf("--testuser") != -1) {
       testuser();

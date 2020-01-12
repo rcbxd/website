@@ -23,6 +23,14 @@ const months = [
   "December"
 ];
 
+const checkAuthentication = (req, res) => {
+  if (!req.session.userID || !req.session.user) {
+    res.redirect("/blog/user/login");
+    return false;
+  }
+  return true;
+};
+
 router.get("/:id/", (req, res) => {
   var logged_in = true;
   if (!req.session.userID || !req.session.user) {
@@ -153,20 +161,23 @@ router.post("/:id/like", (req, res) => {
 });
 
 router.post("/:id/comment/", (req, res) => {
-  let name = req.body.name;
-  let comment = req.body.body;
-  Post.findByPk(req.params.id).then(post => {
-    post
-      .createComment({
-        name: name,
-        body: comment,
-        time: new Date()
-      })
-      .then(res.send("Done"))
-      .catch(err => {
-        handleServerError(res, true);
-      });
-  });
+  if (checkAuthentication(req, res)) {
+    let user = req.session.user;
+    let comment = req.body.body;
+    Post.findByPk(req.params.id).then(post => {
+      post
+        .createComment({
+          name: name,
+          body: comment,
+          time: new Date(),
+          userID: user.id
+        })
+        .catch(err => {
+          handleServerError(res, true);
+        });
+    });
+  }
+  res.redirect("back");
 });
 
 module.exports = router;
