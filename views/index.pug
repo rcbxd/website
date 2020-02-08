@@ -16,33 +16,44 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     div(id="about")
       h1(id="about")
         a(href="#about") #About Me
-      p My name is Anthony and I am a passionate about computers.
-      p This is my personal page, where you can find out some new things about me and what I work with.
+      p I code the shit.
+      p This is my personal page where you can find out some new things about me and what I work with.
       .info
         .info-block
           h3 Life 
             i(class="fas fa-heartbeat")
-          li First opened my eyes in 2003
-          li Started programming in 2018
-          li Will graduate HS in 2021
+          li I am nerdy as fuck
+          li First opened my eyes in 2003.
+          li Started programming in 2018.
+          li Will graduate HS in 2021 (fuck it).
+          li Currently freelancing, working on the album and enjoying this boring life.
+          li Making music and code for fun, but I'm making a career out of it.
+          li Favorite music genres: riddim, trapmetal, alternative rock, indie, lo-fi.
+          li Fovorite musicians: svdden death, misogi, city morgue, linkin park, system of a down, juice wrld.
 
         .info-block
           h3 Professional 
             i(class="fas fa-briefcase")
-          li Python(Django, Django REST)
+          li Python(Django, Django REST, Selenium, Scrapping)
           li Web Design(Pug, Sass, Bootstrap, XD)
           li Java
           li JavaScript(Node, Express, Socket.io, React, Angular, Ionic, Sequelize)
-          li PHP
+          li Golang
           li MySQL, Postgres, Redis
           li Git
+          li FL Studio
+          li Adobe After Effects
+          li Cinema 4D
+          li Photoshop/Lightroom
 
         .info-block
           h3 Interests 
             i(class="fas fa-binoculars")
           li Astronomy
-          li Photography
-          li Programming
+          li Astophysics
+          li Photography (Both digital and film)
+          li Video/Graphics editing
+          li Programming (Didn't expect it to be here?)
           li History
           li Sound Design
           | EDM, Trap, Metal  
@@ -52,28 +63,63 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     h2 Some of things I am/was working on.
     .projects
       .project
-        h3 1. Sitebeatz
-        p Website monitoring service. Credit: @xobb.
+        h3 1. Beon
+        p Website monitoring service. Position: Developer. Roles: user flow developing, UI, minor backend scripting.
         tags
           i(class="fas fa-tag") 
           |  #Python
           | #Django
           | #Docker
           | #Git
-          | #Postgre
+          | #Automation
+
       .project
-        h3 2. Weather Forecast Web Application
+        h3 2. Telegram Coronavirus Bot
+        p Automated <a href="https://t.me/corondatabot">bot</a> that sends you the statistics on the virus every hour.
+        tags
+          i(class="fas fa-tag") 
+          |  #Python
+          | #Telegram
+          | #Automation
+          | #Deployment
+      
+      .project
+        h3 3. TikTok Video Scrapper
+        p Getting data from TikTok with better UI and usability for Desktop users.
+        tags
+          i(class="fas fa-tag") 
+          |  #Python
+          | #Django
+          | #Selenium
+          | #Deployment
+          | #JavaScript
+      
+      .project
+        h3 4. Asiris - Chatting App
+        p My own multi-platform chatting app.
+        tags
+          i(class="fas fa-tag") 
+          |  #JavaScript
+          | #React
+          | #NodeJS
+          | #Ionic
+          | #Capacitor
+          | #PostgreSQL
+          | #Android/IOS/Desktop
+          | #Sockets
+
+      .project
+        h3 5. Weather Forecast Web Application
         p My own weather forecast application built on react with ant design framework. Supports quick search, localstorage, multiple locations, 10-day forecast
         tags
           i(class="fas fa-tag") 
           |  #JavaScript
           | #React
           | #Frontend
-          | #API
           | #AntDesign
           
       .project
-        h3 3. Personal website and blog
+        h3 6. Personal website and blog
         p You are on it right now.
         tags
           i(class="fas fa-tag")
@@ -83,7 +129,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           | #Git
       
       .project
-        h3 4. Web Notebook App
+        h3 7. Web Notebook App
         p Simple web application which allows users to create their own notes with markdown formatting and secure auth system.
         tags
           i(class="fas fa-tag")
@@ -92,7 +138,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           | #MySQL
 
       .project
-        h3 5. Shopping List App
+        h3 8. Shopping List App
         p My first full stack application. 
         tags
           i(class="fas fa-tag")
@@ -120,6 +166,8 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
       h1(id="blog")
         a(href="#blog") #My Blog
       h2 Check out programming tutorials there.
+      if posts.length == 0
+        h4 Bruh, I don't have time to write them, check back later.
       each post in posts
         h4 
           a(href="/blog/post/" + post.id) #{post.title}
@@ -137,13 +185,17 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           i(class="fab fa-telegram") &nbsp;
           | Telegram
 
+        a(href="https://soundcloud.com/rcbxd")
+          i(class="fab fa-soundcloud") &nbsp;
+          | Soundcloud
+
+        a(href="https://instagram.com/xkanxmikami")
+          i(class="fab fa-instagram") &nbsp;
+          | Instagram
+
         a(href="https://github.com/rcbxd")
           i(class="fab fa-github") &nbsp;
           | GitHub
-        
-        a(href="https://gitlab.com/rcbxd")
-          i(class="fab fa-gitlab") &nbsp;
-          | GitLab
 
     h3 rcbxd 
       script.
