@@ -82,7 +82,7 @@ db.sync({
     if (process.argv.indexOf("--testuser") != -1) {
       testuser();
     }
-    var listener = app.listen(process.env.PORT || 7000, () => {
+    let listener = app.listen(process.env.PORT || 7000, () => {
       console.log(`listening on port ${listener.address().port}`);
     });
   })

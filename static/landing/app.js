@@ -25,4 +25,10 @@ window.addEventListener("load", () => {
 
 var url = document.URL;
 var hid = url.substring(url.lastIndexOf("#") + 1);
-window.scrollTo(0, document.getElementById(hid).offsetTop - 50);
+if (hid.indexOf("timeline") == 0) {
+  window.scrollTo(0, document.getElementById("timeline").offsetTop + document.getElementById(hid).offsetTop - 50);
+}
+else {
+  window.scrollTo(0, document.getElementById(hid).offsetTop - 50);
+}
+

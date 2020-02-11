@@ -9,6 +9,10 @@ body {
   cursor: none;
 }
 
+small{
+  color: #606060;
+}
+
 a {
   cursor: none;
 }
@@ -52,7 +56,7 @@ li {
   margin-right: 10px;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1024px) {
   .info {
     grid-template-columns: repeat(1, auto) !important;
   }
@@ -79,7 +83,11 @@ a {
 .contacts {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.contacts > a {
+  margin: 5px;
 }
 
 .blog {
@@ -115,4 +123,62 @@ i {
 
 h1 a {
   text-decoration: none;
+}
+
+.timeline{
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.timeline::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  margin-left: -15px;
+  background-color: #47B07A;
+  border-radius: 50px;
+}
+
+.timeline > .container{
+  position: relative;
+  width: 70%;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1024px){
+  .timeline > .container{
+    width: 100%;
+  }
+  .timeline > .sub-container{
+    width: 100%;
+  }
+}
+
+.timeline > .container::before{
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  left: -35px;
+  top: 3px;
+  border-radius: 50%;
+}
+
+.timeline > .sub-container{
+  width: 70%;
+  margin-left: 30px;
+}
+
+.timeline > .container > h2{
+  color: #47B07A;
+}
+
+.timeline > .sub-container > *{
+  margin-left: 20px;
 }
