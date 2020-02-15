@@ -84,7 +84,7 @@ router.post("/post/edit/:id", (req, res) => {
         description: req.body.desc,
         body: req.body.txt
       });
-      res.redirect("/post/edit/");
+      res.redirect("/blog/admin/post/edit/");
     });
   }
 });
