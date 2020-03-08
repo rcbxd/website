@@ -2,8 +2,8 @@ doctype html
 html(lang='en', dir='ltr', style='scroll-behavior: smooth')
   head
     meta(charset='utf-8')
-    title nxtszen (Anthony Skorupskyy)
-    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    title phrxsty (Anthony Skorupskyy)
+    meta(name='viewport', content='width=device-width, initial-scale=0.8, user-scalable=no')
     meta(name='description', content='Anthony Skoruspkyy, a.k.a. nxtszen – software developer and sound producer.')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     link(rel='stylesheet', href='/landing/style.css', type='text/css')
@@ -11,270 +11,33 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(rel="icon", type="image/png", href="/static/favicon/favicon.ico")
     meta(name="google-site-verification" content="FImyTPCQdBPqsRTogf6KclAvz8Ex0YsW1UltIU5MwEc")
   body
-    h1(id="me") 
-      a(href="#me") #Anthony S. (nxtszen)
-    h2 Personal Website and Blog.
-    div(id="about")
-      h1(id="about")
-        a(href="#about") #About Me
-      p I code stuff.
-      p This is my personal page where you can find out some new things about me and what I work with.
-      p The blog section contains programming tutorials and development tips.
-      small Titles with hashtags are clickable and save the section id you clicked it on. When opening the page again it'll get you back there automatically.
-      .info
-        .info-block
-          h3 Life 
-            i(class="fas fa-heartbeat")
-          li Started programming in 2018.
-          li Doing music since 2017.
-          li Made my first website in 2013.
-          li Will graduate HS in 2021 (bad timea actually).
-          li Currently freelancing, working on the album and enjoying this boring life.
-          li Making music and code for fun, but I'm making a career out of it.
-          li Favorite music genres: riddim, trapmetal, alternative rock, indie, lo-fi.
-          li Favorite musicians: svdden death, misogi, city morgue, linkin park, system of a down, juice wrld.
-
-        .info-block
-          h3 Professional 
-            i(class="fas fa-briefcase")
-          li Python(Django, Django REST, Selenium, Scrapping)
-          li Web Design(Pug, Sass, Bootstrap, XD)
-          li Java
-          li JavaScript(Node, Express, Socket.io, React, Angular, Ionic, Sequelize)
-          li Golang
-          li MySQL, Postgres, Redis
-          li Git
-          li FL Studio
-          li Adobe After Effects
-          li Cinema 4D
-          li Photoshop/Lightroom
-
-        .info-block
-          h3 Interests 
-            i(class="fas fa-binoculars")
-          li Astronomy
-          li Astophysics
-          li Photography (Both digital and film)
-          li Video/Graphics
-          li 3D Modelling
-          li Programming
-          li History
-          li Sound Design (EDM, Trap, Metal, Phonk)
-
-    h1(id="projects")
-      a(href="#projects") #Projects
-    h2 Some big things I was working on.
-    .projects
-      .project
-        h3 1. Beon
-        p Website monitoring service. Position: Developer. Roles: user flow developing, UI, minor backend scripting.
-        tags
-          i(class="fas fa-tag") 
-          |  #Python
-          | #Django
-          | #Docker
-          | #Git
-          | #Automation
-
-      .project
-        h3 2. Telegram Coronavirus Bot
-        p Automated <a href="https://t.me/corondatabot">bot</a> that sends you the statistics on the virus every hour.
-        tags
-          i(class="fas fa-tag") 
-          |  #Python
-          | #Telegram
-          | #Automation
-          | #Deployment
-      
-      .project
-        h3 3. TikTok Video Scrapper
-        p Getting data from TikTok with better UI and usability for Desktop users.
-        tags
-          i(class="fas fa-tag") 
-          |  #Python
-          | #Django
-          | #Selenium
-          | #Deployment
-          | #JavaScript
-      
-      .project
-        h3 4. Asiris - Chatting App
-        p Multi-Platform chatting app built on JavaScript in one week.
-        tags
-          i(class="fas fa-tag") 
-          |  #JavaScript
-          | #React
-          | #NodeJS
-          | #Ionic
-          | #PostgreSQL
-          | #Android/IOS/Desktop
-          | #Sockets
-
-      .project
-        h3 5. Personal Website and Blog
-        p You are on it right now.
-        tags
-          i(class="fas fa-tag")
-          |  #Node
-          | #Express          
-          | #MySQL
-          | #Git
-      
-      .project
-        h3 6. Web Notebook App
-        p Simple web application which allows users to create their own notes with markdown formatting and secure auth system.
-        tags
-          i(class="fas fa-tag")
-          |  #PHP
-          | #Bootstrap
-          | #MySQL
-
-      .project
-        h3 Other Projects
-        h4 Available Here:
+    div(class="content")
+      div(class="user-logo")
+      h1(class="title-large")
+        | phrxsty
+      h2(class="title-medium")
+        | Anthony Skorupskyy
+      h3(class="title-medium")
+        | Software developer and sound producer
+      div(class="group-social contacts")
+        a(href="https://www.instagram.com/phrxsty/")
+          i(class="fab fa-instagram")
+        a(href="https://soundcloud.com/phrxsty")
+          i(class="fab fa-soundcloud")
+        a(href="https://discord.gg/ngK7nFh")
+          i(class="fab fa-discord")
+        a(href="https://t.me/phrxsty")
+          i(class="fab fa-telegram")
+        a(href="https://twitter.com/phrxsty")
+          i(class="fab fa-twitter")
         a(href="https://github.com/rcbxd")
-          i(class="fab fa-github") &nbsp;
-          | GitHub
-        | &nbsp;
-        a(href="https://codepen.io/rcbxd")
-          i(class="fab fa-codepen") &nbsp;
-          | Codepen
-
-    .timeline-container
-      h1(id="programming-timeline")
-        a(href="#programming-timeline") #My programming timeline
-      h2 My way from void to something useful as a programmer.
-      .timeline(id="timeline")
-        .container
-          h2(id="timeline-2013") 
-            a(href="#timeline-2013") #2013
-          p Started doing HTML and CSS.
-        
-        .container
-          h2(id="timeline-2014") 
-            a(href="#timeline-2014") #2014
-          p Tried PHP but never got to learn more than variables and conditionals.
-
-        .container 
-          h2(id="timeline-2018") 
-            a(href="#timeline-2018") #2018
-          p 
-            | Saw some random video on YouTube where a guy makes a calculator in 10 minutes in HTML, CSS, and JS.
-            | That motivated me to create something like it. That's how my software development journey really started.
-
-        .sub-container
-          h2(id="timeline-11/2018") 
-            a(href="#timeline-11/2018") #November 2018
-          li HTML
-          li CSS
-          li JavaScript
-        
-        .sub-container
-          h2(id="timeline-12/2018") 
-            a(href="#timeline-12/2018") #December 2018
-          p
-            | Started Python and began working on Beon. Didn't know nothing at the time, most of the time was doing front-end
-        
-        .container
-          h2(id="timeline-2019") 
-            a(href="#timeline-2019") #2019
-          p 
-            | The most productive year in my life so far. Never learned more than then.
-            | I was not limited to front-end anymore and opened a whole new world of different jobs and career paths.
-
-        .sub-container
-          h2(id="timeline-01/2019") 
-            a(href="#timeline-01/2019") #January-March
-          li Python
-          li Django
-          li Java
-          p 
-            | Mostly worked on Beon and was learning Java for CS1 cource I picked in my HS.
-
-        .sub-container
-          h2(id="timeline-03/2019") 
-            a(href="#timeline-03/2019") #March-April
-          li Vue.js
-          li Angular
-
-        .sub-container
-          h2(id="timeline-06/2019") 
-            a(href="#timeline-06/2019") #June
-          li Ionic
-          li Angular
-          li PHP
-
-        .sub-container
-          h2(id="timeline-07/2019") 
-            a(href="#timeline-07/2019") #July-August
-          li React
-          li Django
-          li Node.js
-          li Express
-          li Socket.io
-          li C++
-          li Django-REST
-          li Bootstrap
-          li Sass
-          li Unix Systems
-
-        .sub-container
-          h2(id="timeline-08/2019") 
-            a(href="#timeline-08/2019") #September-2020
-          li Docker
-          li TDD
-          li Redis
-          li Ionic-React
-          li TypeScript
-          p I dind't work much then due to exams I have in spring 2020.
-
-        .container
-          h2(id="timeline-2020") 
-            a(href="#timeline-2020") #2020
-          li Telegram Bots
-          li Discord Bots
-          li Web Scraping
-          li Automation
-          p Got my first job as a freelancer.
-
-    .blog 
-      h1(id="blog")
-        a(href="#blog") #My Blog
-      h2 Check out programming tutorials there.
-      if posts.length == 0
-        h4 Bruh, I don't have time to write them, check back later.
-      each post in posts
-        h4 
-          a(href="/blog/post/" + post.id) #{post.title}
-    
-    .contact
-      h1(id="contact")
-        a(href="#contact") #Contact 
-      h2 Ways to reach me.
-      .contacts
-        a(href="mailto:rbcxdd@gmail.com")
-          i(class="fas fa-envelope-open-text") &nbsp;
-          | Email
-      
-        a(href="https://t.me/nxtszen")
-          i(class="fab fa-telegram") &nbsp;
-          | Telegram
-
-        a(href="https://soundcloud.com/nxtszen")
-          i(class="fab fa-soundcloud") &nbsp;
-          | SoundCloud
-
-        a(href="https://instagram.com/nxtszen")
-          i(class="fab fa-instagram") &nbsp;
-          | Instagram
-
-        a(href="https://github.com/rcbxd")
-          i(class="fab fa-github") &nbsp;
-          | GitHub
-
-    h3 nxtszen 
-      script.
-        document.write(new Date().getFullYear());
-    
-  .cursor
-  script(src="/landing/app.js")
+          i(class="fab fa-github")
+      div(class="nav")
+        a(href="/blog/")
+          | /blog
+        a(href="/projects/")
+          | /projects
+        a(href="/personal/")
+          | /personal
+        a(href="/skills/")
+          | /skills
