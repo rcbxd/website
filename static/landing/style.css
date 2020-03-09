@@ -1,11 +1,32 @@
+@keyframes pageLoadLinks {
+  from {
+    margin-left: 0;
+    margin-right: 0;
+    opacity: 0.5;
+  }
+  to {
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 1;
+  }
+}
+
+@keyframes pageLoadText {
+  from {
+    transform: scaleX(0.9);
+  }
+  to{
+    transform: scaleX(1);
+  }
+}
+
 body {
-	background-image: #1E1F23;
-	font-family: 'Lekton';
+  font-family: 'Lekton';
 	color: #606060;
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-top: 10%;
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .content {
@@ -65,7 +86,7 @@ h1::selection {
 	background-image: url("/media/logo.png");
 	border-radius: 50%;
 	margin: 0 auto;
-	opacity: .8;
+	opacity: .9;
 	-webkit-box-shadow: -1px 10px 92px -21px rgba(28,31,76,1);
 	-moz-box-shadow: -1px 10px 92px -21px rgba(28,31,76,1);
 	box-shadow: -1px 10px 92px -21px rgba(28,31,76,1);
@@ -109,7 +130,6 @@ h3 {
 
 a{
 	color: #606060;
-	transition: all 0.2s ease-out;
 }
 
 a:hover{
