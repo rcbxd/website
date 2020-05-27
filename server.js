@@ -4,19 +4,21 @@ const path = require("path");
 const session = require("express-session");
 const db = require("./util/db");
 const testuser = require("./util/testUser");
-const throwRender500Error = require("./util/serverError");
+const handleServerError = require("./util/serverError");
 require("dotenv").config();
 
 //middleware
 const homePage = require("./routes/Home");
 const blogHome = require("./routes/BlogHome");
 const blogPost = require("./routes/BlogArticle");
+const blogUser = require("./routes/BlogUser");
 const blogAdmin = require("./routes/BlogAdmin");
 
 //models
 const Post = require("./models/Post");
 const Comment = require("./models/Comment");
 const User = require("./models/User");
+const Like = require("./models/Like");
 
 app.set("views", path.join(__dirname, "/"));
 app.set("view engine", "pug");
@@ -38,6 +40,7 @@ app.use(
 app.use("/", homePage);
 app.use("/blog/", blogHome);
 app.use("/blog/post", blogPost);
+app.use("/blog/user/", blogUser);
 app.use("/blog/admin/", blogAdmin);
 
 //404s
@@ -55,15 +58,19 @@ app.get("*", (req, res) => {
   });
 });
 
-/*Comment.belongsTo(User, {
-    constraints: true,
-    onDelete: 'CASCADE'
-});*/
 Post.hasMany(Comment, {
   constraints: true,
   onDelete: "CASCADE"
 });
 Comment.belongsTo(Post, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
+User.hasMany(Like, {
+  constraints: true,
+  onDelete: "CASCADE"
+});
+Like.belongsTo(User, {
   constraints: true,
   onDelete: "CASCADE"
 });
@@ -73,7 +80,7 @@ db.sync()
     if (process.argv.indexOf("--testuser") != -1) {
       testuser();
     }
-    var listener = app.listen(process.env.PORT || 7000, () => {
+    let listener = app.listen(process.env.PORT || 7000, () => {
       console.log(`listening on port ${listener.address().port}`);
     });
   })

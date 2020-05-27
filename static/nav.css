@@ -15,6 +15,12 @@
     margin-right: 20px;
 }
 
+@media screen and (max-width: 720px){
+    #nav a{
+        font-size: 24pt;
+    }
+}
+
 #nav a:hover {
     text-decoration: underline;
 }

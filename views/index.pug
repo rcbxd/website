@@ -2,152 +2,44 @@ doctype html
 html(lang='en', dir='ltr', style='scroll-behavior: smooth')
   head
     meta(charset='utf-8')
-    title rcbxd's homepage
-    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content='rcbxd - software developer')
+    title dotwarp (Anthony Skorupskyy)
+    meta(name='viewport', content='width=device-width, initial-scale=0.8, user-scalable=no')
+    meta(name='description', content='Anthony Skoruspkyy, a.k.a. dotwarp – software developer and sound producer.')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     link(rel='stylesheet', href='/landing/style.css', type='text/css')
     link(href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet")
-    link(rel="icon", type="image/png", href="/static/favicon/favicon.ico")
+    link(rel="icon", type="image/png", href="/favicon/favicon.ico")
+    meta(name="google-site-verification" content="FImyTPCQdBPqsRTogf6KclAvz8Ex0YsW1UltIU5MwEc")
   body
-    h1(id="me") 
-      a(href="#me") #Anthony S. (rcbxd)
-    h2 Personal Website and Blog.
-    div(id="about")
-      h1(id="about")
-        a(href="#about") #About Me
-      p My name is Anthony and I am a high school enthusiast who loves programming.
-      p This is a page about me and programming. On the blog section you can find different interesting posts about web development and tutorials.
-      .info
-        .info-block
-          h3 Life 
-            i(class="fas fa-heartbeat")
-          li First opened my eyes in 2003
-          li Started programming in 2018
-          li Will graduate HS in 2021
-          li Music helps a lot
-
-        .info-block
-          h3 Professional 
-            i(class="fas fa-briefcase")
-          li Python(Django, Django REST)
-          li Web Design(Pug, Sass, Bootstrap, XD)
-          li Java
-          li JavaScript(Node, Express, Socket.io, React, Angular, Ionic)
-          li PHP
-          li Linux Server operations
-          li SQL
-
-        .info-block
-          h3 Interests 
-            i(class="fas fa-binoculars")
-          li Astronomy
-          li Photography
-          li Programming
-          li History
-          li Beatmaking 
-
-    h1(id="projects")
-      a(href="#projects") #Projects
-    h2 Some of things I am/was working on.
-    .projects
-      .project
-        h3 1. Sitebeatz
-        p Website monitoring service. Credit: @xobb.
-        tags
-          i(class="fas fa-tag") 
-          |  #Python
-          | #Django
-          | #Docker
-          | #Git
-          | #Postgre
-      .project
-        h3 2. Weather Forecast Web Application
-        p My own weather forecast application built on react with ant design framework. Supports quick search, localstorage, multiple locations, 10-day forecast
-        tags
-          i(class="fas fa-tag") 
-          |  #JavaScript
-          | #React
-          | #Frontend
-          | #API
-          | #AntDesign
-          
-      .project
-        h3 3. Personal website and blog
-        p You are on it right now.
-        tags
-          i(class="fas fa-tag")
-          |  #Node
-          | #Express          
-          | #MySQL
-          | #Git
-      
-      .project
-        h3 4. Web Notebook App
-        p Simple web application which allows users to create their own notes with markdown formatting and secure auth system.
-        tags
-          i(class="fas fa-tag")
-          |  #PHP
-          | #Bootstrap
-          | #MySQL
-
-      .project
-        h3 5. Shopping List App
-        p My first full stack application. 
-        tags
-          i(class="fas fa-tag")
-          |  #Firebase
-          | #Angular
-          | #NoSQL
-          | #Bootstrap
-
-      .project
-        h3 Other Projects
-        h4 Available Here:
+    div(class="content")
+      div(class="user-logo")
+      h1(class="title-large")
+        | dotwarp
+      h2(class="title-medium")
+        | Anthony Skorupskyy
+      h3(class="title-medium")
+        | Software developer and sound producer
+      div(class="group-social contacts")
+        a(href="https://www.instagram.com/_.warp/")
+          i(class="fab fa-instagram")
+        a(href="https://soundcloud.com/dotwarp")
+          i(class="fab fa-soundcloud")
+        a(href="https://discord.gg/ngK7nFh")
+          i(class="fab fa-discord")
+        a(href="https://t.me/dotwarp")
+          i(class="fab fa-telegram")
+        a(href="https://twitter.com/warpbeats")
+          i(class="fab fa-twitter")
         a(href="https://github.com/rcbxd")
-          i(class="fab fa-github") &nbsp;
-          | GitHub
-        | &nbsp;
-        a(href="https://gitlab.com/rcbxd")
-          i(class="fab fa-gitlab") &nbsp;
-          | GitLab
-        | &nbsp;
-        a(href="https://codepen.io/rcbxd")
-          i(class="fab fa-codepen") &nbsp;
-          | Codepen
+          i(class="fab fa-github")
+      div(class="nav")
+        a(href="/blog/")
+          | /blog
+        a(href="/projects/")
+          | /projects
+        a(href="/personal/")
+          | /personal
+        a(href="/skills/")
+          | /skills
 
-    .blog 
-      h1(id="blog")
-        a(href="#blog") #My Blog
-      h2 Check out programming tutorials there.
-      each post in posts
-        h4 
-          a(href="/blog/post/" + post.id) #{post.title}
-    
-    .contact
-      h1(id="contact")
-        a(href="#contact") #Contact 
-      h2 Ways to reach me.
-      .contacts
-        a(href="mailto:rbcxdd@gmail.com")
-          i(class="fas fa-envelope-open-text") &nbsp;
-          | Email
-      
-        a(href="https://t.me/rcbxd")
-          i(class="fab fa-telegram") &nbsp;
-          | Telegram
-
-        a(href="https://github.com/rcbxd")
-          i(class="fab fa-github") &nbsp;
-          | GitHub
-        
-        a(href="https://gitlab.com/rcbxd")
-          i(class="fab fa-gitlab") &nbsp;
-          | GitLab
-
-    h3 rcbxd 
-      script.
-        document.write(new Date().getFullYear());
-    
-  .cursor
-  script(src="/landing/app.js")
+    script(src="/landing/script.js")

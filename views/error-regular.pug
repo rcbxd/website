@@ -4,30 +4,18 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     meta(charset='utf-8')
     title #{error_code} error
     meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    meta(name='description', content='rcbxd - software developer')
+    meta(name='description', content='nxtszen - you got an error')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Varela+Round|Raleway:400,500,700')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
-    link(rel='stylesheet', href='/errors/site.css', type='text/css')
+    link(href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet")
+    link(rel='stylesheet', href='/landing/style.css', type='text/css')
   body()
-    .area()
-      ul.circles
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-        li
-    div()
-      h1
-        | Oops! 
-      h1
-        | #{title}
-      h2
-        | Please try again later
-      p(align="center")
-        | Error Code: #{error_code}
+    h1
+      | Oops! 
+    h1
+      | #{title}
+    h2
+      | Please try again later
+    p()
+      | Error Code: #{error_code}
     

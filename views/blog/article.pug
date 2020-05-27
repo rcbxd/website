@@ -11,7 +11,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js')
   body
-    include ../nav.pug
+    include nav.pug
     h1  
         span(class="month") 
             | #{months[post.date.getMonth()]} 
@@ -33,8 +33,15 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           | person liked this post.
         else
           | people liked this post.
-      div.likebtn(post_id=post.id, post_title=post.title)
-        i.fas.fa-heart#heart
+        if !login_status
+          h3 You Must Be Logged In to Leave A Like
+      if login_status
+        form(action=post.id+"/like" method="post" id="like_form")
+          div.likebtn.like_button(post_id=post.id, post_title=post.title onclick="document.getElementById('like_form').submit()")
+            i.fas.fa-heart#heart
+      else
+        div.likebtn(post_id=post.id, post_title=post.title)
+          i.fas.fa-heart#heart
       br
     div.bottom-comments
       h1 Comments
@@ -43,15 +50,15 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
           | No comments; Be the first one to comment!
       form(class="col-6" id="comment-form")
         div(class="form-group")
-            label(for="name") Name
-            input(type="name" class="form-control" id="form-name-field" name="name" placeholder="Your Name" required)
-            small(id="emailHelp" class="form-text text-muted")
-                | Comments with irrelevant names/content will be removed
-        div(class="form-group")
             label(for="text") Text
             input(type="text" class="form-control" name="body" id="form-text-field" placeholder="Your Text" required)
             
-        button(type="submit" class="btn btn-secondary") Send
+        if !login_status
+          button(type="submit" class="btn btn-secondary" disabled) Send
+          small(id="emailHelp" class="form-text text-muted")
+                | You need to be logged in to comment.
+        else
+          button(type="submit" class="btn btn-secondary") Send
       div.comments
         each comment in comments
           div.comm
@@ -68,3 +75,7 @@ html(lang='en', dir='ltr', style='scroll-behavior: smooth')
     script(type='text/javascript', src='/blog/blog.js')
     script(src='/prism/prism.js' defer)
     script(src='/article/article.js')
+    script.
+      if("#{liked}" === "true"){
+        t1.reversed(!t1.reversed());
+      }
